@@ -78,10 +78,4 @@ void serviceLocator() async {
     ),
   );
 
-  // getIt.registerSingleton<NotificationRepoImpl>(
-  //   NotificationRepoImpl(
-  //     notificationRemoteDataSource:
-  //         NotificationRemoteDataSourceImpl(getIt.get<ApiService>()),
-  //   ),
-  // );
 }

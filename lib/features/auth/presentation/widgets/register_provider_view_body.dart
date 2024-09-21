@@ -6,6 +6,7 @@ import 'package:car_help/features/auth/presentation/manager/register%20cubit/reg
 import 'package:car_help/features/auth/presentation/widgets/address_register_widget.dart';
 import 'package:car_help/features/auth/presentation/widgets/terms_register_widget.dart';
 import 'package:car_help/features/lists/presentation/controllers/center_classification_controller.dart';
+import 'package:car_help/features/location/domain/entities/location_entity.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
 import 'package:car_help/generated/l10n.dart';
@@ -118,7 +119,13 @@ class _RegisterProviderViewBodyState extends State<RegisterProviderViewBody> {
               validate: (value) =>
                   value!.isEmpty ? S.of(context).feildRequiredValidation : null,
               onTap: () {
-                GoRouter.of(context).push(AppRouter.kPickLocationScreen);
+                GoRouter.of(context).push(AppRouter.kPickLocationScreen).then((value) {
+                  if(value != null){
+                    LocationEntity locationEntity = value as LocationEntity;
+                    String address = locationEntity.address??"";
+                    commercialRegistrationNumber.text = address;
+                  }
+                });
               }),
           SizedBox(height: SizeConfig.bodyHeight * .02),
           CustomTextFormField(

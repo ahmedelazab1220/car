@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:car_help/core/utils/app_strings.dart';
-import 'package:car_help/features/location/data/datasources/location_locale_data_source.dart';
 import 'package:car_help/features/location/data/datasources/location_remote_data_source.dart';
 import 'package:car_help/features/location/data/models/cities_model.dart';
 import 'package:car_help/features/location/data/models/disctract_model.dart';
@@ -17,11 +16,10 @@ import 'package:simple_connection_checker/simple_connection_checker.dart';
 
 class LocationRepositoryImpl implements LocationRepository {
   final LocationRemoteDataSource locationRemoteDataSource;
-  final LocationLocaleDataSource locationLocaleDataSource;
 
-  LocationRepositoryImpl(
-      {required this.locationRemoteDataSource,
-      required this.locationLocaleDataSource});
+  LocationRepositoryImpl({
+    required this.locationRemoteDataSource,
+  });
 
   @override
   Future<Either<Failure, LocationData>> getMyLocation() async {
@@ -126,39 +124,27 @@ class LocationRepositoryImpl implements LocationRepository {
         List<CitiesModel> list = response
             .map<CitiesModel>((e) => CitiesModel(id: e.id, title: e.title))
             .toList();
-        locationLocaleDataSource.cacheCities(list);
         return right(response);
       } catch (e) {
         return left(ServerFailure(e.toString()));
       }
     } else {
-      try {
-        final response = await locationLocaleDataSource.getAllCities();
-        return right(response);
-      } catch (e) {
-        return left(ServerFailure(e.toString()));
-      }
+      return left(ServerFailure(""));
     }
   }
 
   @override
   Future<Either<Failure, List<DistractEntity>>> getAllDistracts(
       {int page = 1}) async {
-    bool isConnected = await SimpleConnectionChecker.isConnectedToInternet();
-    if (isConnected) {
-      try {
-        final response =
-            await locationRemoteDataSource.getAllDistract(page: page);
-        List<DistractModel> list = response
-            .map<DistractModel>((e) => DistractModel(id: e.id, title: e.title))
-            .toList();
-        locationLocaleDataSource.cacheDistracts(list);
-        return right(response);
-      } catch (e) {
-        return left(ServerFailure(e.toString()));
-      }
-    } else {
-      return left(ServerFailure(AppStrings.notConnectedToInternet));
+    try {
+      final response =
+          await locationRemoteDataSource.getAllDistract(page: page);
+      List<DistractModel> list = response
+          .map<DistractModel>((e) => DistractModel(id: e.id, title: e.title))
+          .toList();
+      return right(response);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
     }
   }
 
