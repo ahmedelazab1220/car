@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774798944751",
+    "project_id": "car-help-d28f6",
+    "storage_bucket": "car-help-d28f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774798944751:android:f659a5ffa75957eb832e1a",
+        "android_client_info": {
+          "package_name": "com.carhelp.bundle_id"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2kZ0hih8rhTKcE_mZ-6itgA9f0RFKqhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
