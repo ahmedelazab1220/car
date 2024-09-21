@@ -22,16 +22,7 @@ class AddMarkersSuccessfullyState extends LocationState {
 
 class GetMyLocationLoading extends LocationState {}
 
-class GetMyLocationSuccess extends LocationState {
-  final LocationEntity locationEntity;
-  final LocationData locationData;
-
-  const GetMyLocationSuccess(
-      {required this.locationEntity, required this.locationData});
-
-  @override
-  List<Object> get props => [locationEntity, locationData];
-}
+class GetMyLocationSuccess extends LocationState {}
 
 class GetMyLocationFailure extends LocationState {
   final String msg;
@@ -100,4 +91,27 @@ class UpdateMyLocationFailure extends LocationState {
 
   @override
   List<Object> get props => [msg];
+}
+
+
+class GetLocationTitleLoading extends LocationState {
+}
+
+class GetLocationTitleSuccess extends LocationState {
+
+  final LocationEntity locationEntity;
+
+  const GetLocationTitleSuccess({required this.locationEntity});
+
+  @override
+  List<Object> get props => [locationEntity];
+}
+class GetLocationTitleFailure extends LocationState {
+
+  final String errorMsg;
+
+  const GetLocationTitleFailure({required this.errorMsg});
+
+  @override
+  List<Object> get props => [errorMsg];
 }

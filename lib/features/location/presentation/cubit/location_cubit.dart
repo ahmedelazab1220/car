@@ -19,15 +19,13 @@ class LocationCubit extends Cubit<LocationState> {
   final FetchSuggestionLocationUseCase _fetchSuggestionLocationUseCase;
   final GetPlaceLocationByIdUseCase _getPlaceLocationByIdUseCase;
   final GetAddressTitleByLocationUseCase _getAddressTitleByLocationUseCase;
-  final UpdateMyLocationUseCase _updateMyLocationUseCase;
 
   LocationCubit(
-      this.getMyLocationUseCase,
-      this._fetchSuggestionLocationUseCase,
-      this._getPlaceLocationByIdUseCase,
-      this._getAddressTitleByLocationUseCase,
-      this._updateMyLocationUseCase)
-      : super(LocationInitial());
+    this.getMyLocationUseCase,
+    this._fetchSuggestionLocationUseCase,
+    this._getPlaceLocationByIdUseCase,
+    this._getAddressTitleByLocationUseCase,
+  ) : super(LocationInitial());
 
   static LocationCubit get(context) => BlocProvider.of(context);
 
@@ -61,7 +59,7 @@ class LocationCubit extends Cubit<LocationState> {
     final response = await getMyLocationUseCase();
     response.fold((l) => emit(GetMyLocationFailure(msg: l.errMessage)), (r) {
       locationData = r;
-      return getAddressTitleByLocation(loc: r);
+      emit(GetMyLocationSuccess());
     });
   }
 
@@ -81,17 +79,15 @@ class LocationCubit extends Cubit<LocationState> {
         (r) => GetPlaceLocationByIdSuccess(addressEntity: r)));
   }
 
-  Future<void> getAddressTitleByLocation({required LocationData loc}) async {
-    LatLng latLng = LatLng(loc.latitude!, loc.longitude!);
-    final response = await _getAddressTitleByLocationUseCase(latLng: latLng);
-    emit(response.fold((l) => GetMyLocationFailure(msg: l.errMessage),
-        (r) => GetMyLocationSuccess(locationData: loc, locationEntity: r)));
-  }
+  LocationEntity? locationEntity;
 
-  Future<void> updateMyLocation({required LatLng latLng}) async {
-    emit(UpdateMyLocationLoading());
-    final response = await _updateMyLocationUseCase(latLng: latLng);
-    emit(response.fold((l) => UpdateMyLocationFailure(msg: l.errMessage),
-        (r) => UpdateMyLocationSuccess(msg: r)));
+  Future<void> getAddressTitleByLocation({required LatLng latLng}) async {
+    emit(GetLocationTitleLoading());
+    final response = await _getAddressTitleByLocationUseCase(latLng: latLng);
+    response.fold((l) => emit(GetLocationTitleFailure(errorMsg: l.errMessage)),
+        (r) {
+      locationEntity = r;
+      emit(GetLocationTitleSuccess(locationEntity: r));
+    });
   }
 }

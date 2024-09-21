@@ -1,6 +1,5 @@
 import 'package:car_help/core/api/http_consumer.dart';
 import 'package:get_it/get_it.dart';
-import 'package:car_help/features/location/data/datasources/location_locale_data_source.dart';
 import 'package:car_help/features/location/data/datasources/location_remote_data_source.dart';
 import 'package:car_help/features/location/data/repositories/location_repository_impl.dart';
 import 'package:car_help/features/location/domain/repositories/location_repository.dart';
@@ -24,7 +23,6 @@ Future<void> init() async {
         sl(),
         sl(),
         sl(),
-        sl(),
       ));
 
   //useCases
@@ -43,12 +41,10 @@ Future<void> init() async {
 
   //Repository
   sl.registerLazySingleton<LocationRepository>(() => LocationRepositoryImpl(
-      locationRemoteDataSource: sl(), locationLocaleDataSource: sl()));
+        locationRemoteDataSource: sl(),
+      ));
 
   //DataSource
   sl.registerLazySingleton<LocationRemoteDataSource>(() =>
       LocationRemoteDataSourceImpl(mapClientConsumer: sl(), apiService: sl()));
-
-  sl.registerLazySingleton<LocationLocaleDataSource>(
-      () => LocationLocaleDataSourceImpl(sharedPreferences: sl()));
 }

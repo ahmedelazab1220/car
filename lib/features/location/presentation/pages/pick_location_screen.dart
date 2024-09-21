@@ -2,17 +2,15 @@ import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/loading_widget%20copy.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';
-import 'package:car_help/features/widgets/snackbar_success.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:car_help/config/helper/locale_helper/app_local.dart';
-import 'package:car_help/core/utils/app_constant.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/features/location/presentation/cubit/location_cubit.dart';
 import 'package:car_help/features/location/presentation/widgets/floating_search_bar.dart';
 import 'package:car_help/features/location/presentation/widgets/map_design.dart';
 import 'package:car_help/config/function/location_di.dart' as location_di;
+import 'package:go_router/go_router.dart';
 
 class PickLocationScreen extends StatelessWidget {
   const PickLocationScreen({super.key});
@@ -25,11 +23,12 @@ class PickLocationScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is UpdateMyLocationFailure) {
             snackbarError(context, state.msg);
-          } else if (state is UpdateMyLocationSuccess) {
-            snackbarSuccess(context, state.msg);
+          } else if (state is GetLocationTitleSuccess) {
             Future.delayed(
-              const Duration(seconds: 3),
-              () => Navigator.pop(context),
+              const Duration(seconds: 1),
+              () {
+                GoRouter.of(context).pop(state.locationEntity);
+              },
             );
           }
         },
@@ -58,9 +57,12 @@ class PickLocationScreen extends StatelessWidget {
                             child: state is UpdateMyLocationLoading
                                 ? const LoadingWidget()
                                 : CustomButton(
+                                    isLoading: state is GetLocationTitleLoading,
                                     title: S.of(context).choose,
-                                    onPressed: () => cubit.updateMyLocation(
-                                        latLng: cubit.selectedLocationPoint!)),
+                                    onPressed: () =>
+                                        cubit.getAddressTitleByLocation(
+                                            latLng:
+                                                cubit.selectedLocationPoint!)),
                           ),
                         ),
                       ],
