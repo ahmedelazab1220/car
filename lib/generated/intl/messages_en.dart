@@ -48,6 +48,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "cacelYourOrder": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to cancel your order?"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cancelFavorite":
+            MessageLookupByLibrary.simpleMessage("Cancel Favorite"),
+        "cancelFavoritesDesc": MessageLookupByLibrary.simpleMessage(
+            "By cancelling your favorite, it will be removed from the favorites list"),
+        "cancelFavoritesMsg": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to cancel your favorite?"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("Cancel Order"),
         "canceled": MessageLookupByLibrary.simpleMessage("Canceled"),
         "cancelledOrders":
@@ -115,6 +121,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Customer Orders"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "deleteAccountDesc": MessageLookupByLibrary.simpleMessage(
+            "By deleting your account, you will not be able to access."),
+        "deleteAccountMsg": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete your account?"),
         "deleteExhibitMsg": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete this item?"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
@@ -220,6 +230,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You haven\'t added your cars yet, add them now!"),
         "noExhibitsMsg": MessageLookupByLibrary.simpleMessage(
             "You haven\'t added any items yet, add them now!"),
+        "noFavorites": MessageLookupByLibrary.simpleMessage(
+            "You haven\'t added any favorites yet."),
         "noRequestes": MessageLookupByLibrary.simpleMessage(
             "You have not made any request yet!"),
         "noServiceProviders": MessageLookupByLibrary.simpleMessage(

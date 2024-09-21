@@ -4,6 +4,9 @@ import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:car_help/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:car_help/features/auth/presentation/manager/send%20otp%20cubit/send_otp_cubit.dart';
+import 'package:car_help/features/favorites/domain/repos/favorite_repo.dart';
+import 'package:car_help/features/favorites/presentation/manager/favorite%20cubit/favorite_cubit.dart';
+import 'package:car_help/features/favorites/presentation/manager/toggle%20favorite%20cubit/toggle_favorite_cubit.dart';
 import 'package:car_help/features/home_client/domain/repos/home_repo.dart';
 import 'package:car_help/features/home_client/presentation/manager/home%20cubit/home_cubit.dart';
 import 'package:car_help/features/profile/Presentation/manager/profile%20cubit/profile_cubit.dart';
@@ -29,6 +32,9 @@ class AppHelper {
       create: (context) => SendOtpCubit(
         getIt.get<AuthRepoImpl>(),
       ),
+    ),
+    BlocProvider(
+      create: (context) => ToggleFavoriteCubit(getIt.get<FavoriteRepo>()),
     ),
     // BlocProvider(
     //   create: (context) => ServicesCubit(

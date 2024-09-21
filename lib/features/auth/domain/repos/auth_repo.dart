@@ -5,6 +5,11 @@ import 'package:dartz/dartz.dart';
 abstract class AuthRepo {
   Future<Either<Failure, UserEntity>> login({String? email, String? password});
   Future<Either<Failure, String>> sendOtpCode({String? phone});
+  Future<Either<Failure, String>> changePassword(
+      {String? oldPassword,
+      String? newPassword,
+      String? newPasswordConfirmation});
+
   Future<Either<Failure, UserEntity>> otpVerification(
       {String? phone, String? otpCode});
   Future<Either<Failure, String>> logout();

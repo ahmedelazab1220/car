@@ -14,7 +14,10 @@ abstract class AuthRemoteDataSource {
   Future<UserEntity> otpVerification({String? phone, String? otpCode});
   Future<String> logout();
   Future<String> deleteAccount();
-
+  Future<String> changePassword(
+      {String? oldPassword,
+      String? newPassword,
+      String? newPasswordConfirmation});
   Future<UserEntity> register({
     String? userType,
     String? name,
@@ -167,6 +170,23 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   Future<String> deleteAccount() async {
     var response = await apiService.delete(
       endPoint: EndPoints.deleteAccount,
+    );
+    String entity = response['message'];
+    return entity;
+  }
+
+  @override
+  Future<String> changePassword(
+      {String? oldPassword,
+      String? newPassword,
+      String? newPasswordConfirmation}) async {
+    var response = await apiService.post(
+      endPoint: EndPoints.deleteAccount,
+      data: {
+        "current_password": oldPassword,
+        "password": newPassword,
+        "password_confirmation": newPasswordConfirmation,
+      },
     );
     String entity = response['message'];
     return entity;

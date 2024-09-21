@@ -1,4 +1,5 @@
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
+import 'package:car_help/features/auth/presentation/views/change_password_view.dart';
 import 'package:car_help/features/auth/presentation/views/forget_password_view.dart';
 import 'package:car_help/features/auth/presentation/views/login_view.dart';
 import 'package:car_help/features/auth/presentation/views/otp_verification_view.dart';
@@ -58,6 +59,7 @@ abstract class AppRouter {
   static const kSettingsView = '/SettingsView';
   static const kFavoritesView = '/FavoritesView';
   static const kCategoryDetailsView = '/CategoryDetailsView';
+  static const kChangePasswordView = '/ChangePasswordView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -108,12 +110,11 @@ abstract class AppRouter {
         data: state.extra as ServiceEntity,
       ),
     ),
-    // GoRoute(
-    //   path: kSingleProviderView,
-    //   builder: (context, state) => SingleProviderView(
-    //     providerId: state.extra as int,
-    //   ),
-    // ),
+    GoRoute(
+      path: kChangePasswordView,
+      builder: (context, state) => const ChangePasswordView(
+      ),
+    ),
     // GoRoute(
     //   path: kServiceProvidersView,
     //   builder: (context, state) => ServiceProvidersView(

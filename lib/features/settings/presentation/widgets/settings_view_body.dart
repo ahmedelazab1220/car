@@ -64,8 +64,8 @@ class SettingsViewBody extends StatelessWidget {
             // ),
             SettingsButtom(
               onTap: () => SplashHelper.showBottomSheetDialog(context: context),
-              title: S.of(context).chooseLanguage,
-              subTitle: S.of(context).changeLanguage,
+              title: S.of(context).changeLanguage,
+              subTitle: S.of(context).chooseLanguage,
               icon: AppAssets.language,
             ),
             const SizedBox(height: 12),
@@ -74,6 +74,13 @@ class SettingsViewBody extends StatelessWidget {
               title: S.of(context).myFavorites,
               subTitle: S.of(context).myFavoritesDescription,
               icon: AppAssets.favouriteIcon,
+            ),
+            const SizedBox(height: 12),
+            SettingsButtom(
+              onTap: () =>
+                  GoRouter.of(context).push(AppRouter.kChangePasswordView),
+              title: S.of(context).changePassword,
+              icon: AppAssets.passwordIcon,
             ),
             const SizedBox(height: 12),
             const ToggleNotificationsButtons(),

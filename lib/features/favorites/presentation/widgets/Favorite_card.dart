@@ -67,7 +67,7 @@ class FavoriteCard extends StatelessWidget {
                     const Spacer(),
                     Column(
                       children: [
-                        BottomSave(data: data),
+                        BottomSave(data: data, inFavorite: true),
                         Text(S.of(context).delete)
                       ],
                     ),

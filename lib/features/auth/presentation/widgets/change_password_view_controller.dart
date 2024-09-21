@@ -11,14 +11,14 @@ import 'package:go_router/go_router.dart';
 
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class LoginViewBloc extends StatefulWidget {
-  const LoginViewBloc({super.key});
+class ChangePasswordViewController extends StatefulWidget {
+  const ChangePasswordViewController({super.key});
 
   @override
-  State<LoginViewBloc> createState() => _LoginViewBlocState();
+  State<ChangePasswordViewController> createState() => _ChangePasswordViewControllerState();
 }
 
-class _LoginViewBlocState extends State<LoginViewBloc> {
+class _ChangePasswordViewControllerState extends State<ChangePasswordViewController> {
   bool isLoading = false;
 
   @override

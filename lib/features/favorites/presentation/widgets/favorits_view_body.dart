@@ -3,8 +3,6 @@ import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/favorites/presentation/widgets/Favorite_card.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
-import 'package:car_help/features/home_client/presentation/widgets/custom_search_widget.dart';
-import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -40,14 +38,12 @@ class FavoritsViewBody extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return FavoriteCard(
                           onTap: () {
-                            GoRouter.of(context)
-                                .push(AppRouter.kServiceDetailsView);
+                            GoRouter.of(context).push(
+                                AppRouter.kServiceDetailsView,
+                                extra: data[index]);
                           },
                           data: data[index],
-                          // onTap: () => AppConstant.navigateTo(
-                          //   context,
-                          //   const ServiceDetailsView(),
-                          // ),
+                         
                         );
                       },
                     ),

@@ -47,6 +47,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "cacelYourOrder":
             MessageLookupByLibrary.simpleMessage("هل أنت متأكد من الغاء طلبك؟"),
         "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
+        "cancelFavorite": MessageLookupByLibrary.simpleMessage("الغاء التفضيل"),
+        "cancelFavoritesDesc": MessageLookupByLibrary.simpleMessage(
+            "عند القيام بالغاء التفضيل, سوف يتم ازاله هذه الشركة من صفحة المفضلات"),
+        "cancelFavoritesMsg": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد من الغاء التفضيل؟"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
         "canceled": MessageLookupByLibrary.simpleMessage("ملغاة"),
         "cancelledOrders":
@@ -110,6 +115,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "customerOrders": MessageLookupByLibrary.simpleMessage("طلبات العملاء"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "deleteAccountDesc": MessageLookupByLibrary.simpleMessage(
+            "عند القيام بحذف حسابك ,لن تتمكن من الوصول لهذه المعلومات مره اخري"),
+        "deleteAccountMsg":
+            MessageLookupByLibrary.simpleMessage("هل أنت متأكد من حذف حسابك؟"),
         "deleteExhibitMsg": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد من حذف هذا المعروض؟"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
@@ -216,6 +225,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "لم تضف سياراتك بعد, أضفها الان!"),
         "noExhibitsMsg": MessageLookupByLibrary.simpleMessage(
             "لم تضف معروضات بعد, أضفها الان!"),
+        "noFavorites":
+            MessageLookupByLibrary.simpleMessage("لم تضف مفضلات بعد."),
         "noRequestes": MessageLookupByLibrary.simpleMessage(
             "لم تقوم بعمل اي طلب حتي الان!"),
         "noServiceProviders": MessageLookupByLibrary.simpleMessage(

@@ -141,4 +141,25 @@ class AuthRepoImpl implements AuthRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, String>> changePassword(
+      {String? oldPassword,
+      String? newPassword,
+      String? newPasswordConfirmation}) async {
+    try {
+      var data = await authRemoteDataSource.changePassword(
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+        newPasswordConfirmation: newPasswordConfirmation,
+      );
+      return right(data);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:car_help/features/auth/presentation/widgets/login_view_bloc.dart';
+import 'package:car_help/features/auth/presentation/widgets/login_view_controller.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -8,7 +8,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const LoginViewBloc(),
+      body: const LoginViewController(),
     );
   }
 }

@@ -1420,6 +1420,66 @@ class S {
     );
   }
 
+  /// `Are you sure you want to delete your account?`
+  String get deleteAccountMsg {
+    return Intl.message(
+      'Are you sure you want to delete your account?',
+      name: 'deleteAccountMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By deleting your account, you will not be able to access.`
+  String get deleteAccountDesc {
+    return Intl.message(
+      'By deleting your account, you will not be able to access.',
+      name: 'deleteAccountDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel Favorite`
+  String get cancelFavorite {
+    return Intl.message(
+      'Cancel Favorite',
+      name: 'cancelFavorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You haven't added any favorites yet.`
+  String get noFavorites {
+    return Intl.message(
+      'You haven\'t added any favorites yet.',
+      name: 'noFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to cancel your favorite?`
+  String get cancelFavoritesMsg {
+    return Intl.message(
+      'Are you sure you want to cancel your favorite?',
+      name: 'cancelFavoritesMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By cancelling your favorite, it will be removed from the favorites list`
+  String get cancelFavoritesDesc {
+    return Intl.message(
+      'By cancelling your favorite, it will be removed from the favorites list',
+      name: 'cancelFavoritesDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You haven't added any items yet, add them now!`
   String get noExhibitsMsg {
     return Intl.message(

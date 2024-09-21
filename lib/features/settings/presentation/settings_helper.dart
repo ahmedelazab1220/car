@@ -55,7 +55,7 @@ class SettingsHelper {
               actions: [
                 TextButton(
                   onPressed: onPressd,
-                  child: Text(S.of(context).onGoing),
+                  child: Text(S.of(context).ok),
                 ),
                 TextButton(
                   onPressed: () => GoRouter.of(context).pop(),
@@ -71,19 +71,20 @@ class SettingsHelper {
 
   static Future<void> showBottomSheetDialog({
     required BuildContext context,
+    required Widget widget,
   }) async {
     showCupertinoModalBottomSheet(
       topRadius: const Radius.circular(30),
       context: context,
       builder: (context) => Container(
-          height: SizeConfig.bodyHeight * .68,
+          height: SizeConfig.bodyHeight * .55,
           width: double.infinity,
           margin: screenPadding(),
           padding:
               EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * .04),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
-          child: const DeleteAccountBottomSheetBody()),
+          child: widget),
     );
   }
 }

@@ -34,7 +34,7 @@ class AppAssets {
   static const String send = "$iconPath/send.svg";
   static const String close = "$iconPath/close.svg";
   static const String printing = "$iconPath/printing.svg";
-
+   static const String passwordIcon = "$iconPath/password_icon.svg";
   static const String home = "$iconPath/home.svg";
   static const String cars = "$iconPath/cars.svg";
   static const String myServices = "$iconPath/my_services_icon.svg";

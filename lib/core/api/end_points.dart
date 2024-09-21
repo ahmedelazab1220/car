@@ -5,6 +5,7 @@ class EndPoints {
   static const String sendOtpUser = "/auth/send-otp";
   static const String verifyOtp = "/auth/verify-otp";
   static const String updateRegisterData = "/auth/update-user/";
+  static const String changePassword = "/profile/update-password";
 
   /////////////// Contact Us  ////////////////
   static const String contactUs = "/contact-us";
