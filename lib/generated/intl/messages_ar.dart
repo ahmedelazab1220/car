@@ -157,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("المعروضات المطلوبة"),
         "exhibitValue": MessageLookupByLibrary.simpleMessage("قيمة المعروضات"),
         "exhibits": MessageLookupByLibrary.simpleMessage("معروضات"),
+        "favoriteForYou": MessageLookupByLibrary.simpleMessage("المفضل لديك"),
         "feildRequiredValidation":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "forgetPassword":
@@ -202,6 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myFavoritesDescription": MessageLookupByLibrary.simpleMessage(
             "قائمة بمقدمين الخدمة التي تم تفضيلهم"),
         "myServices": MessageLookupByLibrary.simpleMessage("خدماتي"),
+        "nearYou": MessageLookupByLibrary.simpleMessage("بالقرب منك"),
         "newOrders": MessageLookupByLibrary.simpleMessage("الطلبات الجديدة"),
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
@@ -298,6 +300,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم ارسال العرض بنجاح!"),
         "serviceCost": MessageLookupByLibrary.simpleMessage("تكلفة الخدمة"),
         "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+        "serviceProvider": MessageLookupByLibrary.simpleMessage("مقدم خدمة"),
         "serviceProviderInformation":
             MessageLookupByLibrary.simpleMessage("معلومات مقدم الخدمة"),
         "serviceProvidersNearYou":
@@ -322,6 +325,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الشروط والاحكام"),
         "theOfferedService":
             MessageLookupByLibrary.simpleMessage("الخدمة المقدمة"),
+        "thereAre": MessageLookupByLibrary.simpleMessage("يوجد"),
         "thursday": MessageLookupByLibrary.simpleMessage("الخميس"),
         "to": MessageLookupByLibrary.simpleMessage("الي"),
         "tuesday": MessageLookupByLibrary.simpleMessage("الثلاثاء"),

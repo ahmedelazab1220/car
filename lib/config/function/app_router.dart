@@ -5,7 +5,10 @@ import 'package:car_help/features/auth/presentation/views/otp_verification_view.
 import 'package:car_help/features/auth/presentation/views/register_view.dart';
 import 'package:car_help/features/favorites/presentation/views/favorites_view.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
+import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
+import 'package:car_help/features/home_client/presentation/pages/category_details_view.dart';
 import 'package:car_help/features/home_client/presentation/pages/service_details_view.dart';
+import 'package:car_help/features/home_client/presentation/widgets/category_details_view_body.dart';
 import 'package:car_help/features/layout/presentation/view/both_layout.dart';
 import 'package:car_help/features/layout/presentation/view/client_layout.dart';
 import 'package:car_help/features/layout/presentation/view/provider_layout.dart';
@@ -54,6 +57,7 @@ abstract class AppRouter {
   static const kServiceDetailsView = '/ServiceDetailsView';
   static const kSettingsView = '/SettingsView';
   static const kFavoritesView = '/FavoritesView';
+  static const kCategoryDetailsView = '/CategoryDetailsView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -96,14 +100,14 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kFavoritesView,
-      builder: (context, state) => FavoritsView(),
+      builder: (context, state) => const FavoritsView(),
     ),
-    // GoRoute(
-    //   path: kProviderDetailesView,
-    //   builder: (context, state) => ProviderDetailesView(
-    //     data: state.extra as ProviderEntity,
-    //   ),
-    // ),
+    GoRoute(
+      path: kCategoryDetailsView,
+      builder: (context, state) => CategoryDetailsView(
+        data: state.extra as ServiceEntity,
+      ),
+    ),
     // GoRoute(
     //   path: kSingleProviderView,
     //   builder: (context, state) => SingleProviderView(

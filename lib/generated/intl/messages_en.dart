@@ -161,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Exhibit Required"),
         "exhibitValue": MessageLookupByLibrary.simpleMessage("Exhibit value"),
         "exhibits": MessageLookupByLibrary.simpleMessage("Exhibits"),
+        "favoriteForYou":
+            MessageLookupByLibrary.simpleMessage("Favorite For You"),
         "feildRequiredValidation":
             MessageLookupByLibrary.simpleMessage("This field is required"),
         "forgetPassword":
@@ -206,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myFavoritesDescription": MessageLookupByLibrary.simpleMessage(
             "List of preferred service providers"),
         "myServices": MessageLookupByLibrary.simpleMessage("My Services"),
+        "nearYou": MessageLookupByLibrary.simpleMessage("Near You"),
         "newOrders": MessageLookupByLibrary.simpleMessage("New Orders"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
         "newPasswordLabel": MessageLookupByLibrary.simpleMessage(
@@ -303,6 +306,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "serviceCost": MessageLookupByLibrary.simpleMessage("Service cost"),
         "serviceDetails":
             MessageLookupByLibrary.simpleMessage("Service Details"),
+        "serviceProvider":
+            MessageLookupByLibrary.simpleMessage("Service Provider"),
         "serviceProviderInformation": MessageLookupByLibrary.simpleMessage(
             "Service Provider Information"),
         "serviceProvidersNearYou":
@@ -328,6 +333,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "theOfferedService":
             MessageLookupByLibrary.simpleMessage("The Offered Service"),
+        "thereAre": MessageLookupByLibrary.simpleMessage("There are"),
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Tuesday"),

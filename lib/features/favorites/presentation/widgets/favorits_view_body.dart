@@ -1,11 +1,14 @@
+import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_styles.dart';
+import 'package:car_help/features/favorites/presentation/widgets/Favorite_card.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/presentation/widgets/custom_search_widget.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class FavoritsViewBody extends StatelessWidget {
   final List<ProviderEntity> data;
@@ -18,11 +21,13 @@ class FavoritsViewBody extends StatelessWidget {
         if (data.isNotEmpty)
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 6),
                   child: Text(
-                    'يوجد ${data.length} مقدم خدمة للصيانة المتنقلة بالقرب منك',
+                    '${S.of(context).thereAre}${data.length} ${S.of(context).favoriteForYou}',
                     style: AppStyles.textStyle14_800Black,
                   ),
                 ),
@@ -33,8 +38,12 @@ class FavoritsViewBody extends StatelessWidget {
                       padding: const EdgeInsets.all(0),
                       itemCount: data.length,
                       itemBuilder: (context, index) {
-                        return ServiceProvidersCard(
-                          onTap: () {}, data: data[index],
+                        return FavoriteCard(
+                          onTap: () {
+                            GoRouter.of(context)
+                                .push(AppRouter.kServiceDetailsView);
+                          },
+                          data: data[index],
                           // onTap: () => AppConstant.navigateTo(
                           //   context,
                           //   const ServiceDetailsView(),

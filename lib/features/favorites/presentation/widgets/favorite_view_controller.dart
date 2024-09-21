@@ -29,36 +29,41 @@ class _FavoriteViewControllerState extends State<FavoriteViewController> {
     return BlocProvider(
       create: (context) =>
           FavoriteCubit(getIt.get<FavoriteRepo>())..getFavorite(),
-      child: BlocBuilder<FavoriteCubit, FavoriteState>(
-        builder: (context, state) {
-          if (state is FavoriteLoading) {
-            return const LoadingListView();
-          } else if (state is FavoriteFailure) {
-            return FailuresWidget(
-              errorMessage: state.errorMessage,
-              viewIcon: false,
-            );
-          } else if (state is FavoriteSuccess) {
-            if (state.data.isEmpty) {
-              return const SizedBox(
-                height: 167,
-                width: double.maxFinite,
-                child: Center(
-                  child: Text(
-                    'لا توجد مقدمي خدمات بالقرب منك',
-                    style: AppStyles.textStyle16_700Grey,
+      child: RefreshIndicator(
+        onRefresh: () async {
+          BlocProvider.of<FavoriteCubit>(context).getFavorite();
+        },
+        child: BlocBuilder<FavoriteCubit, FavoriteState>(
+          builder: (context, state) {
+            if (state is FavoriteLoading) {
+              return const LoadingListView();
+            } else if (state is FavoriteFailure) {
+              return FailuresWidget(
+                errorMessage: state.errorMessage,
+                viewIcon: false,
+              );
+            } else if (state is FavoriteSuccess) {
+              if (state.data.isEmpty) {
+                return const SizedBox(
+                  height: 167,
+                  width: double.maxFinite,
+                  child: Center(
+                    child: Text(
+                      'لا توجد مقدمي خدمات بالقرب منك',
+                      style: AppStyles.textStyle16_700Grey,
+                    ),
                   ),
-                ),
+                );
+              }
+              return FavoritsViewBody(
+                data: state.data,
               );
             }
-            return FavoritsViewBody(
-              data: state.data,
+            return const Center(
+              child: Text('Somthing Was Rong'),
             );
-          }
-          return const Center(
-            child: Text('Somthing Was Rong'),
-          );
-        },
+          },
+        ),
       ),
     );
   }

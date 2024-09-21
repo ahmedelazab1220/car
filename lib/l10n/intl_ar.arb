@@ -214,7 +214,11 @@
     "advertiseNotificationsDescription": "للخصومات والدعاية",
     "notificationsToggleSuccess": "تم تبديل الاشعارات بنجاح",
     "myFavorites": "مفضلاتي",
-    "myFavoritesDescription": "قائمة بمقدمين الخدمة التي تم تفضيلهم"
+    "myFavoritesDescription": "قائمة بمقدمين الخدمة التي تم تفضيلهم",
+    "thereAre": "يوجد",
+    "serviceProvider": "مقدم خدمة",
+    "nearYou": "بالقرب منك",
+    "favoriteForYou": "المفضل لديك"
 
 
   

@@ -2209,6 +2209,46 @@ class S {
       args: [],
     );
   }
+
+  /// `There are`
+  String get thereAre {
+    return Intl.message(
+      'There are',
+      name: 'thereAre',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Provider`
+  String get serviceProvider {
+    return Intl.message(
+      'Service Provider',
+      name: 'serviceProvider',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Near You`
+  String get nearYou {
+    return Intl.message(
+      'Near You',
+      name: 'nearYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorite For You`
+  String get favoriteForYou {
+    return Intl.message(
+      'Favorite For You',
+      name: 'favoriteForYou',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

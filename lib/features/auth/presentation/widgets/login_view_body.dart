@@ -37,6 +37,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       padding: const EdgeInsets.all(12),
       child: Form(
         key: formKey,
+        onChanged: _updateIsValid,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

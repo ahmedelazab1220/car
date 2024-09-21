@@ -1,6 +1,7 @@
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_constant.dart';
 import 'package:car_help/core/utils/app_styles.dart';
+import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:car_help/features/home_client/presentation/pages/service_details_view.dart';
 import 'package:car_help/features/home_client/presentation/widgets/category_details_appbar.dart';
 import 'package:car_help/features/home_client/presentation/widgets/custom_search_widget.dart';
@@ -10,9 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CategoryDetailsViewBody extends StatelessWidget {
-  final String title;
+  final ServiceEntity data;
 
-  const CategoryDetailsViewBody({super.key, required this.title});
+  const CategoryDetailsViewBody({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CategoryDetailsViewBody extends StatelessWidget {
       body: Column(
         children: [
           CategoryDetailsAppBar(
-            title: title,
+            title: data.name ?? '',
             location: 'مكة المكرمة',
           ),
           if (index == 0)

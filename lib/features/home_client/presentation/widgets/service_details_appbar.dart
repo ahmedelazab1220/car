@@ -3,7 +3,7 @@ import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
-import 'package:car_help/features/home_client/presentation/widgets/bottom_save.dart';
+import 'package:car_help/features/favorites/presentation/widgets/bottom_save.dart';
 import 'package:car_help/features/widgets/custom_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';

@@ -1,9 +1,11 @@
+import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class StaticCategoriesCard extends StatelessWidget {
   final ServiceEntity data;
@@ -14,16 +16,8 @@ class StaticCategoriesCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(2),
       child: GestureDetector(
-        // onTap: () => AppConstant.navigateTo(
-        //     context,
-        //     CategoryDetailsView(
-        //       category: data.name ?? '',
-        //     )
-        //     // CategoryScreen(
-        //     //   id: staticCategoriesEntity.id,
-        //     //   title: staticCategoriesEntity.name,
-        //     // )
-        //     ),
+        onTap: () => GoRouter.of(context)
+            .push(AppRouter.kCategoryDetailsView, extra: data),
         child: Card(
           shadowColor: AppColors.containerPrimary,
           elevation: 1,

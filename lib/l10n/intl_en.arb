@@ -214,7 +214,13 @@
     "advertiseNotificationsDescription": "For discounts and advertising",
     "notificationsToggleSuccess": "Notifications toggled successfully",
     "myFavorites": "My Favorites",
-    "myFavoritesDescription": "List of preferred service providers"
+    "myFavoritesDescription": "List of preferred service providers",
+    "thereAre": "There are",
+    "serviceProvider": "Service Provider",
+    "nearYou": "Near You",
+    "favoriteForYou": "Favorite For You"
+
+    
 
 
 
