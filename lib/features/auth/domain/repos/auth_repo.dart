@@ -24,8 +24,9 @@ abstract class AuthRepo {
     String? commercialRegister,
     int? cityId,
     int? districtId,
-    int? lat,
-    int? lng,
+    double? lat,
+    double? lng,
+    List<int>? categoryIds,
   });
 
   Future<Either<Failure, String>> editPhoneNumber({

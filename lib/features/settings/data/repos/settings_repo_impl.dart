@@ -54,14 +54,20 @@ class SettingsRepoImpl extends SettingsRepo {
   }
 
   @override
-  Future<Either<Failure, String>> posrContactUs(
-      {String? name, String? phone, String? address, String? message}) async {
+  Future<Either<Failure, String>> posrContactUs({
+    String? name,
+    String? phone,
+    String? email,
+    int? problemId,
+    String? message,
+  }) async {
     try {
       String data = await settingsRemoteDataSource.posrContactUs(
         name: name,
         phone: phone,
-        address: address,
+        email: email,
         message: message,
+        problemId: problemId,
       );
       return right(data);
     } catch (e) {

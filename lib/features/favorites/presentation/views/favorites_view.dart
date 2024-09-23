@@ -18,7 +18,6 @@ class FavoritsView extends StatelessWidget {
         title: Text(S.of(context).myFavorites),
       ),
       body: MultiBlocProvider(providers: [
-      
         BlocProvider(
           create: (context) => FavoriteCubit(getIt.get<FavoriteRepo>()),
         ),

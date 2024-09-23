@@ -7,5 +7,4 @@ import 'package:dartz/dartz.dart';
 abstract class HomeRepo {
   Future<Either<Failure, HomeEntity>> getHome();
   Future<Either<Failure, List<ServiceEntity>>> getServices({bool remote});
-
 }

@@ -1,15 +1,11 @@
-import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/features/auth/presentation/manager/login_cubit/login_cubit.dart';
-import 'package:car_help/features/auth/presentation/widgets/not_subsriber_widget.dart';
-import 'package:car_help/features/widgets/app_text.dart';
+import 'package:car_help/features/auth/presentation/manager/change%20password%20cubit/change_password_cubit.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class ChangePasswordViewBody extends StatefulWidget {
   const ChangePasswordViewBody({super.key});
@@ -44,45 +40,46 @@ class _ChangePasswordViewBodyState extends State<ChangePasswordViewBody> {
             SizedBox(height: SizeConfig.bodyHeight * .02),
             CustomTextFormField(
               controller: oldPassword,
-              labelText: S.of(context).password,
+              labelText: S.of(context).oldPassword,
               type: TextInputType.visiblePassword,
               hintText: S.of(context).enterYourPassword,
               validate: (value) =>
-                  value!.isEmpty ? S.of(context).passwordValidation : null,
+                  value!.isEmpty ? S.of(context).oldPasswordValidation : null,
+            ),
+            SizedBox(height: SizeConfig.bodyHeight * .02),
+            CustomTextFormField(
+              controller: newPassword,
+              labelText: S.of(context).newPassword,
+              type: TextInputType.visiblePassword,
+              hintText: S.of(context).newPasswordLabel,
+              validate: (value) =>
+                  value!.isEmpty ? S.of(context).newPasswordValidation : null,
               isPassword: true,
             ),
             SizedBox(height: SizeConfig.bodyHeight * .02),
             CustomTextFormField(
-              controller: oldPassword,
-              labelText: S.of(context).password,
+              controller: confirmNewPassword,
+              labelText: S.of(context).confirmNewPassword,
               type: TextInputType.visiblePassword,
-              hintText: S.of(context).enterYourPassword,
-              validate: (value) =>
-                  value!.isEmpty ? S.of(context).passwordValidation : null,
-              isPassword: true,
-            ),
-            SizedBox(height: SizeConfig.bodyHeight * .02),
-            CustomTextFormField(
-              controller: oldPassword,
-              labelText: S.of(context).password,
-              type: TextInputType.visiblePassword,
-              hintText: S.of(context).enterYourPassword,
-              validate: (value) =>
-                  value!.isEmpty ? S.of(context).passwordValidation : null,
+              hintText: S.of(context).confirmNewPasswordLabel,
+              validate: (value) => value!.isEmpty
+                  ? S.of(context).confirmNewPasswordValidation
+                  : null,
               isPassword: true,
             ),
             SizedBox(height: SizeConfig.bodyHeight * .08),
             CustomButton(
                 color: isValid ? null : AppColors.primary.withOpacity(0.6),
                 margin: const EdgeInsets.all(0),
-                title: S.of(context).login,
+                title: S.of(context).save,
                 onPressed: () => formKey.currentState!.validate()
-                // ? BlocProvider.of<LoginCubit>(context)
-                //     .login(phone: phoneNumber.text, password: password.text)
-                // : null),
-                ),
-            const Spacer(),
-            const NotSubscriberWidget(),
+                    ? BlocProvider.of<ChangePasswordCubit>(context)
+                        .changePassword(
+                        oldPassword: oldPassword.text,
+                        newPassword: newPassword.text,
+                        passwordConfirmation: confirmNewPassword.text,
+                      )
+                    : null),
             SizedBox(height: SizeConfig.bodyHeight * .02),
           ],
         ),

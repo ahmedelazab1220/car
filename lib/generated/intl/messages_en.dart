@@ -26,10 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutapp": MessageLookupByLibrary.simpleMessage("About the app"),
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
         "addACar": MessageLookupByLibrary.simpleMessage("Add a Car"),
+        "addAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
         "addExhibit": MessageLookupByLibrary.simpleMessage("Add Exhibit"),
         "additionalAddressDetails":
             MessageLookupByLibrary.simpleMessage("Additional address Details"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
+        "addressForYou":
+            MessageLookupByLibrary.simpleMessage("address for you"),
         "adjustmentAndRepair":
             MessageLookupByLibrary.simpleMessage("Adjustment And Repair"),
         "advertiseNotifications":
@@ -37,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "advertiseNotificationsDescription":
             MessageLookupByLibrary.simpleMessage(
                 "For discounts and advertising"),
+        "allow": MessageLookupByLibrary.simpleMessage("Allow"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have account ? "),
         "approveTheRequest": MessageLookupByLibrary.simpleMessage(
@@ -83,6 +87,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseLang": MessageLookupByLibrary.simpleMessage("Choose Language"),
         "chooseLanguage": MessageLookupByLibrary.simpleMessage(
             "Choose your preferred language"),
+        "chooseModelCar":
+            MessageLookupByLibrary.simpleMessage("Choose Car Model *"),
+        "chooseProblemType":
+            MessageLookupByLibrary.simpleMessage("Choose Problem Type"),
         "chooseService": MessageLookupByLibrary.simpleMessage(
             "You can choose more than one type of service"),
         "city": MessageLookupByLibrary.simpleMessage("City"),
@@ -116,6 +124,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
         "createAccountBody": MessageLookupByLibrary.simpleMessage(
             "Welcome, all you have to do is create an account with us"),
+        "createYourAddresses":
+            MessageLookupByLibrary.simpleMessage("Create your addresses"),
         "currency": MessageLookupByLibrary.simpleMessage("S.R"),
         "customerOrders":
             MessageLookupByLibrary.simpleMessage("Customer Orders"),
@@ -148,8 +158,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter the details of the exhibit"),
         "enterExhibitName": MessageLookupByLibrary.simpleMessage(
             "Please enter the name of the exhibit"),
-        "enterModelCar":
-            MessageLookupByLibrary.simpleMessage("Enter Car Model *"),
         "enterPrice": MessageLookupByLibrary.simpleMessage("Enter the price"),
         "enterQuantity":
             MessageLookupByLibrary.simpleMessage("Please enter the quantity"),
@@ -197,6 +205,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Go to checkout to complete the service"),
         "guest": MessageLookupByLibrary.simpleMessage("Guest"),
         "home": MessageLookupByLibrary.simpleMessage(" Home"),
+        "isDefault": MessageLookupByLibrary.simpleMessage("Default"),
         "language": MessageLookupByLibrary.simpleMessage("English"),
         "letsStart": MessageLookupByLibrary.simpleMessage("Let`s Start"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -214,6 +223,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("For more information"),
         "multiSelectService": MessageLookupByLibrary.simpleMessage(
             "You can choose more than one type of service."),
+        "myAddresses": MessageLookupByLibrary.simpleMessage("My Addresses"),
         "myFavorites": MessageLookupByLibrary.simpleMessage("My Favorites"),
         "myFavoritesDescription": MessageLookupByLibrary.simpleMessage(
             "List of preferred service providers"),
@@ -226,6 +236,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPasswordValidation":
             MessageLookupByLibrary.simpleMessage("new password is required"),
         "newRequests": MessageLookupByLibrary.simpleMessage("New"),
+        "noAddresses": MessageLookupByLibrary.simpleMessage(
+            "You haven\'t added your addresses yet, add them now!"),
         "noCars": MessageLookupByLibrary.simpleMessage(
             "You haven\'t added your cars yet, add them now!"),
         "noExhibitsMsg": MessageLookupByLibrary.simpleMessage(
@@ -240,6 +252,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Did you not receive a code?"),
         "notSubscribedWithUs":
             MessageLookupByLibrary.simpleMessage("Not a subscriber with us?"),
+        "notification": MessageLookupByLibrary.simpleMessage("Notification"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "notificationsToggleSuccess": MessageLookupByLibrary.simpleMessage(
             "Notifications toggled successfully"),
@@ -285,6 +298,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "priceQuote": MessageLookupByLibrary.simpleMessage("Price Quote"),
         "priceSubmission":
             MessageLookupByLibrary.simpleMessage("Price Submission"),
+        "problemType": MessageLookupByLibrary.simpleMessage("Problem Type"),
         "protectionAndShading":
             MessageLookupByLibrary.simpleMessage("Protection And Shading"),
         "provider": MessageLookupByLibrary.simpleMessage("Provider"),
@@ -335,6 +349,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "setAPassword": MessageLookupByLibrary.simpleMessage("Set a password"),
         "setAPasswordBody": MessageLookupByLibrary.simpleMessage(
             "Choose a new password that suits you"),
+        "sharingLocation": MessageLookupByLibrary.simpleMessage(
+            "Allow sharing of your location"),
+        "sharingLocationDesc": MessageLookupByLibrary.simpleMessage(
+            "Please share your location with us so we can show you the nearest services"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "specialRequests":
             MessageLookupByLibrary.simpleMessage("Special Requests"),

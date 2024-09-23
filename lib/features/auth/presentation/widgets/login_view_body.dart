@@ -1,8 +1,6 @@
 import 'package:car_help/config/function/app_router.dart';
-import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/not_subsriber_widget.dart';
 import 'package:car_help/features/widgets/app_text.dart';

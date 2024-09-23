@@ -5,7 +5,7 @@ class HomeEntity {
   List<BannerEntity>? banners;
   List<ProviderEntity>? providers;
   HomeEntity({
-     this.banners,
-     this.providers,
+    this.banners,
+    this.providers,
   });
 }

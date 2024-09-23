@@ -12,7 +12,6 @@ import 'package:car_help/features/home_client/domain/entities/service_entity.dar
 abstract class HomeRemoteDataSource {
   Future<HomeEntity> getHome();
   Future<List<ServiceEntity>> getServices();
-
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -49,5 +48,4 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     );
     return list;
   }
-
 }

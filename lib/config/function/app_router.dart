@@ -1,3 +1,5 @@
+import 'package:car_help/features/Notification/Presentation/views/notification_view.dart';
+import 'package:car_help/features/addresses/presentation/views/addresses_view.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/auth/presentation/views/change_password_view.dart';
 import 'package:car_help/features/auth/presentation/views/forget_password_view.dart';
@@ -60,6 +62,7 @@ abstract class AppRouter {
   static const kFavoritesView = '/FavoritesView';
   static const kCategoryDetailsView = '/CategoryDetailsView';
   static const kChangePasswordView = '/ChangePasswordView';
+  static const kAddressesView = '/AddressesView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -112,21 +115,18 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kChangePasswordView,
-      builder: (context, state) => const ChangePasswordView(
+      builder: (context, state) => const ChangePasswordView(),
+    ),
+    GoRoute(
+      path: kAddressesView,
+      builder: (context, state) => const AddressesView(),
+    ),
+    GoRoute(
+      path: kNotificationView,
+      builder: (context, state) => NotificationView(
+        userType: state.extra as String?,
       ),
     ),
-    // GoRoute(
-    //   path: kServiceProvidersView,
-    //   builder: (context, state) => ServiceProvidersView(
-    //     data: state.extra as ServiceEntity,
-    //   ),
-    // ),
-    // GoRoute(
-    //   path: kNotificationView,
-    //   builder: (context, state) => NotificationView(
-    //     userType: state.extra as String?,
-    //   ),
-    // ),
     GoRoute(
       path: kBothLayout,
       builder: (context, state) => const BothLayout(),

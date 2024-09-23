@@ -7,21 +7,23 @@ import 'package:car_help/features/profile/Presentation/manager/edit%20cubit/edit
 import 'package:car_help/features/settings/presentation/settings_helper.dart';
 import 'package:car_help/features/settings/presentation/widgets/cancelling_order_bottom_sheet_body.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
-import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
+import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
-class EditProfileViewBody extends StatefulWidget {
+class EditProfileClientViewBody extends StatefulWidget {
   final UserEntity data;
-  const EditProfileViewBody({super.key, required this.data});
+  const EditProfileClientViewBody({super.key, required this.data});
 
   @override
-  State<EditProfileViewBody> createState() => _EditProfileViewBodyState();
+  State<EditProfileClientViewBody> createState() =>
+      _EditProfileClientViewBodyState();
 }
 
-class _EditProfileViewBodyState extends State<EditProfileViewBody> {
+class _EditProfileClientViewBodyState extends State<EditProfileClientViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController name = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
@@ -36,7 +38,10 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
 
   Future<void> _initVariables() async {
     name.text = widget.data.name ?? '';
-    phoneNumber.text = widget.data.phone ?? '';
+    phoneNumber.text =
+        widget.data.phone != null && widget.data.phone!.length >= 4
+            ? widget.data.phone!.substring(4, widget.data.phone!.length)
+            : '';
   }
 
   void _updateIsValid() {

@@ -8,9 +8,8 @@ final class RegisterInitial extends RegisterState {}
 final class RegisterLoading extends RegisterState {}
 
 final class RegisterSuccess extends RegisterState {
-  final List? list;
-
-  RegisterSuccess({required this.list});
+  final UserEntity data;
+  RegisterSuccess({required this.data});
 }
 
 final class RegisterFailure extends RegisterState {

@@ -11,9 +11,9 @@ class DistrictsCubit extends Cubit<DistrictsState> {
     this.listsRepo,
   ) : super(DistrictsInitial());
 
-  Future<void> getDistricts({String? type}) async {
+  Future<void> getDistricts({int? id}) async {
     emit(DistrictsLoading());
-    var result = await listsRepo.getDistricts();
+    var result = await listsRepo.getDistricts(id: id);
     result.fold(
       (failure) => {
         emit(

@@ -93,12 +93,9 @@ class UpdateMyLocationFailure extends LocationState {
   List<Object> get props => [msg];
 }
 
-
-class GetLocationTitleLoading extends LocationState {
-}
+class GetLocationTitleLoading extends LocationState {}
 
 class GetLocationTitleSuccess extends LocationState {
-
   final LocationEntity locationEntity;
 
   const GetLocationTitleSuccess({required this.locationEntity});
@@ -106,8 +103,8 @@ class GetLocationTitleSuccess extends LocationState {
   @override
   List<Object> get props => [locationEntity];
 }
-class GetLocationTitleFailure extends LocationState {
 
+class GetLocationTitleFailure extends LocationState {
   final String errorMsg;
 
   const GetLocationTitleFailure({required this.errorMsg});

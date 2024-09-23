@@ -34,7 +34,7 @@ class AppAssets {
   static const String send = "$iconPath/send.svg";
   static const String close = "$iconPath/close.svg";
   static const String printing = "$iconPath/printing.svg";
-   static const String passwordIcon = "$iconPath/password_icon.svg";
+  static const String passwordIcon = "$iconPath/password_icon.svg";
   static const String home = "$iconPath/home.svg";
   static const String cars = "$iconPath/cars.svg";
   static const String myServices = "$iconPath/my_services_icon.svg";
@@ -43,7 +43,10 @@ class AppAssets {
   static const String emptyExhibits = "$iconPath/empty_exhibits.svg";
 
   static const String frame = "$iconPath/frame.svg";
-  static const String location = "$iconPath/location_icon.svg";
+  static const String location = "$iconPath/location.svg";
+  static const String locationBottomSheet =
+      "$iconPath/location_bottom_sheet.svg";
+  static const String addressIcon = "$iconPath/address_icon.svg";
   static const String languageIcon = "$iconPath/language.svg";
 
   static const String notification = "$iconPath/notification.svg";

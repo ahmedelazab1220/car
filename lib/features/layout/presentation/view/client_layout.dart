@@ -1,8 +1,11 @@
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_strings.dart';
+import 'package:car_help/features/addresses/presentation/manager/addresses%20cubit/addresses_cubit.dart';
 import 'package:car_help/features/home_client/presentation/pages/client_home_view.dart';
 import 'package:car_help/features/layout/presentation/widgets/custom_nav_bar.dart';
+import 'package:car_help/features/my_cars/presentation/pages/my_cars_view.dart';
+import 'package:car_help/features/orders/presentation/views/my_orders_view.dart';
 import 'package:car_help/features/profile/Presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:car_help/features/settings/presentation/views/settings_view.dart';
 import 'package:car_help/generated/l10n.dart';
@@ -22,6 +25,8 @@ class _ClientLayoutState extends State<ClientLayout> {
   @override
   void initState() {
     BlocProvider.of<ProfileCubit>(context).getProfileData(remote: true);
+    BlocProvider.of<AddressesCubit>(context).getAddresses();
+
     super.initState();
   }
 
@@ -44,8 +49,7 @@ class _ClientLayoutState extends State<ClientLayout> {
       );
     }
 
-
-        List<PersistentBottomNavBarItem> _navBarsItems() {
+    List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         itemStyle(SvgPicture.asset(AppAssets.home), S.of(context).home),
         itemStyle(SvgPicture.asset(AppAssets.orders), S.of(context).orders),
@@ -58,8 +62,8 @@ class _ClientLayoutState extends State<ClientLayout> {
       items: _navBarsItems(),
       screens: const [
         ClientHomeView(),
-        SizedBox(),
-        SizedBox(),
+        MyOrdersView(),
+        MyCarsView(),
         SettingsView(
           userType: AppStrings.client,
         )

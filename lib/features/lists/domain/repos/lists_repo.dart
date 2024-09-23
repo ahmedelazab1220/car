@@ -5,7 +5,8 @@ import 'package:dartz/dartz.dart';
 abstract class ListsRepo {
   Future<Either<Failure, List<DropDownEntity>>> getCities();
   Future<Either<Failure, List<DropDownEntity>>> getCountries();
-  Future<Either<Failure, List<DropDownEntity>>> getDistricts();
+  Future<Either<Failure, List<DropDownEntity>>> getDistricts({int? id});
   Future<Either<Failure, List<DropDownEntity>>> getCarModels();
   Future<Either<Failure, List<DropDownEntity>>> getProblemTypes();
+  Future<Either<Failure, List<DropDownEntity>>> getCarFactories();
 }

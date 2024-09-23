@@ -33,6 +33,11 @@ class EndPoints {
   static const String getTermsAndConditions = '/pages/2';
   static const String getAboutUs = '/pages/1';
 
+  /////////////// public  ////////////////
+  static const String getProblemTypes = '/problem-types';
+  static const String getCarModels = '/car-models';
+  static const String getCarFactories = '/car-factories';
+
   /////////////// Services  ////////////////
   static const String getServices = '/categories';
   static const String getBannerCategories = '/banner-categories';
@@ -51,4 +56,16 @@ class EndPoints {
   static const String updateUserLocation = "/user/profile/update-location";
   static const String cities = "/cities";
   static const String distracts = "/districts";
+
+  /////////////// Addresses  ////////////////
+  static const String getAddresses = '/client/addresses';
+  static const String addAddress = '/client/addresses';
+  static const String updateAddress = '/client/addresses/';
+  static const String deleteAddress = '/client/addresses/';
+
+  /////////////// Cars  ////////////////
+  static const String getMyCars = '/client/cars';
+  static const String addMyCar = '/client/cars';
+  static const String updateMyCar = '/client/cars/';
+  static const String deleteMyCar = '/client/cars/';
 }

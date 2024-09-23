@@ -18,7 +18,8 @@ abstract class SettingsRemoteDataSource {
   Future<String> posrContactUs({
     String? name,
     String? phone,
-    String? address,
+    String? email,
+    int? problemId,
     String? message,
   });
 }
@@ -66,15 +67,21 @@ class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSource {
   }
 
   @override
-  Future<String> posrContactUs(
-      {String? name, String? phone, String? address, String? message}) async {
+  Future<String> posrContactUs({
+    String? name,
+    String? phone,
+    String? email,
+    int? problemId,
+    String? message,
+  }) async {
     var data = await apiService.post(
       endPoint: EndPoints.contactUs,
       data: {
         "name": name,
-        "phone": phone,
-        "address": address,
+        "email": email,
+        "phone": "+964$phone",
         "message": message,
+        "problem_type_id": problemId
       },
     );
     String response = data['message'];

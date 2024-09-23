@@ -28,8 +28,9 @@ abstract class AuthRemoteDataSource {
     String? commercialRegister,
     int? cityId,
     int? districtId,
-    int? lat,
-    int? lng,
+    double? lat,
+    double? lng,
+    List<int>? categoryIds,
   });
 
   Future<String> updatephoneNumber({
@@ -106,8 +107,9 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     String? commercialRegister,
     int? cityId,
     int? districtId,
-    int? lat,
-    int? lng,
+    double? lat,
+    double? lng,
+    List<int>? categoryIds,
   }) async {
     String? token = await messagingToken();
 
@@ -128,6 +130,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
         if (lng != null) "lng": lng,
         if (commercialRegister != null)
           "commercial_register": commercialRegister,
+        if (categoryIds != null) "categories": categoryIds
       },
       endPoint: EndPoints.registerUser,
     );
@@ -181,7 +184,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
       String? newPassword,
       String? newPasswordConfirmation}) async {
     var response = await apiService.post(
-      endPoint: EndPoints.deleteAccount,
+      endPoint: EndPoints.changePassword,
       data: {
         "current_password": oldPassword,
         "password": newPassword,

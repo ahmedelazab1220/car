@@ -1,4 +1,5 @@
 import 'package:car_help/features/auth/presentation/widgets/change_password_view_body.dart';
+import 'package:car_help/features/auth/presentation/widgets/change_password_view_controller.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class ChangePasswordView extends StatelessWidget {
         title: Text(S.of(context).changePassword),
       ),
       body: const SafeArea(
-        child: ChangePasswordViewBody(),
+        child: ChangePasswordViewController(),
       ),
     );
   }

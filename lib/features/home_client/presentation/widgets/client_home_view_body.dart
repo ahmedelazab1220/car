@@ -26,7 +26,9 @@ class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () async {},
+      onRefresh: () async {
+        BlocProvider.of<HomeCubit>(context).getHome();
+      },
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

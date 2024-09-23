@@ -41,7 +41,11 @@ abstract class AppStyles {
     fontWeight: FontWeight.w700,
     color: Colors.white,
   );
-
+  static const textStyle14_500White = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
   static const textStyle14_400 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -113,7 +117,10 @@ abstract class AppStyles {
     fontSize: 16,
     fontWeight: FontWeight.w800,
   );
-
+  static const textStyle16_700 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
   static const textStyle16_700Grey = TextStyle(
     color: Colors.grey,
     fontSize: 16,

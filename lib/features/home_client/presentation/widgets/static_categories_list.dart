@@ -1,7 +1,7 @@
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:flutter/material.dart';
 
-import 'static_categories_card.dart';
+import 'categories_card.dart';
 
 class StaticCategoriesList extends StatefulWidget {
   final List<ServiceEntity> data;
@@ -21,7 +21,7 @@ class _StaticCategoriesListState extends State<StaticCategoriesList> {
             crossAxisCount: 3, childAspectRatio: 1.2),
         itemCount: widget.data.length,
         itemBuilder: (context, index) {
-          return StaticCategoriesCard(
+          return CategoriesCard(
             data: widget.data[index],
           );
         });

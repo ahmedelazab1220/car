@@ -43,7 +43,6 @@ class FavoritsViewBody extends StatelessWidget {
                                 extra: data[index]);
                           },
                           data: data[index],
-                         
                         );
                       },
                     ),

@@ -46,7 +46,6 @@ class _ProviderLayoutState extends State<ProviderLayout> {
       );
     }
 
-
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         itemStyle(SvgPicture.asset(AppAssets.home), S.of(context).home),

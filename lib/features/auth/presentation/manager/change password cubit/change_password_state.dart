@@ -8,3 +8,15 @@ sealed class ChangePasswordState extends Equatable {
 }
 
 final class ChangePasswordInitial extends ChangePasswordState {}
+
+final class ChangePasswordLoading extends ChangePasswordState {}
+
+final class ChangePasswordFailed extends ChangePasswordState {
+  final String errorMessage;
+  const ChangePasswordFailed({required this.errorMessage});
+}
+
+final class ChangePasswordSuccess extends ChangePasswordState {
+  final String message;
+  const ChangePasswordSuccess({required this.message});
+}

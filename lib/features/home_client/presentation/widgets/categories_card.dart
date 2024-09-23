@@ -7,9 +7,9 @@ import 'package:car_help/core/utils/app_size.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-class StaticCategoriesCard extends StatelessWidget {
+class CategoriesCard extends StatelessWidget {
   final ServiceEntity data;
-  const StaticCategoriesCard({super.key, required this.data});
+  const CategoriesCard({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +29,8 @@ class StaticCategoriesCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.network(
-                  height: SizeConfig.screenWidth * 0.1,
-                  width: SizeConfig.screenWidth * 0.1,
+                  height: SizeConfig.screenWidth * 0.08,
+                  width: SizeConfig.screenWidth * 0.08,
                   data.icon ??
                       'https://admin.carhelp.com.sa/storage/3d90f9361298a10deac075c12c5dc397/2.svg',
                 ),

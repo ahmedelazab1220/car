@@ -1040,11 +1040,31 @@ class S {
     );
   }
 
+  /// `You haven't added your addresses yet, add them now!`
+  String get noAddresses {
+    return Intl.message(
+      'You haven\'t added your addresses yet, add them now!',
+      name: 'noAddresses',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You have not made any request yet!`
   String get noRequestes {
     return Intl.message(
       'You have not made any request yet!',
       name: 'noRequestes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Default`
+  String get isDefault {
+    return Intl.message(
+      'Default',
+      name: 'isDefault',
       desc: '',
       args: [],
     );
@@ -1065,6 +1085,16 @@ class S {
     return Intl.message(
       'Add a Car',
       name: 'addACar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Address`
+  String get addAddress {
+    return Intl.message(
+      'Add Address',
+      name: 'addAddress',
       desc: '',
       args: [],
     );
@@ -1100,11 +1130,11 @@ class S {
     );
   }
 
-  /// `Enter Car Model *`
-  String get enterModelCar {
+  /// `Choose Car Model *`
+  String get chooseModelCar {
     return Intl.message(
-      'Enter Car Model *',
-      name: 'enterModelCar',
+      'Choose Car Model *',
+      name: 'chooseModelCar',
       desc: '',
       args: [],
     );
@@ -1225,6 +1255,36 @@ class S {
     return Intl.message(
       'Address',
       name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `address for you`
+  String get addressForYou {
+    return Intl.message(
+      'address for you',
+      name: 'addressForYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Addresses`
+  String get myAddresses {
+    return Intl.message(
+      'My Addresses',
+      name: 'myAddresses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create your addresses`
+  String get createYourAddresses {
+    return Intl.message(
+      'Create your addresses',
+      name: 'createYourAddresses',
       desc: '',
       args: [],
     );
@@ -2010,6 +2070,26 @@ class S {
     );
   }
 
+  /// `Problem Type`
+  String get problemType {
+    return Intl.message(
+      'Problem Type',
+      name: 'problemType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Problem Type`
+  String get chooseProblemType {
+    return Intl.message(
+      'Choose Problem Type',
+      name: 'chooseProblemType',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You can choose more than one type of service.`
   String get multiSelectService {
     return Intl.message(
@@ -2305,6 +2385,46 @@ class S {
     return Intl.message(
       'Favorite For You',
       name: 'favoriteForYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow`
+  String get allow {
+    return Intl.message(
+      'Allow',
+      name: 'allow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow sharing of your location`
+  String get sharingLocation {
+    return Intl.message(
+      'Allow sharing of your location',
+      name: 'sharingLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please share your location with us so we can show you the nearest services`
+  String get sharingLocationDesc {
+    return Intl.message(
+      'Please share your location with us so we can show you the nearest services',
+      name: 'sharingLocationDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notification`
+  String get notification {
+    return Intl.message(
+      'Notification',
+      name: 'notification',
       desc: '',
       args: [],
     );

@@ -1,12 +1,14 @@
+import 'package:car_help/features/lists/presentation/manager/districts%20cubit/districts_cubit.dart';
+import 'package:flutter/material.dart';
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
-import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
+import 'package:car_help/features/widgets/custom_text_dropdown.dart';
 import 'package:car_help/generated/l10n.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class SingleSelectSheet extends StatefulWidget {
@@ -35,30 +37,31 @@ class _SingleSelectSheetState extends State<SingleSelectSheet> {
   @override
   void initState() {
     super.initState();
-    _selectedId = widget.selectedId?.id!;
-
-    // Initialize controller with the selected category
-    _controller = TextEditingController(
-      text: _selectedId == null
-          ? ''
-          : widget.categories
-              .firstWhere((category) => category.id == _selectedId)
-              .title!,
-    );
+    _selectedId = widget.selectedId?.id;
+    _controller = TextEditingController(text: widget.selectedId?.title ?? '');
   }
 
-  // Update the controller when a new selection is made
+  String _getSelectedTitle() {
+    if (_selectedId == null) return '';
+    try {
+      return widget.categories
+              .firstWhere((category) => category.id == _selectedId)
+              .title ??
+          '';
+    } catch (e) {
+      return '';
+    }
+  }
+
   void _updateControllerText() {
-    _controller.text = _selectedId == null
-        ? ''
-        : widget.categories
-            .firstWhere((category) => category.id == _selectedId)
-            .title!;
+    setState(() {
+      _controller.text = _getSelectedTitle();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextFormField(
+    return CustomTextDropdown(
       readOnly: true,
       padding: EdgeInsets.only(
         top: SizeConfig.bodyHeight * .025,
@@ -66,15 +69,19 @@ class _SingleSelectSheetState extends State<SingleSelectSheet> {
         right: SizeConfig.bodyHeight * .025,
       ),
       suffixIcon: AppAssets.arrowDown,
+      validate: (value) =>
+          value!.isEmpty ? S.of(context).feildRequiredValidation : null,
       onTap: () {
         showCupertinoModalBottomSheet(
           topRadius: const Radius.circular(30),
           context: context,
           builder: (context) => Container(
-            height: SizeConfig.bodyHeight * .7,
+            height: MediaQuery.of(context).size.height * 0.7,
             width: double.infinity,
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
             child: Column(
               children: [
                 Container(
@@ -82,8 +89,9 @@ class _SingleSelectSheetState extends State<SingleSelectSheet> {
                   width: SizeConfig.screenWidth * .2,
                   height: 5,
                   decoration: BoxDecoration(
-                      color: AppColors.grey,
-                      borderRadius: BorderRadius.circular(20)),
+                    color: AppColors.grey,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 Expanded(
@@ -156,7 +164,6 @@ class _SingleSelectDialogState extends State<SingleSelectDialog> {
                       style: AppStyles.textStyle16_800),
                   onChanged: (bool? isSelected) {
                     setState(() {
-                      // Ensure only one checkbox is selected at a time
                       if (isSelected == true) {
                         _tempSelectedId = category.id;
                       } else {

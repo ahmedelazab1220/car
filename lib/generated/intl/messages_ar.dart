@@ -26,16 +26,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutapp": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
         "addACar": MessageLookupByLibrary.simpleMessage("اضف سيارة"),
+        "addAddress": MessageLookupByLibrary.simpleMessage("إضف العنوان"),
         "addExhibit": MessageLookupByLibrary.simpleMessage("اضافة معروض"),
         "additionalAddressDetails":
             MessageLookupByLibrary.simpleMessage("تفاصيل العنوان الإضافية"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "addressForYou": MessageLookupByLibrary.simpleMessage("عنوان لديك"),
         "adjustmentAndRepair":
             MessageLookupByLibrary.simpleMessage("التعديل والترهيم"),
         "advertiseNotifications":
             MessageLookupByLibrary.simpleMessage("الاشعارات الترويجية"),
         "advertiseNotificationsDescription":
             MessageLookupByLibrary.simpleMessage("للخصومات والدعاية"),
+        "allow": MessageLookupByLibrary.simpleMessage("سماح"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب لدينا ؟ "),
         "approveTheRequest": MessageLookupByLibrary.simpleMessage(
@@ -70,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose": MessageLookupByLibrary.simpleMessage("اختار"),
         "chooseBrandCar":
-            MessageLookupByLibrary.simpleMessage("أختار ماركة السيارة *"),
+            MessageLookupByLibrary.simpleMessage("أختر ماركة السيارة *"),
         "chooseCenterClassification": MessageLookupByLibrary.simpleMessage(
             "أختر نوع الخدمات التي يقدمها مكانك"),
         "chooseCity": MessageLookupByLibrary.simpleMessage("أخنار المدينة"),
@@ -78,6 +81,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseLang": MessageLookupByLibrary.simpleMessage("اختار اللغة"),
         "chooseLanguage":
             MessageLookupByLibrary.simpleMessage("اختر اللغة المفضلة لك"),
+        "chooseModelCar":
+            MessageLookupByLibrary.simpleMessage("÷ختر موديل السيارة *"),
+        "chooseProblemType":
+            MessageLookupByLibrary.simpleMessage("أختار سبب المشكلة"),
         "chooseService": MessageLookupByLibrary.simpleMessage(
             "يمكن أختيار أكثر من نوع خدمة"),
         "city": MessageLookupByLibrary.simpleMessage("مدينة"),
@@ -111,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "createAccountBody": MessageLookupByLibrary.simpleMessage(
             "مرحبا بك , كل ما عليك هو انشاء حساب معنا"),
+        "createYourAddresses":
+            MessageLookupByLibrary.simpleMessage("أضف عناوينك"),
         "currency": MessageLookupByLibrary.simpleMessage("ر.س"),
         "customerOrders": MessageLookupByLibrary.simpleMessage("طلبات العملاء"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
@@ -143,8 +152,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("برجاء أدخال تفاصيل المعروض"),
         "enterExhibitName":
             MessageLookupByLibrary.simpleMessage("برجاء أدخال اسم المعروض"),
-        "enterModelCar":
-            MessageLookupByLibrary.simpleMessage("أدخل موديل السيارة *"),
         "enterPrice": MessageLookupByLibrary.simpleMessage("برجاء أدخال السعر"),
         "enterQuantity":
             MessageLookupByLibrary.simpleMessage("برجاء أدخال الكمية"),
@@ -190,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "الذهاب للدفع لاستكمال الخدمة"),
         "guest": MessageLookupByLibrary.simpleMessage("تصفح كضيف"),
         "home": MessageLookupByLibrary.simpleMessage(" الرئيسية"),
+        "isDefault": MessageLookupByLibrary.simpleMessage("الافتراضي"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "letsStart": MessageLookupByLibrary.simpleMessage("فلنبدأ"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول "),
@@ -208,6 +216,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لمعلومات اخري"),
         "multiSelectService": MessageLookupByLibrary.simpleMessage(
             "يمكنك أختيار أكثر من نوع الخدمة"),
+        "myAddresses": MessageLookupByLibrary.simpleMessage("عناويني"),
         "myFavorites": MessageLookupByLibrary.simpleMessage("مفضلاتي"),
         "myFavoritesDescription": MessageLookupByLibrary.simpleMessage(
             "قائمة بمقدمين الخدمة التي تم تفضيلهم"),
@@ -221,6 +230,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPasswordValidation":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة مطلوبة"),
         "newRequests": MessageLookupByLibrary.simpleMessage("جديدة"),
+        "noAddresses": MessageLookupByLibrary.simpleMessage(
+            "لم تضف عناوينك بعد, أضفها الان!"),
         "noCars": MessageLookupByLibrary.simpleMessage(
             "لم تضف سياراتك بعد, أضفها الان!"),
         "noExhibitsMsg": MessageLookupByLibrary.simpleMessage(
@@ -235,6 +246,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لم يتم ارسال كود لك؟"),
         "notSubscribedWithUs":
             MessageLookupByLibrary.simpleMessage("لست مشترك معنا ؟"),
+        "notification": MessageLookupByLibrary.simpleMessage("الاشعارات"),
         "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
         "notificationsToggleSuccess":
             MessageLookupByLibrary.simpleMessage("تم تبديل الاشعارات بنجاح"),
@@ -280,6 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "priceOffers": MessageLookupByLibrary.simpleMessage("عروض الأسعار"),
         "priceQuote": MessageLookupByLibrary.simpleMessage("عرض سعر"),
         "priceSubmission": MessageLookupByLibrary.simpleMessage("تقديم السعر"),
+        "problemType": MessageLookupByLibrary.simpleMessage("سبب المشكلة"),
         "protectionAndShading":
             MessageLookupByLibrary.simpleMessage("الحماية والتظليل"),
         "provider": MessageLookupByLibrary.simpleMessage("مقدم خدمة"),
@@ -327,6 +340,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "setAPassword": MessageLookupByLibrary.simpleMessage("تعيين كلمة مرور"),
         "setAPasswordBody": MessageLookupByLibrary.simpleMessage(
             "قم باختيار كلمة سر جديدة مناسبة بك"),
+        "sharingLocation":
+            MessageLookupByLibrary.simpleMessage("السماح بمشاركة موقعك"),
+        "sharingLocationDesc": MessageLookupByLibrary.simpleMessage(
+            "من فضلك شارك معنا موقعك لنتمكن من أظهار أقرب الخدمات لديك"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "specialRequests": MessageLookupByLibrary.simpleMessage("طلبات خاصة"),
         "successfullyReceived": MessageLookupByLibrary.simpleMessage(

@@ -13,15 +13,17 @@ class ContactUsCubit extends Cubit<ContactUsState> {
   Future<void> posrContactUs({
     String? name,
     String? phone,
-    String? address,
+    String? email,
+    int? problemId,
     String? message,
   }) async {
     emit(ContactUsLoading());
     var result = await settingsRepoImpl.posrContactUs(
       name: name,
       phone: phone,
-      address: address,
+      email: email,
       message: message,
+      problemId: problemId,
     );
     result.fold(
       (failure) => {

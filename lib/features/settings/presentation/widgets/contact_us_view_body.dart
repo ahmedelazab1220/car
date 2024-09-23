@@ -1,11 +1,13 @@
 import 'package:car_help/core/utils/app_assets.dart';
+import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/lists/presentation/controllers/cities_controller.dart';
 import 'package:car_help/features/lists/presentation/controllers/districts_controller.dart';
+import 'package:car_help/features/lists/presentation/controllers/problem_types_controller.dart';
 import 'package:car_help/features/settings/presentation/manager/contact%20cubit/contact_us_cubit.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
-import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
+import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +27,7 @@ class _ContactUsViewBodyState extends State<ContactUsViewBody> {
   TextEditingController message = TextEditingController();
   TextEditingController address = TextEditingController();
   bool isValid = false;
+  int? problemId;
 
   void _updateIsValid() {
     setState(() {
@@ -52,7 +55,6 @@ class _ContactUsViewBodyState extends State<ContactUsViewBody> {
                     SizedBox(
                         height: SizeConfig.screenWidth * 0.25,
                         child: Image.asset(AppAssets.appLogo)),
-
                     SizedBox(
                       height: SizeConfig.bodyHeight * 0.04,
                     ),
@@ -84,12 +86,14 @@ class _ContactUsViewBodyState extends State<ContactUsViewBody> {
                           value!.isEmpty ? S.of(context).emailValidation : null,
                     ),
                     SizedBox(height: SizeConfig.bodyHeight * .02),
-
-                    DistrictsController(
-                      onSelectedId: (value) {},
+                    ProblemTypesController(
+                      onSelectedId: (value) {
+                        setState(() {
+                          problemId = value;
+                        });
+                      },
                     ),
                     SizedBox(height: SizeConfig.bodyHeight * .02),
-
                     CustomTextFormField(
                       maxLines: 5,
                       controller: message,
@@ -99,41 +103,12 @@ class _ContactUsViewBodyState extends State<ContactUsViewBody> {
                           ? S.of(context).yourMessageValidation
                           : null,
                     ),
-                    // CustomPhoneFormField(
-                    //   controller: phoneNumber,
-                    // ),
-                    // Row(
-                    //   children: [
-                    //     Text(
-                    //       S.of(context).address,
-                    //       style: AppStyles.textStyle14_700Black,
-                    //     ),
-                    //   ],
-                    // ),
-                    // CustomTextFromField(
-                    //   controller: address,
-                    //   labelText: '',
-                    // ),
-                    // SizedBox(
-                    //   height: SizeConfig.bodyHeight * 0.02,
-                    // ),
-                    // Row(
-                    //   children: [
-                    //     Text(
-                    //       ' S.of(context).decription',
-                    //       style: AppStyles.textStyle14_700Black,
-                    //     ),
-                    //   ],
-                    // ),
-                    // CustomTextFromField(
-                    //   controller: message,
-                    //   maxLines: 5,
-                    //   hintText: 'S.of(context).introductionMsg',
-                    // ),
                     SizedBox(
                       height: SizeConfig.bodyHeight * .04,
                     ),
                     CustomButton(
+                      color:
+                          isValid ? null : AppColors.primary.withOpacity(0.6),
                       margin: const EdgeInsets.all(0),
                       title: S.of(context).send,
                       onPressed: isValid
@@ -142,8 +117,9 @@ class _ContactUsViewBodyState extends State<ContactUsViewBody> {
                                   .posrContactUs(
                                 name: name.text,
                                 phone: phoneNumber.text,
-                                address: address.text,
+                                email: email.text,
                                 message: message.text,
+                                problemId: problemId,
                               );
                             }
                           : null,

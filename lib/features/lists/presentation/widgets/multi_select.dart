@@ -3,9 +3,8 @@ import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
-import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
-import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
+import 'package:car_help/features/widgets/custom_text_dropdown.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -37,32 +36,27 @@ class _MultiSelectSheetState extends State<MultiSelectSheet> {
   void initState() {
     super.initState();
     _selectedIds = widget.selectedIds.map((program) => program.id!).toList();
-
-    // Initialize controller with selected categories
     _controller = TextEditingController(
-      text: _selectedIds.isEmpty
-          ? ''
-          : widget.categories
-              .where((category) => _selectedIds.contains(category.id))
-              .map((category) => category.name!)
-              .join(', '),
+      text: widget.selectedIds.map((category) => category.name!).join(', '),
     );
   }
 
   // Update the controller when new selections are made
   void _updateControllerText() {
-    _controller.text = _selectedIds.isEmpty
-        ? ''
-        : widget.categories
-            .where((category) => _selectedIds.contains(category.id))
-            .map((category) => category.name!)
-            .join(', ');
+    setState(() {
+      _controller.text = _selectedIds.isEmpty
+          ? ''
+          : widget.categories
+              .where((category) => _selectedIds.contains(category.id))
+              .map((category) => category.name!)
+              .join(', ');
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CustomTextFormField(
+      child: CustomTextDropdown(
         readOnly: true,
         padding: EdgeInsets.only(
           top: SizeConfig.bodyHeight * .025,
@@ -70,6 +64,8 @@ class _MultiSelectSheetState extends State<MultiSelectSheet> {
           right: SizeConfig.bodyHeight * .025,
         ),
         suffixIcon: AppAssets.arrowDown,
+        validate: (value) =>
+            value!.isEmpty ? S.of(context).feildRequiredValidation : null,
         onTap: () {
           showCupertinoModalBottomSheet(
             topRadius: const Radius.circular(30),
@@ -78,7 +74,9 @@ class _MultiSelectSheetState extends State<MultiSelectSheet> {
               height: SizeConfig.bodyHeight * .7,
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: Column(
                 children: [
                   Container(
@@ -86,8 +84,9 @@ class _MultiSelectSheetState extends State<MultiSelectSheet> {
                     width: SizeConfig.screenWidth * .2,
                     height: 5,
                     decoration: BoxDecoration(
-                        color: AppColors.grey,
-                        borderRadius: BorderRadius.circular(20)),
+                      color: AppColors.grey,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Expanded(
@@ -159,7 +158,6 @@ class _MultiSelectDialogState extends State<MultiSelectDialog> {
             child: ListView(
               children: widget.categories.map((category) {
                 return CheckboxListTile(
-                  // materialTapTargetSize: MaterialTapTargetSize.padded,
                   activeColor: AppColors.black,
                   value: _tempSelectedIds.contains(category.id),
                   title: Text(category.name ?? '',

@@ -2,7 +2,7 @@ import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
-import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
+import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class MakeRequestWidget extends StatelessWidget {
               CustomTextFormField(
                 controller: carBrand,
                 labelText: S.of(context).carModel,
-                hintText: S.of(context).enterModelCar,
+                hintText: S.of(context).chooseModelCar,
                 validate: (value) => value!.isEmpty
                     ? S.of(context).feildRequiredValidation
                     : null,

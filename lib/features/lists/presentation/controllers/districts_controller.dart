@@ -29,33 +29,26 @@ class _DistrictsControllerState extends State<DistrictsController> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          DistrictsCubit(getIt.get<ListsRepo>())..getDistricts(),
-      child: BlocConsumer<DistrictsCubit, DistrictsState>(
-        listener: (context, state) {
-          if (state is DistrictsLoading) {
-            isLoading = true;
-          } else if (state is DistrictsSuccess) {
-            isLoading = false;
-            data = state.data;
-          } else if (state is DistrictsFailure) {
-            isLoading = false;
-            snackbarError(context, state.errorMessage);
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: isLoading,
-            child: SingleSelectSheet(
-                selectedId: widget.selectedId,
-                categories: data,
-                hintTitle: S.of(context).district,
-                labaleText: S.of(context).chooseDistrict,
-                onSelectedId: widget.onSelectedId),
-          );
-        },
-      ),
+    return BlocConsumer<DistrictsCubit, DistrictsState>(
+      listener: (context, state) {
+        if (state is DistrictsLoading) {
+          isLoading = true;
+        } else if (state is DistrictsSuccess) {
+          isLoading = false;
+          data = state.data;
+        } else if (state is DistrictsFailure) {
+          isLoading = false;
+          snackbarError(context, state.errorMessage);
+        }
+      },
+      builder: (context, state) {
+        return SingleSelectSheet(
+            selectedId: widget.selectedId,
+            categories: data,
+            hintTitle: S.of(context).district,
+            labaleText: S.of(context).chooseDistrict,
+            onSelectedId: widget.onSelectedId);
+      },
     );
   }
 }

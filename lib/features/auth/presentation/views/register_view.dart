@@ -1,5 +1,5 @@
 import 'package:car_help/core/utils/app_colors.dart';
-import 'package:car_help/features/auth/presentation/widgets/register_view_bloc.dart';
+import 'package:car_help/features/auth/presentation/widgets/register_view_controller.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class RegisterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const SafeArea(child: RegisterViewBloc()),
+      body: const SafeArea(child: RegisterViewController()),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(vertical: 26),
         child: Row(

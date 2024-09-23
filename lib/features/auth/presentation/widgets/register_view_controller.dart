@@ -2,6 +2,7 @@ import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:car_help/features/auth/presentation/manager/register%20cubit/register_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/register_client_view_body.dart';
@@ -15,14 +16,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class RegisterViewBloc extends StatefulWidget {
-  const RegisterViewBloc({super.key});
+class RegisterViewController extends StatefulWidget {
+  const RegisterViewController({super.key});
 
   @override
-  State<RegisterViewBloc> createState() => _RegisterViewBlocState();
+  State<RegisterViewController> createState() => _RegisterViewControllerState();
 }
 
-class _RegisterViewBlocState extends State<RegisterViewBloc> {
+class _RegisterViewControllerState extends State<RegisterViewController> {
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,12 @@ class _RegisterViewBlocState extends State<RegisterViewBloc> {
             isLoading = true;
           } else if (state is RegisterSuccess) {
             isLoading = false;
-            GoRouter.of(context).pushReplacement(AppRouter.kOtpVerificationView,
-                extra: state.list);
+            GoRouter.of(context).pop();
+            GoRouter.of(context).pushReplacement(
+              state.data.userType == AppStrings.provider
+                  ? AppRouter.kProviderLayout
+                  : AppRouter.kClientLayout,
+            );
           } else if (state is RegisterFailure) {
             isLoading = false;
             snackbarError(context, state.errorMessage);

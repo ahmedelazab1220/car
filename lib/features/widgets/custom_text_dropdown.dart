@@ -5,7 +5,7 @@ import 'package:car_help/config/theme/app_theme.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 
-class CustomTextFormField extends StatefulWidget {
+class CustomTextDropdown extends StatefulWidget {
   final TextInputType? type;
   final FormFieldValidator<String>? validate;
   final VoidCallback? onTap;
@@ -29,7 +29,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool isPassword;
   final bool isWithShadow;
 
-  const CustomTextFormField({
+  const CustomTextDropdown({
     super.key,
     this.type = TextInputType.text,
     this.validate,
@@ -56,10 +56,10 @@ class CustomTextFormField extends StatefulWidget {
   });
 
   @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+  State<CustomTextDropdown> createState() => _CustomTextDropdownState();
 }
 
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
+class _CustomTextDropdownState extends State<CustomTextDropdown> {
   @override
   void initState() {
     super.initState();

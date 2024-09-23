@@ -1,3 +1,4 @@
+import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/lists/presentation/controllers/cities_controller.dart';
 import 'package:car_help/features/lists/presentation/controllers/districts_controller.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +12,14 @@ class AddressRegisterWidget extends StatefulWidget {
   String? distract;
   final void Function(int?) onSelectedCityId;
   final void Function(int?) onSelectedDistrictId;
+  final UserEntity? data;
   AddressRegisterWidget({
     super.key,
     this.city,
     this.distract,
     required this.onSelectedCityId,
     required this.onSelectedDistrictId,
+    this.data,
   });
 
   @override
@@ -37,11 +40,15 @@ class _AddressRegisterWidgetState extends State<AddressRegisterWidget> {
     return Row(
       children: [
         Expanded(
-          child: CitiesController(onSelectedId: widget.onSelectedCityId),
+          child: CitiesController(
+              selectedId: widget.data?.city,
+              onSelectedId: widget.onSelectedCityId),
         ),
         SizedBox(width: SizeConfig.screenWidth * .01),
         Expanded(
-          child: DistrictsController(onSelectedId: widget.onSelectedDistrictId),
+          child: DistrictsController(
+              selectedId: widget.data?.district,
+              onSelectedId: widget.onSelectedDistrictId),
         ),
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -21,8 +22,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     String? commercialRegister,
     int? cityId,
     int? districtId,
-    int? lat,
-    int? lng,
+    double? lat,
+    double? lng,
+    List<int>? categoryIds,
   }) async {
     emit(RegisterLoading());
     var result = await authRepoImpl.register(
@@ -37,6 +39,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       districtId: districtId,
       lat: lat,
       lng: lng,
+      categoryIds: categoryIds,
     );
     result.fold(
       (failure) => {
@@ -46,7 +49,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       },
       (success) => {
         emit(
-          RegisterSuccess(list: [phone, success.id]),
+          RegisterSuccess(data: success),
         ),
       },
     );

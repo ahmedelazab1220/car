@@ -51,30 +51,29 @@ class SettingsViewBody extends StatelessWidget {
                 color: AppColors.primary,
               ),
             ),
-            // if (userType != AppStrings.both)
-            // SettingsButtom(
-            //   title: S.of(context).orderHistory,
-            //   icon: Icon(
-            //     Iconsax.receipt_edit,
-            //     color: AppColors.grey,
-            //   ),
-            //   onTap: () => GoRouter.of(context).push(
-            //     AppRouter.kOrederHistoryView,
-            //   ),
-            // ),
+            if (userType == AppStrings.client)
+              SettingsButtom(
+                onTap: () =>
+                    GoRouter.of(context).push(AppRouter.kAddressesView),
+                title: S.of(context).address,
+                subTitle: S.of(context).createYourAddresses,
+                icon: AppAssets.location,
+              ),
             SettingsButtom(
               onTap: () => SplashHelper.showBottomSheetDialog(context: context),
               title: S.of(context).changeLanguage,
               subTitle: S.of(context).chooseLanguage,
               icon: AppAssets.language,
             ),
-            const SizedBox(height: 12),
-            SettingsButtom(
-              onTap: () => GoRouter.of(context).push(AppRouter.kFavoritesView),
-              title: S.of(context).myFavorites,
-              subTitle: S.of(context).myFavoritesDescription,
-              icon: AppAssets.favouriteIcon,
-            ),
+            if (userType == AppStrings.client) const SizedBox(height: 12),
+            if (userType == AppStrings.client)
+              SettingsButtom(
+                onTap: () =>
+                    GoRouter.of(context).push(AppRouter.kFavoritesView),
+                title: S.of(context).myFavorites,
+                subTitle: S.of(context).myFavoritesDescription,
+                icon: AppAssets.favouriteIcon,
+              ),
             const SizedBox(height: 12),
             SettingsButtom(
               onTap: () =>
@@ -84,7 +83,6 @@ class SettingsViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             const ToggleNotificationsButtons(),
-
             Text(
               S.of(context).more,
               overflow: TextOverflow.ellipsis,

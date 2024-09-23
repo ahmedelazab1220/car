@@ -1,19 +1,15 @@
 import 'dart:io';
 
-import 'package:car_help/config/function/app_router.dart';
-import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/presentation/manager/register%20cubit/register_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/terms_register_widget.dart';
-import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
-import 'package:car_help/features/widgets/custom_text_form_field%20copy.dart';
+import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class RegisterClientViewBody extends StatefulWidget {
   const RegisterClientViewBody({
@@ -75,7 +71,7 @@ class _RegisterClientViewBodyState extends State<RegisterClientViewBody> {
             hintText: S.of(context).enterYourPassword,
             validate: (value) =>
                 value!.isEmpty ? S.of(context).passwordValidation : null,
-            suffixIcon: AppAssets.eyes,
+            isPassword: true,
           ),
           SizedBox(height: SizeConfig.bodyHeight * .02),
           CustomTextFormField(
@@ -86,7 +82,7 @@ class _RegisterClientViewBodyState extends State<RegisterClientViewBody> {
             validate: (value) => value!.isEmpty
                 ? S.of(context).confirmNewPasswordValidation
                 : null,
-            suffixIcon: AppAssets.eyes,
+            isPassword: true,
           ),
           TermsRegisterWidget(
             isTrue: (value) {

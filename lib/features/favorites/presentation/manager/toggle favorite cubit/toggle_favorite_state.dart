@@ -14,10 +14,9 @@ final class ToggleFavoriteLoading extends ToggleFavoriteState {}
 final class ToggleFavoriteSuccess extends ToggleFavoriteState {
   final String message;
   const ToggleFavoriteSuccess({required this.message});
-} 
+}
 
 final class ToggleFavoriteFailure extends ToggleFavoriteState {
   final String errorMessage;
   const ToggleFavoriteFailure({required this.errorMessage});
 }
-

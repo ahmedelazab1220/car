@@ -15,7 +15,8 @@ abstract class SettingsRepo {
   Future<Either<Failure, String>> posrContactUs({
     String? name,
     String? phone,
-    String? address,
+    String? email,
+    int? problemId,
     String? message,
   });
 }

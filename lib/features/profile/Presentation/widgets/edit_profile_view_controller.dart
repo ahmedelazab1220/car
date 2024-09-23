@@ -2,10 +2,12 @@ import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/config/helper/cache_helper.dart';
 import 'package:car_help/config/helper/helper.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/profile/Presentation/manager/edit%20cubit/edit_profile_cubit.dart';
 import 'package:car_help/features/profile/Presentation/manager/profile%20cubit/profile_cubit.dart';
-import 'package:car_help/features/profile/Presentation/widgets/edit_profile_view_body.dart';
+import 'package:car_help/features/profile/Presentation/widgets/edit_profile_client_view_body.dart';
+import 'package:car_help/features/profile/Presentation/widgets/edit_profile_provider_view_body.dart';
 import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';
 import 'package:car_help/features/widgets/snackbar_success.dart';
@@ -14,15 +16,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class EditProfileViewBloc extends StatefulWidget {
+class EditProfileViewController extends StatefulWidget {
   final UserEntity data;
-  const EditProfileViewBloc({super.key, required this.data});
+  const EditProfileViewController({super.key, required this.data});
 
   @override
-  State<EditProfileViewBloc> createState() => _EditProfileViewBlocState();
+  State<EditProfileViewController> createState() =>
+      _EditProfileViewControllerState();
 }
 
-class _EditProfileViewBlocState extends State<EditProfileViewBloc> {
+class _EditProfileViewControllerState extends State<EditProfileViewController> {
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -48,11 +51,19 @@ class _EditProfileViewBlocState extends State<EditProfileViewBloc> {
           }
         },
         builder: (context, state) {
-          return ModalProgressHUD(
-              inAsyncCall: isLoading,
-              child: EditProfileViewBody(
-                data: widget.data,
-              ));
+          if (widget.data.userType == AppStrings.client) {
+            return ModalProgressHUD(
+                inAsyncCall: isLoading,
+                child: EditProfileClientViewBody(
+                  data: widget.data,
+                ));
+          } else {
+            return ModalProgressHUD(
+                inAsyncCall: isLoading,
+                child: EditProfileProviderViewBody(
+                  data: widget.data,
+                ));
+          }
         },
       ),
     );

@@ -69,8 +69,9 @@ class AuthRepoImpl implements AuthRepo {
     String? commercialRegister,
     int? cityId,
     int? districtId,
-    int? lat,
-    int? lng,
+    double? lat,
+    double? lng,
+    List<int>? categoryIds,
   }) async {
     try {
       var data = await authRemoteDataSource.register(
@@ -85,6 +86,7 @@ class AuthRepoImpl implements AuthRepo {
         districtId: districtId,
         lat: lat,
         lng: lng,
+        categoryIds: categoryIds,
       );
       return right(data);
     } catch (e) {

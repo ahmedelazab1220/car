@@ -44,7 +44,7 @@ class StartViewBody extends StatelessWidget {
               ),
               const Spacer(),
               SizedBox(
-                height: SizeConfig.bodyHeight * 0.08,
+                height: SizeConfig.bodyHeight * 0.09,
               ),
               SizedBox(
                 height: SizeConfig.bodyHeight * 0.2,
@@ -52,10 +52,21 @@ class StartViewBody extends StatelessWidget {
                   AppAssets.appLogo,
                 ),
               ),
-              const Spacer(),
               SizedBox(
-                height: SizeConfig.bodyHeight * 0.02,
+                height: SizeConfig.bodyHeight * 0.08,
               ),
+              Text(
+                S.of(context).welcome,
+                style: AppStyles.textStyle24_700,
+              ),
+              SizedBox(
+                height: SizeConfig.bodyHeight * 0.01,
+              ),
+              Text(
+                S.of(context).letsStart,
+                style: AppStyles.textStyle14_400,
+              ),
+              const Spacer(),
               SizedBox(
                 height: SizeConfig.bodyHeight * 0.01,
               ),

@@ -76,15 +76,17 @@ class SettingsHelper {
     showCupertinoModalBottomSheet(
       topRadius: const Radius.circular(30),
       context: context,
-      builder: (context) => Container(
-          height: SizeConfig.bodyHeight * .55,
-          width: double.infinity,
-          margin: screenPadding(),
-          padding:
-              EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * .04),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
-          child: widget),
+      builder: (context) => Material(
+        child: Container(
+            height: SizeConfig.bodyHeight * .55,
+            width: double.infinity,
+            margin: screenPadding(),
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * .04),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+            child: widget),
+      ),
     );
   }
 }
