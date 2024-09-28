@@ -144,6 +144,7 @@
     "deleteExhibitMsg":"هل أنت متأكد من حذف هذا المعروض؟",
     "deleteAccountMsg":"هل أنت متأكد من حذف حسابك؟",
     "deleteAccountDesc": "عند القيام بحذف حسابك ,لن تتمكن من الوصول لهذه المعلومات مره اخري",
+    "logoutMsg":"هل أنت متأكد من تسحيل الخروج من حسابك",
     "cancelFavorite": "الغاء التفضيل",
     "noFavorites":"لم تضف مفضلات بعد.",
     "cancelFavoritesMsg":"هل أنت متأكد من الغاء التفضيل؟",
@@ -236,7 +237,27 @@
     "allow": "سماح",
     "sharingLocation": "السماح بمشاركة موقعك",
     "sharingLocationDesc": "من فضلك شارك معنا موقعك لنتمكن من أظهار أقرب الخدمات لديك",
-    "notification": "الاشعارات"
+    "notification": "الاشعارات",
+    "carsYouHave": "سيارات لديك",
+    "exhibitsYouHave": "معروضات",
+    "image": "صورة",
+    "addAddressSuccess": "تم أضافة عنوان جديد بنجاح",
+    "chooseCar": "أختيار السيارة",
+    "selectCar": "تحديد السيارة",
+    "chooseAddress": "أختيار العنوان",
+    "orderDetailsMsg": "برجاء ادخال معلومات أكثر عن طلبك",
+    "bookNow": "احجز الان",
+    "tax": "الضريبة",
+    "total": "الأجمالي",
+    "chooseDayAndTime": "أختار اليوم والوقت المناسب",
+    "now": "الان",
+    "hour": "ساعة",
+    "minute": "دقيقة",
+    "ago": "منذ"
+
+    
+
+
 
 
   

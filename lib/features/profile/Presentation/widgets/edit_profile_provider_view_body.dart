@@ -8,7 +8,7 @@ import 'package:car_help/features/lists/presentation/manager/districts%20cubit/d
 import 'package:car_help/features/location/domain/entities/location_entity.dart';
 import 'package:car_help/features/profile/Presentation/manager/edit%20cubit/edit_profile_cubit.dart';
 import 'package:car_help/features/settings/presentation/settings_helper.dart';
-import 'package:car_help/features/settings/presentation/widgets/cancelling_order_bottom_sheet_body.dart';
+import 'package:car_help/features/settings/presentation/widgets/delete_account_bottom_sheet_body.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';

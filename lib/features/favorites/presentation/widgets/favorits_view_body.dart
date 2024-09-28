@@ -39,7 +39,7 @@ class FavoritsViewBody extends StatelessWidget {
                         return FavoriteCard(
                           onTap: () {
                             GoRouter.of(context).push(
-                                AppRouter.kServiceDetailsView,
+                                AppRouter.kProviderDetailsView,
                                 extra: data[index]);
                           },
                           data: data[index],

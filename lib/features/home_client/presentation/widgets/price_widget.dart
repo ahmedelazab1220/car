@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class PriceWidget extends StatelessWidget {
   final String price;
-  final String discount;
+  final String? discount;
   const PriceWidget({
     super.key,
     required this.price,
-    required this.discount,
+    this.discount,
   });
 
   @override

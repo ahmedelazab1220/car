@@ -1,7 +1,10 @@
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_strings.dart';
+import 'package:car_help/features/exhibits/presentation/views/exhibits_view.dart';
+import 'package:car_help/features/home_provider/presentation/views/home_provider_view.dart';
 import 'package:car_help/features/layout/presentation/widgets/custom_nav_bar.dart';
+import 'package:car_help/features/my_services/presentation/views/my_service_view.dart';
 import 'package:car_help/features/profile/Presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:car_help/features/settings/presentation/views/settings_view.dart';
 import 'package:car_help/generated/l10n.dart';
@@ -59,9 +62,9 @@ class _ProviderLayoutState extends State<ProviderLayout> {
     return CustomNavBar(
       items: _navBarsItems(),
       screens: const [
-        SizedBox(),
-        SizedBox(),
-        SizedBox(),
+        HomeProviderView(),
+        MyServicesView(),
+        ExhibitsView(),
         SettingsView(
           userType: AppStrings.provider,
         )

@@ -144,6 +144,7 @@
     "deleteExhibitMsg":"Are you sure you want to delete this item?",
     "deleteAccountMsg":"Are you sure you want to delete your account?",
     "deleteAccountDesc": "By deleting your account, you will not be able to access.",
+    "logoutMsg":"Are you sure you want to logout your account?",
     "cancelFavorite": "Cancel Favorite",
     "noFavorites":"You haven't added any favorites yet.",
     "cancelFavoritesMsg":"Are you sure you want to cancel your favorite?",
@@ -236,7 +237,26 @@
     "allow": "Allow",
     "sharingLocation": "Allow sharing of your location",
     "sharingLocationDesc": "Please share your location with us so we can show you the nearest services",
-    "notification": "Notification"
+    "notification": "Notification",
+    "carsYouHave": "Cars you have",
+    "exhibitsYouHave": "Exhibits you have",
+    "image": "Image",
+    "addAddressSuccess": "Add a new address successfully",
+    "chooseCar": "Choose a car",
+    "selectCar": "Select a car",
+    "chooseAddress": "Choose a address",
+    "orderDetailsMsg":"Please enter more information about your request.",
+    "bookNaw": "Book Now",
+    "tax": "Tax",
+    "total": "Total",
+    "chooseDayAndTime": "Choose the right day and time",
+    "now": "Now",
+    "hour": "Hour",
+    "minute": "Minute",
+    "ago": "Ago"
+
+
+
 
     
 

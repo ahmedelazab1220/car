@@ -2,15 +2,18 @@ import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_details_exhibits_card.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/row_widget.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class GeneralOrderDetailsViewBody extends StatelessWidget {
-  final int requestStatusIndex;
+  final String? orderStatuse;
+  final OrderEntity? data;
   const GeneralOrderDetailsViewBody({
     super.key,
-    required this.requestStatusIndex,
+    required this.orderStatuse,
+    required this.data,
   });
 
   @override
@@ -42,12 +45,11 @@ class GeneralOrderDetailsViewBody extends StatelessWidget {
               children: [
                 RowWidget(
                   name: S.of(context).orderNumber,
-                  description: '45672',
+                  description: data?.id.toString() ?? '',
                 ),
                 RowWidget(
                   name: S.of(context).address,
-                  description:
-                      'أبراج وقف الملك عبد العزيز - الطابق 11 - أمام بوابة الملك عبد العزيز بالحرم المكي الشريف',
+                  description: data?.provider?.address ?? '',
                 ),
                 RowWidget(
                   name: S.of(context).orderDate,
@@ -77,7 +79,7 @@ class GeneralOrderDetailsViewBody extends StatelessWidget {
             height: 14,
           ),
           const ServiceDetailsExhibitsCard(
-            noPrice: false,
+            viewPrice: false,
           ),
           const SizedBox(
             height: 14,
@@ -91,7 +93,9 @@ class GeneralOrderDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          // const ServiceProvidersCard(data: null,)
+          ServiceProvidersCard(
+            data: data!.provider!,
+          )
         ],
       ),
     );

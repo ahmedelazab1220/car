@@ -1500,6 +1500,16 @@ class S {
     );
   }
 
+  /// `Are you sure you want to logout your account?`
+  String get logoutMsg {
+    return Intl.message(
+      'Are you sure you want to logout your account?',
+      name: 'logoutMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cancel Favorite`
   String get cancelFavorite {
     return Intl.message(
@@ -2425,6 +2435,166 @@ class S {
     return Intl.message(
       'Notification',
       name: 'notification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cars you have`
+  String get carsYouHave {
+    return Intl.message(
+      'Cars you have',
+      name: 'carsYouHave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exhibits you have`
+  String get exhibitsYouHave {
+    return Intl.message(
+      'Exhibits you have',
+      name: 'exhibitsYouHave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image`
+  String get image {
+    return Intl.message(
+      'Image',
+      name: 'image',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a new address successfully`
+  String get addAddressSuccess {
+    return Intl.message(
+      'Add a new address successfully',
+      name: 'addAddressSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose a car`
+  String get chooseCar {
+    return Intl.message(
+      'Choose a car',
+      name: 'chooseCar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select a car`
+  String get selectCar {
+    return Intl.message(
+      'Select a car',
+      name: 'selectCar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose a address`
+  String get chooseAddress {
+    return Intl.message(
+      'Choose a address',
+      name: 'chooseAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter more information about your request.`
+  String get orderDetailsMsg {
+    return Intl.message(
+      'Please enter more information about your request.',
+      name: 'orderDetailsMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book Now`
+  String get bookNaw {
+    return Intl.message(
+      'Book Now',
+      name: 'bookNaw',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax`
+  String get tax {
+    return Intl.message(
+      'Tax',
+      name: 'tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the right day and time`
+  String get chooseDayAndTime {
+    return Intl.message(
+      'Choose the right day and time',
+      name: 'chooseDayAndTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Now`
+  String get now {
+    return Intl.message(
+      'Now',
+      name: 'now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hour`
+  String get hour {
+    return Intl.message(
+      'Hour',
+      name: 'hour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minute`
+  String get minute {
+    return Intl.message(
+      'Minute',
+      name: 'minute',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ago`
+  String get ago {
+    return Intl.message(
+      'Ago',
+      name: 'ago',
       desc: '',
       args: [],
     );

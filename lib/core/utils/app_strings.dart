@@ -30,4 +30,11 @@ class AppStrings {
   static const String inChat = 'inChat';
   static const String services = 'services';
   static const String sessionToken = "sessionToken";
+  static const String exhibited = "exhibited";
+  static const String private = "private";
+  static const String public = "public";
+  static const String pending = "pending";
+  static const String inProgress = "in-progress";
+  static const String completed = "completed";
+  static const String canceled = "canceled";
 }

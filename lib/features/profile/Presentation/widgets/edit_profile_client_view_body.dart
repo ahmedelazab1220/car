@@ -5,7 +5,7 @@ import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/profile/Presentation/manager/edit%20cubit/edit_profile_cubit.dart';
 import 'package:car_help/features/settings/presentation/settings_helper.dart';
-import 'package:car_help/features/settings/presentation/widgets/cancelling_order_bottom_sheet_body.dart';
+import 'package:car_help/features/settings/presentation/widgets/delete_account_bottom_sheet_body.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';

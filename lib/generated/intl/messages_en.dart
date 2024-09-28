@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
         "addACar": MessageLookupByLibrary.simpleMessage("Add a Car"),
         "addAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
+        "addAddressSuccess": MessageLookupByLibrary.simpleMessage(
+            "Add a new address successfully"),
         "addExhibit": MessageLookupByLibrary.simpleMessage("Add Exhibit"),
         "additionalAddressDetails":
             MessageLookupByLibrary.simpleMessage("Additional address Details"),
@@ -40,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "advertiseNotificationsDescription":
             MessageLookupByLibrary.simpleMessage(
                 "For discounts and advertising"),
+        "ago": MessageLookupByLibrary.simpleMessage("Ago"),
         "allow": MessageLookupByLibrary.simpleMessage("Allow"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have account ? "),
@@ -49,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "attachPhotos": MessageLookupByLibrary.simpleMessage("Attach photos"),
         "backToHomePage":
             MessageLookupByLibrary.simpleMessage("Back to the home page"),
+        "bookNaw": MessageLookupByLibrary.simpleMessage("Book Now"),
         "cacelYourOrder": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to cancel your order?"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -69,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "carModel": MessageLookupByLibrary.simpleMessage("Car Model *"),
         "carType": MessageLookupByLibrary.simpleMessage("Car Type *"),
         "cars": MessageLookupByLibrary.simpleMessage(" Cars"),
+        "carsYouHave": MessageLookupByLibrary.simpleMessage("Cars you have"),
         "centerClassification":
             MessageLookupByLibrary.simpleMessage("Center Classification"),
         "centerName": MessageLookupByLibrary.simpleMessage("Center Name"),
@@ -77,11 +82,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "choose": MessageLookupByLibrary.simpleMessage("Choose"),
+        "chooseAddress":
+            MessageLookupByLibrary.simpleMessage("Choose a address"),
         "chooseBrandCar":
             MessageLookupByLibrary.simpleMessage("Choose Car Brand *"),
+        "chooseCar": MessageLookupByLibrary.simpleMessage("Choose a car"),
         "chooseCenterClassification": MessageLookupByLibrary.simpleMessage(
             "Choose the type of services your place offers"),
         "chooseCity": MessageLookupByLibrary.simpleMessage("Choose City"),
+        "chooseDayAndTime": MessageLookupByLibrary.simpleMessage(
+            "Choose the right day and time"),
         "chooseDistrict":
             MessageLookupByLibrary.simpleMessage("Choose District"),
         "chooseLang": MessageLookupByLibrary.simpleMessage("Choose Language"),
@@ -179,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Exhibit Required"),
         "exhibitValue": MessageLookupByLibrary.simpleMessage("Exhibit value"),
         "exhibits": MessageLookupByLibrary.simpleMessage("Exhibits"),
+        "exhibitsYouHave":
+            MessageLookupByLibrary.simpleMessage("Exhibits you have"),
         "favoriteForYou":
             MessageLookupByLibrary.simpleMessage("Favorite For You"),
         "feildRequiredValidation":
@@ -205,6 +217,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Go to checkout to complete the service"),
         "guest": MessageLookupByLibrary.simpleMessage("Guest"),
         "home": MessageLookupByLibrary.simpleMessage(" Home"),
+        "hour": MessageLookupByLibrary.simpleMessage("Hour"),
+        "image": MessageLookupByLibrary.simpleMessage("Image"),
         "isDefault": MessageLookupByLibrary.simpleMessage("Default"),
         "language": MessageLookupByLibrary.simpleMessage("English"),
         "letsStart": MessageLookupByLibrary.simpleMessage("Let`s Start"),
@@ -212,7 +226,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginToYourAccount":
             MessageLookupByLibrary.simpleMessage("Login to your account"),
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
+        "logoutMsg": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to logout your account?"),
         "makeARequest": MessageLookupByLibrary.simpleMessage("Make a Request"),
+        "minute": MessageLookupByLibrary.simpleMessage("Minute"),
         "mobileMaintenance":
             MessageLookupByLibrary.simpleMessage("Mobile Maintenance"),
         "mobileTires": MessageLookupByLibrary.simpleMessage("Mobile Tires"),
@@ -256,6 +273,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "notificationsToggleSuccess": MessageLookupByLibrary.simpleMessage(
             "Notifications toggled successfully"),
+        "now": MessageLookupByLibrary.simpleMessage("Now"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "oldPassword": MessageLookupByLibrary.simpleMessage("Old Password"),
         "oldPasswordValidation": MessageLookupByLibrary.simpleMessage(
@@ -270,6 +288,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "orderDate": MessageLookupByLibrary.simpleMessage("Order date"),
         "orderDetails": MessageLookupByLibrary.simpleMessage("Order Details"),
+        "orderDetailsMsg": MessageLookupByLibrary.simpleMessage(
+            "Please enter more information about your request."),
         "orderNumber": MessageLookupByLibrary.simpleMessage("Order number"),
         "orderSummary": MessageLookupByLibrary.simpleMessage("Order Summary"),
         "orders": MessageLookupByLibrary.simpleMessage(" Orders"),
@@ -325,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Responsiveness"),
         "saturday": MessageLookupByLibrary.simpleMessage("Saturday"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "selectCar": MessageLookupByLibrary.simpleMessage("Select a car"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sendTheOffer": MessageLookupByLibrary.simpleMessage("Send the Offer"),
         "sentSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -359,6 +380,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullyReceived": MessageLookupByLibrary.simpleMessage(
             "Congratulations! Your order has been successfully received."),
         "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
+        "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms and Conditions"),
         "theOfferedService":
@@ -366,6 +388,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thereAre": MessageLookupByLibrary.simpleMessage("There are"),
         "thursday": MessageLookupByLibrary.simpleMessage("Thursday"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Tuesday"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "visitForInspection":

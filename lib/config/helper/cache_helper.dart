@@ -59,22 +59,16 @@ class CacheHelper {
     sharedPreferences.setBool(AppStrings.isFirstTime, isFirstTime);
   }
 
-  Future<void> setInChat(bool inChat) async {
+  Future<String?> getLanguage() async {
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
-    sharedPreferences.setBool(AppStrings.inChat, inChat);
+    return sharedPreferences.getString(AppStrings.locale);
   }
 
   Future<bool?> isFirstTime() async {
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
     return sharedPreferences.getBool(AppStrings.isFirstTime);
-  }
-
-  Future<bool?> inChat() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-    return sharedPreferences.getBool(AppStrings.inChat);
   }
 
   Future<String?> getUserType() async {

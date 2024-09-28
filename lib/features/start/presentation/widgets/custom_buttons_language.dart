@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomBottonsLanguage extends StatelessWidget {
-  const CustomBottonsLanguage({super.key});
+  final bool? isLocale;
+  const CustomBottonsLanguage({super.key, this.isLocale});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,8 @@ class CustomBottonsLanguage extends StatelessWidget {
                     ? AppColors.white
                     : AppColors.black,
                 onPressed: () {
-                  BlocProvider.of<LocaleCubit>(context).changeLanguage('ar');
+                  BlocProvider.of<LocaleCubit>(context).changeLanguage(
+                      languageCode: 'ar', isLocale: isLocale ?? true);
                 }),
             CustomButton(
                 borderColor: AppColors.black,
@@ -38,7 +40,8 @@ class CustomBottonsLanguage extends StatelessWidget {
                     : AppColors.black,
                 title: S.of(context).english,
                 onPressed: () {
-                  BlocProvider.of<LocaleCubit>(context).changeLanguage('en');
+                  BlocProvider.of<LocaleCubit>(context).changeLanguage(
+                      languageCode: 'en', isLocale: isLocale ?? true);
                 }),
           ],
         );

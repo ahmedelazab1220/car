@@ -1,11 +1,8 @@
 import 'package:car_help/core/utils/app_assets.dart';
-import 'package:car_help/core/utils/app_constant.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
-import 'package:car_help/features/home_client/presentation/pages/service_details_view.dart';
 import 'package:car_help/features/home_client/presentation/widgets/category_details_appbar.dart';
 import 'package:car_help/features/home_client/presentation/widgets/custom_search_widget.dart';
-import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,11 +24,11 @@ class CategoryDetailsViewBody extends StatelessWidget {
             location: 'مكة المكرمة',
           ),
           if (index == 0)
-            Expanded(
+            const Expanded(
               child: Column(
                 children: [
-                  const CustomSearchWidget(),
-                  const Padding(
+                  CustomSearchWidget(),
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       'يوجد 3 مقدم خدمة للصيانة المتنقلة بالقرب منك',

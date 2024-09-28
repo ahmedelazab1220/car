@@ -1,5 +1,5 @@
 import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/home_client/presentation/manager/home%20cubit/home_cubit.dart';
+import 'package:car_help/features/home_client/presentation/manager/home%20client%20cubit/home_client_cubit.dart';
 import 'package:car_help/features/home_client/presentation/widgets/banner_loading_card.dart';
 import 'package:car_help/features/start/presentation/widgets/Custom_slider.dart';
 import 'package:car_help/features/widgets/custom_network_image.dart';
@@ -19,23 +19,17 @@ class BannerController extends StatefulWidget {
 
 class _BannerControllerState extends State<BannerController> {
   @override
-  void initState() {
-    BlocProvider.of<HomeCubit>(context).getHome();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<HomeClientCubit, HomeClientState>(
       builder: (context, state) {
-        if (state is HomeLoading) {
+        if (state is HomeClientLoading) {
           return const BannerLoadingCard();
-        } else if (state is HomeFailure) {
+        } else if (state is HomeClientFailure) {
           return FailuresWidget(
             errorMessage: state.errorMessage,
             viewIcon: false,
           );
-        } else if (state is HomeSuccess) {
+        } else if (state is HomeClientSuccess) {
           List<Widget> getImages() {
             return List<Widget>.generate(state.banners!.length, (index) {
               return CustomNetworkImage(

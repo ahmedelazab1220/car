@@ -96,6 +96,7 @@ class _SingleSelectSheetState extends State<SingleSelectSheet> {
                 const SizedBox(height: 12),
                 Expanded(
                   child: SingleSelectDialog(
+                    labaleText: widget.labaleText,
                     categories: widget.categories,
                     selectedId: _selectedId,
                     onConfirm: (selected) {
@@ -125,11 +126,13 @@ class SingleSelectDialog extends StatefulWidget {
     required this.categories,
     required this.selectedId,
     required this.onConfirm,
+    required this.labaleText,
   });
 
   final List<DropDownEntity> categories;
   final int? selectedId;
   final void Function(int?) onConfirm;
+  final String labaleText;
 
   @override
   _SingleSelectDialogState createState() => _SingleSelectDialogState();

@@ -20,7 +20,7 @@ class ServiceProvidersListView extends StatelessWidget {
           return ServiceProvidersCard(
             data: providers[index],
             onTap: () => GoRouter.of(context)
-                .push(AppRouter.kServiceDetailsView, extra: providers[index]),
+                .push(AppRouter.kProviderDetailsView, extra: providers[index]),
           );
         },
       ),

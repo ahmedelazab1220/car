@@ -1,6 +1,6 @@
 import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
-import 'package:car_help/features/home_client/domain/repos/home_repo.dart';
+import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/lists/domain/repos/lists_repo.dart';
 import 'package:car_help/features/lists/presentation/manager/center%20classification%20cubit/center_classification_cubit.dart';
@@ -35,7 +35,7 @@ class _CenterClassificationControllerState
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          CenterClassificationCubit(getIt.get<HomeRepo>())..getServices(),
+          CenterClassificationCubit(getIt.get<HomeClientRepo>())..getServices(),
       child: BlocConsumer<CenterClassificationCubit, CenterClassificationState>(
         listener: (context, state) {
           if (state is CenterClassificationLoading) {

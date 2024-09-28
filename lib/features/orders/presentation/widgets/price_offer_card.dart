@@ -48,7 +48,7 @@ class PriceOfferCard extends StatelessWidget {
                   height: 50,
                   title: S.of(context).accept,
                   onPressed: () => OrdersHelper.showBottomSheetDialog(
-                      context: context, requestStatusIndex: 5),
+                      context: context, orderStatuse: ''),
                 ),
               ),
               SizedBox(

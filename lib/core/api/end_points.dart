@@ -22,6 +22,7 @@ class EndPoints {
   static const String getHomeProviderData = '/home';
   static const String plans = '/plans';
   static const String planSubscriptions = '/plan-subscriptions';
+  static const String toggleLanguage = '/profile/update-language';
 
   /////////////// Notification  ////////////////
   static const String notification = '/notification';
@@ -38,10 +39,13 @@ class EndPoints {
   static const String getCarModels = '/car-models';
   static const String getCarFactories = '/car-factories';
 
+  /////////////// Home ///////////////////
+  static const String getClientHome = '/home';
+  static const String getProviderHome = '/provider/home';
+
   /////////////// Services  ////////////////
   static const String getServices = '/categories';
   static const String getBannerCategories = '/banner-categories';
-  static const String getHome = '/home';
   static const String getPrograms = '/programs';
   static const String getProviders = '/providers?categories[]=';
   static const String getSingleProvider = '/providers/';
@@ -68,4 +72,22 @@ class EndPoints {
   static const String addMyCar = '/client/cars';
   static const String updateMyCar = '/client/cars/';
   static const String deleteMyCar = '/client/cars/';
+
+  /////////////// My Services //////////////
+  static const String addMyServices = '/provider/services';
+  static const String deleteMyServices = '/provider/services';
+  static const String getMyServices = '/provider/services';
+  static const String updateMyServices = '/provider/services';
+
+  /////////////// Exhibits /////////////////
+  static const String getExhibits = '/provider/services';
+  static const String updateExhibits = '/provider/services';
+  static const String deleteExhibits = '/provider/services/';
+  static const String addExhibits = '/provider/services';
+
+  //////////////// Orders //////////////////
+  static const String getProviderTimes = '/client/provider-times';
+  static const String getMyOrders = '/client/orders';
+  static const String addMyOrder = '/client/orders';
+  static const String cancelMyOrder = '/client/orders/';
 }

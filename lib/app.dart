@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           FirebaseHelper().init(context: context);
           return MaterialApp.router(
             theme: ThemeData(
-              cardTheme: CardTheme(color: AppColors.white),
+              cardTheme: CardTheme(surfaceTintColor: AppColors.white),
               appBarTheme: AppBarTheme(color: AppColors.white),
               dialogBackgroundColor: AppColors.white,
               colorScheme: ColorScheme.fromSeed(

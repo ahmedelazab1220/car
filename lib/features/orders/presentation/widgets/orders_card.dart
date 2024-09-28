@@ -1,11 +1,14 @@
+import 'package:car_help/config/helper/helper.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_image.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class OrderssCard extends StatelessWidget {
+class OrdersCard extends StatelessWidget {
+  final OrderEntity data;
   final void Function()? onTap;
-  const OrderssCard({super.key, this.onTap});
+  const OrdersCard({super.key, this.onTap, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +21,7 @@ class OrderssCard extends StatelessWidget {
         child: SizedBox(
           height: 100,
           child: Row(children: [
-            const ServiceProvidersImage(
-              imageUrl:
-                  'https://www.shutterstock.com/image-vector/sale-banner-template-design-geometric-260nw-1988294282.jpg',
-            ),
+            ServiceProvidersImage(imageUrl: data.provider?.profileImage),
             const SizedBox(
               width: 10,
             ),
@@ -32,10 +32,10 @@ class OrderssCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.all(3.0),
                       child: Text(
-                        'مركز السعادة',
+                        data.provider?.name ?? '',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: AppStyles.textStyle14_700Black,
@@ -44,7 +44,7 @@ class OrderssCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(3.0),
                       child: Text(
-                        '${S.of(context).orderNumber} 2344',
+                        '${S.of(context).orderNumber} ${data.id}',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: AppStyles.textStyle12_700Grey,
@@ -53,10 +53,11 @@ class OrderssCard extends StatelessWidget {
                     const SizedBox(
                       height: 2,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(3.0),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
                       child: Text(
-                        'منذ 5 مايو 2024, 3:24 ص',
+                        formatTimestamp(
+                            data.createdAt ?? DateTime.now(), context),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: AppStyles.textStyle12_600,

@@ -1,7 +1,7 @@
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_strings.dart';
-import 'package:car_help/features/home_client/presentation/pages/client_home_view.dart';
+import 'package:car_help/features/home_client/presentation/views/client_home_view.dart';
 import 'package:car_help/features/layout/presentation/widgets/custom_nav_bar.dart';
 import 'package:car_help/features/settings/presentation/views/settings_view.dart';
 import 'package:car_help/generated/l10n.dart';

@@ -39,7 +39,9 @@ class SplashHelper {
                   fontWeight: FontWeight.w600,
                   color: AppColors.black),
             ),
-            const LanguageBottomSheetBody(),
+            const LanguageBottomSheetBody(
+              isLocale: false,
+            ),
           ],
         ),
       ),

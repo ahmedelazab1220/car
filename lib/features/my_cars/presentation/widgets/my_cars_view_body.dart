@@ -14,11 +14,14 @@ class MyCarsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
             child: Text(
-              '${S.of(context).thereAre} ${data.length}  سيارات لديك',
+              '${S.of(context).thereAre} ${data.length} ${S.of(context).carsYouHave}',
               style: AppStyles.textStyle14_800Black,
             ),
           ),

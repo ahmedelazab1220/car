@@ -6,16 +6,19 @@ import 'package:car_help/features/auth/presentation/views/forget_password_view.d
 import 'package:car_help/features/auth/presentation/views/login_view.dart';
 import 'package:car_help/features/auth/presentation/views/otp_verification_view.dart';
 import 'package:car_help/features/auth/presentation/views/register_view.dart';
+import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
+import 'package:car_help/features/exhibits/presentation/views/add_exhibit_view.dart';
 import 'package:car_help/features/favorites/presentation/views/favorites_view.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
-import 'package:car_help/features/home_client/presentation/pages/category_details_view.dart';
-import 'package:car_help/features/home_client/presentation/pages/service_details_view.dart';
-import 'package:car_help/features/home_client/presentation/widgets/category_details_view_body.dart';
+import 'package:car_help/features/home_client/presentation/views/booking_view.dart';
+import 'package:car_help/features/home_client/presentation/views/category_details_view.dart';
+import 'package:car_help/features/home_client/presentation/views/provider_details_view.dart';
 import 'package:car_help/features/layout/presentation/view/both_layout.dart';
 import 'package:car_help/features/layout/presentation/view/client_layout.dart';
 import 'package:car_help/features/layout/presentation/view/provider_layout.dart';
 import 'package:car_help/features/location/presentation/pages/pick_location_screen.dart';
+import 'package:car_help/features/orders/presentation/views/order_details_view.dart';
 import 'package:car_help/features/profile/Presentation/views/edit_profile_view.dart';
 import 'package:car_help/features/settings/presentation/views/about_us_view.dart';
 import 'package:car_help/features/settings/presentation/views/contact_us_view.dart';
@@ -53,16 +56,19 @@ abstract class AppRouter {
   static const kSearchView = '/SearchView';
   static const kTechnicalSupportView = '/TechnicalSupportView';
   static const kContactUsView = '/ContactUsView';
-  static const kProviderDetailesView = '/ProviderDetailesView';
+  static const kProviderDetailsView = '/ProviderDetailsView';
   static const kServiceProvidersView = '/ServiceProvidersView';
   static const kStartView = '/StartView';
   static const kPickLocationScreen = '/PickLocationScreen';
-  static const kServiceDetailsView = '/ServiceDetailsView';
+  // static const kServiceDetailsView = '/ServiceDetailsView';
   static const kSettingsView = '/SettingsView';
   static const kFavoritesView = '/FavoritesView';
   static const kCategoryDetailsView = '/CategoryDetailsView';
   static const kChangePasswordView = '/ChangePasswordView';
   static const kAddressesView = '/AddressesView';
+  static const kAddExhibitView = '/AddExhibitView';
+  static const kBookingView = '/BookingView';
+  static const kOrderDetailsView = '/OrderDetailsView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -99,9 +105,9 @@ abstract class AppRouter {
       builder: (context, state) => const PickLocationScreen(),
     ),
     GoRoute(
-      path: kServiceDetailsView,
+      path: kProviderDetailsView,
       builder: (context, state) =>
-          ServiceDetailsView(data: state.extra as ProviderEntity),
+          ProviderDetailsView(data: state.extra as ProviderEntity),
     ),
     GoRoute(
       path: kFavoritesView,
@@ -139,18 +145,16 @@ abstract class AppRouter {
       path: kClientLayout,
       builder: (context, state) => const ClientLayout(),
     ),
-    // GoRoute(
-    //   path: kSingleChatView,
-    //   builder: (context, state) => SingleChatView(
-    //     chat: state.extra as ChatDataEntity,
-    //   ),
-    // ),
-    // GoRoute(
-    //   path: kSingleChatView,
-    //   builder: (context, state) => SingleChatView(
-    //     chat: state.extra as ChatDataEntity,
-    //   ),
-    // ),
+    GoRoute(
+      path: kAddExhibitView,
+      builder: (context, state) => AddExhibitView(
+        data: state.extra as ExhibitsEntity?,
+      ),
+    ),
+    GoRoute(
+      path: kBookingView,
+      builder: (context, state) => const BookingView(),
+    ),
     GoRoute(
       path: kEditProfileView,
       builder: (context, state) => EditProfileView(
@@ -173,10 +177,12 @@ abstract class AppRouter {
       path: kFAQView,
       builder: (context, state) => const FAQView(),
     ),
-    // GoRoute(
-    //   path: kSearchView,
-    //   builder: (context, state) => const SearchView(),
-    // ),
+    GoRoute(
+      path: kOrderDetailsView,
+      builder: (context, state) => OrderDetailsView(
+        list: state.extra as List,
+      ),
+    ),
     GoRoute(
       path: kContactUsView,
       builder: (context, state) => const ContactUsView(),

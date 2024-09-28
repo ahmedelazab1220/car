@@ -14,6 +14,8 @@ class ApiService {
 
   Future<void> initDio() async {
     String? token = await CacheHelper().getToken();
+    String? language = await CacheHelper().getLanguage();
+
     _dio.options
       ..baseUrl = Environment.apiUrl
       ..responseType = ResponseType.json
@@ -22,6 +24,7 @@ class ApiService {
       // ..receiveTimeout = const Duration(seconds: 20)
       ..followRedirects = false
       ..headers = {
+        "language": language,
         if (token != null) "Authorization": "Bearer $token",
         AppStrings.contentType: AppStrings.applicationJson,
         AppStrings.accept: AppStrings.applicationJson,

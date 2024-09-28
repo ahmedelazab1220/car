@@ -16,28 +16,33 @@ class AddressesEmptyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              AppAssets.addressIcon,
-            ),
-            const SizedBox(height: 20),
-            Text(
-              S.of(context).noAddresses,
-              style: AppStyles.textStyle16_800,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(30),
-              child: CustomButton(
-                  title: S.of(context).addAddress,
-                  onPressed: () {
-                    SettingsHelper.showBottomSheetDialog(
-                        context: context,
-                        widget: const AddAddressBottomSheetBody());
-                  }),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                AppAssets.addressIcon,
+              ),
+              const SizedBox(height: 20),
+              Text(
+                S.of(context).noAddresses,
+                style: AppStyles.textStyle16_800,
+                textAlign: TextAlign.center,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                child: CustomButton(
+                    title: S.of(context).addAddress,
+                    onPressed: () {
+                      SettingsHelper.showBottomSheetDialog(
+                          context: context,
+                          widget: const AddAddressBottomSheetBody());
+                    }),
+              ),
+            ],
+          ),
         ),
       ),
     );

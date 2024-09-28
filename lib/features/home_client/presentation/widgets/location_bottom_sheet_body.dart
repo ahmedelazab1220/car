@@ -74,12 +74,12 @@ class _LocationBottomSheetBodyState extends State<LocationBottomSheetBody> {
                         addressController.text = address;
                         lat = locationEntity.latitude;
                         lng = locationEntity.longitude;
+                        Navigator.pop(context);
                         SettingsHelper.showBottomSheetDialog(
                             context: context,
                             widget: AddAddressBottomSheetBody(
                               location: locationEntity,
                             ));
-                        GoRouter.of(context).pop();
                       }
                     });
                   }),

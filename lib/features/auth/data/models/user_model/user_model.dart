@@ -4,7 +4,6 @@
 
 // class UserModel {
 
-
 //   UserModel({
 //     this.id,
 //     this.userType,

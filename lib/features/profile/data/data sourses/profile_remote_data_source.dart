@@ -9,7 +9,6 @@ import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:dio/dio.dart';
 
 abstract class ProfileRemoteDataSource {
-  // Future<UserProfileEntity> getUserProfileData({required int id});
   Future<UserEntity> getProfileData();
   Future<String> sendOtpEditPhone({
     String? phone,
@@ -33,6 +32,7 @@ abstract class ProfileRemoteDataSource {
 
   Future<String> toggleNotification(
       {int? enableNotification, int? enableAdvertisement});
+  Future<String> toggleLanguage({String? language});
 }
 
 class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
@@ -151,6 +151,16 @@ class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
           "enable_advertisement_notification": enableAdvertisement
       },
     );
+    String entity = response['message'];
+    return entity;
+  }
+
+  @override
+  Future<String> toggleLanguage({String? language}) async {
+    var response =
+        await apiService.post(endPoint: EndPoints.toggleLanguage, data: {
+      "lang": language // ar,en
+    });
     String entity = response['message'];
     return entity;
   }

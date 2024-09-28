@@ -146,4 +146,19 @@ class ProfileRepoImpl extends ProfileRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, String?>> toggleLanguage({String? language}) async {
+    try {
+      String data;
+      data = await profileRemoteDataSource.toggleLanguage(language: language);
+      return right(data);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

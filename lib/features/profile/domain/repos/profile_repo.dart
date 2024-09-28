@@ -30,4 +30,5 @@ abstract class ProfileRepo {
   Future<Either<Failure, String>> deleteAccount();
   Future<Either<Failure, String?>> toggleNotification(
       {int? enableNotification, int? enableAdvertisement});
+  Future<Either<Failure, String?>> toggleLanguage({String? language});
 }

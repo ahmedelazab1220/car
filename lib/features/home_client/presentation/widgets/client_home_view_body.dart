@@ -1,4 +1,8 @@
+import 'package:car_help/config/function/service_locator.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
+import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
+import 'package:car_help/features/home_client/presentation/manager/services%20cubit/services_cubit.dart';
 import 'package:car_help/features/home_client/presentation/widgets/banner_controller.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_providers_controller.dart';
 import 'package:car_help/features/home_client/presentation/widgets/services_view_controller.dart';
@@ -7,7 +11,7 @@ import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/home cubit/home_cubit.dart';
+import '../manager/home client cubit/home_client_cubit.dart';
 
 class ClientHomeViewBody extends StatefulWidget {
   const ClientHomeViewBody({super.key});
@@ -19,7 +23,7 @@ class ClientHomeViewBody extends StatefulWidget {
 class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
   @override
   void initState() {
-    BlocProvider.of<HomeCubit>(context).getHome();
+    BlocProvider.of<HomeClientCubit>(context).getHome();
     super.initState();
   }
 
@@ -27,7 +31,8 @@ class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        BlocProvider.of<HomeCubit>(context).getHome();
+        BlocProvider.of<HomeClientCubit>(context).getHome();
+        ServicesCubit(getIt.get<HomeClientRepo>()).getServices(remote: true);
       },
       child: SingleChildScrollView(
         child: Padding(
@@ -37,6 +42,7 @@ class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
             children: [
               const CustomHomeAppBar(
                 title: 'أهلا بك عميلنا العزيز',
+                userType: AppStrings.client,
               ),
               const BannerController(),
               Padding(

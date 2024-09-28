@@ -1,13 +1,17 @@
 import 'dart:ui';
 
-import 'package:car_help/core/utils/app_strings.dart';
+import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:car_help/core/utils/app_strings.dart';
 import 'locale_state.dart';
 
 class LocaleCubit extends Cubit<LocaleState> {
-  LocaleCubit() : super(LocaleState('en')) {
+  final ProfileRepoImpl profileRepoImpl;
+  LocaleCubit(
+    this.profileRepoImpl,
+  ) : super(LocaleState('en')) {
     _initialize();
   }
 
@@ -26,9 +30,23 @@ class LocaleCubit extends Cubit<LocaleState> {
     }
   }
 
-  Future<void> changeLanguage(String languageCode) async {
+  Future<void> changeLanguage(
+      {String languageCode = 'ar', bool isLocale = true}) async {
+    emit(ToggleLanguageLoading(languageCode));
     final sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString(AppStrings.locale, languageCode);
-    emit(LocaleState(languageCode));
+    if (isLocale) {
+      emit(LocaleState(languageCode));
+    } else {
+      var result = await profileRepoImpl.toggleLanguage(language: languageCode);
+      result.fold(
+        (failure) => {
+          emit(
+            ToggleLanguageFailure(languageCode),
+          ),
+        },
+        (success) => {emit(LocaleState(languageCode))},
+      );
+    }
   }
 }

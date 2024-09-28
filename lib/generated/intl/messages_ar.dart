@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
         "addACar": MessageLookupByLibrary.simpleMessage("اضف سيارة"),
         "addAddress": MessageLookupByLibrary.simpleMessage("إضف العنوان"),
+        "addAddressSuccess":
+            MessageLookupByLibrary.simpleMessage("تم أضافة عنوان جديد بنجاح"),
         "addExhibit": MessageLookupByLibrary.simpleMessage("اضافة معروض"),
         "additionalAddressDetails":
             MessageLookupByLibrary.simpleMessage("تفاصيل العنوان الإضافية"),
@@ -38,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الاشعارات الترويجية"),
         "advertiseNotificationsDescription":
             MessageLookupByLibrary.simpleMessage("للخصومات والدعاية"),
+        "ago": MessageLookupByLibrary.simpleMessage("منذ"),
         "allow": MessageLookupByLibrary.simpleMessage("سماح"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب لدينا ؟ "),
@@ -65,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "carModel": MessageLookupByLibrary.simpleMessage("موديل السيارة"),
         "carType": MessageLookupByLibrary.simpleMessage("نوع السيارة"),
         "cars": MessageLookupByLibrary.simpleMessage(" سياراتي "),
+        "carsYouHave": MessageLookupByLibrary.simpleMessage("سيارات لديك"),
         "centerClassification":
             MessageLookupByLibrary.simpleMessage("تصنيف المركز"),
         "centerName": MessageLookupByLibrary.simpleMessage("اسم المركز"),
@@ -72,11 +76,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose": MessageLookupByLibrary.simpleMessage("اختار"),
+        "chooseAddress": MessageLookupByLibrary.simpleMessage("أختيار العنوان"),
         "chooseBrandCar":
             MessageLookupByLibrary.simpleMessage("أختر ماركة السيارة *"),
+        "chooseCar": MessageLookupByLibrary.simpleMessage("أختيار السيارة"),
         "chooseCenterClassification": MessageLookupByLibrary.simpleMessage(
             "أختر نوع الخدمات التي يقدمها مكانك"),
         "chooseCity": MessageLookupByLibrary.simpleMessage("أخنار المدينة"),
+        "chooseDayAndTime":
+            MessageLookupByLibrary.simpleMessage("أختار اليوم والوقت المناسب"),
         "chooseDistrict": MessageLookupByLibrary.simpleMessage("أختار الحي"),
         "chooseLang": MessageLookupByLibrary.simpleMessage("اختار اللغة"),
         "chooseLanguage":
@@ -173,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("المعروضات المطلوبة"),
         "exhibitValue": MessageLookupByLibrary.simpleMessage("قيمة المعروضات"),
         "exhibits": MessageLookupByLibrary.simpleMessage("معروضات"),
+        "exhibitsYouHave": MessageLookupByLibrary.simpleMessage("معروضات"),
         "favoriteForYou": MessageLookupByLibrary.simpleMessage("المفضل لديك"),
         "feildRequiredValidation":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
@@ -197,6 +206,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "الذهاب للدفع لاستكمال الخدمة"),
         "guest": MessageLookupByLibrary.simpleMessage("تصفح كضيف"),
         "home": MessageLookupByLibrary.simpleMessage(" الرئيسية"),
+        "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
+        "image": MessageLookupByLibrary.simpleMessage("صورة"),
         "isDefault": MessageLookupByLibrary.simpleMessage("الافتراضي"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "letsStart": MessageLookupByLibrary.simpleMessage("فلنبدأ"),
@@ -204,7 +215,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل دخول لحسابك"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
+        "logoutMsg": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد من تسحيل الخروج من حسابك"),
         "makeARequest": MessageLookupByLibrary.simpleMessage("أجراء طلب"),
+        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "mobileMaintenance":
             MessageLookupByLibrary.simpleMessage("الصيانة المتنقلة"),
         "mobileTires":
@@ -250,6 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
         "notificationsToggleSuccess":
             MessageLookupByLibrary.simpleMessage("تم تبديل الاشعارات بنجاح"),
+        "now": MessageLookupByLibrary.simpleMessage("الان"),
         "ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "oldPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
@@ -265,6 +280,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "orderDate": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
         "orderDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الطلب"),
+        "orderDetailsMsg": MessageLookupByLibrary.simpleMessage(
+            "برجاء ادخال معلومات أكثر عن طلبك"),
         "orderNumber": MessageLookupByLibrary.simpleMessage("رقم الطلب"),
         "orderSummary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "orders": MessageLookupByLibrary.simpleMessage(" طلباتي "),
@@ -318,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سرعة الأستجابة"),
         "saturday": MessageLookupByLibrary.simpleMessage("السبت"),
         "save": MessageLookupByLibrary.simpleMessage("تعيين"),
+        "selectCar": MessageLookupByLibrary.simpleMessage("تحديد السيارة"),
         "send": MessageLookupByLibrary.simpleMessage("إرسـال"),
         "sendTheOffer": MessageLookupByLibrary.simpleMessage("ارسال العرض"),
         "sentSuccessfully":
@@ -349,6 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullyReceived": MessageLookupByLibrary.simpleMessage(
             "تهانينا! تم استلام طلبك بنجاح"),
         "sunday": MessageLookupByLibrary.simpleMessage("الاحد"),
+        "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
         "termsAndConditions":
             MessageLookupByLibrary.simpleMessage("الشروط والاحكام"),
         "theOfferedService":
@@ -356,6 +375,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thereAre": MessageLookupByLibrary.simpleMessage("يوجد"),
         "thursday": MessageLookupByLibrary.simpleMessage("الخميس"),
         "to": MessageLookupByLibrary.simpleMessage("الي"),
+        "total": MessageLookupByLibrary.simpleMessage("الأجمالي"),
         "tuesday": MessageLookupByLibrary.simpleMessage("الثلاثاء"),
         "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "visitForInspection":

@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // Handle background messages
-  print('Handling background message: ${message.messageId}');
 }
 
 class FirebaseHelper {
@@ -47,13 +46,10 @@ class FirebaseHelper {
     // Listen to foreground FCM messages
     FirebaseMessaging.onMessage.listen(
       (RemoteMessage message) async {
-        bool inChat = await CacheHelper().inChat() ?? false;
         String userType =
             await CacheHelper().getUserType() ?? AppStrings.client;
 
-        if (!inChat) {
-          _handleForegroundMessage(message, context, userType);
-        }
+        _handleForegroundMessage(message, context, userType);
       },
     );
   }

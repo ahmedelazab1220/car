@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
-import 'package:car_help/features/home_client/domain/repos/home_repo.dart';
+import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
 import 'package:meta/meta.dart';
 
 part 'services_state.dart';
 
 class ServicesCubit extends Cubit<ServicesState> {
-  final HomeRepo homeRepo;
+  final HomeClientRepo homeRepo;
 
   ServicesCubit(
     this.homeRepo,

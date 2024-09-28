@@ -1,6 +1,8 @@
 import 'package:car_help/core/utils/app_colors.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/price_offers_widget.dart';
 import 'package:car_help/features/orders/presentation/widgets/rating.dart';
 import 'package:car_help/features/orders/presentation/widgets/row_widget.dart';
@@ -8,11 +10,12 @@ import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SpecialOrderDetailsViewBody extends StatelessWidget {
-  final int requestStatusIndex;
-
+  final String? orderStatuse;
+  final OrderEntity? data;
   const SpecialOrderDetailsViewBody({
     super.key,
-    required this.requestStatusIndex,
+    this.orderStatuse,
+    required this.data,
   });
 
   @override
@@ -51,12 +54,14 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
                     name: S.of(context).orderDate,
                     description: '8 مايو 2024, 3:24 م',
                   ),
-                  if (requestStatusIndex == 1 || requestStatusIndex == 2)
+                  if (orderStatuse == AppStrings.inProgress ||
+                      orderStatuse == AppStrings.completed)
                     RowWidget(
                       name: S.of(context).serviceCost,
                       description: '${S.of(context).currency} 200',
                     ),
-                  if (requestStatusIndex == 1 || requestStatusIndex == 2)
+                  if (orderStatuse == AppStrings.inProgress ||
+                      orderStatuse == AppStrings.completed)
                     RowWidget(
                       name: S.of(context).paymentMethod,
                       description: 'ماستر كارت',
@@ -121,11 +126,13 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            // const ServiceProvidersCard(),
+            ServiceProvidersCard(
+              data: data!.provider!,
+            ),
             const SizedBox(
               height: 16,
             ),
-            if (requestStatusIndex == 0)
+            if (orderStatuse == AppStrings.pending)
               Text(
                 S.of(context).priceOffers,
                 style: AppStyles.textStyle14_800Black.copyWith(
@@ -135,8 +142,8 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            if (requestStatusIndex == 0) const PriceOffersWidget(),
-            if (requestStatusIndex == 2)
+            if (orderStatuse == AppStrings.pending) const PriceOffersWidget(),
+            if (orderStatuse == AppStrings.completed)
               Text(
                 S.of(context).yourEvaluation,
                 style: AppStyles.textStyle14_800Black.copyWith(
@@ -146,7 +153,7 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            if (requestStatusIndex == 2)
+            if (orderStatuse == AppStrings.completed)
               Container(
                 padding: const EdgeInsets.all(4),
                 width: double.maxFinite,
@@ -158,7 +165,7 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
                   initialRating: 3.5,
                 ),
               ),
-            if (requestStatusIndex == 3)
+            if (orderStatuse == AppStrings.canceled)
               Text(
                 S.of(context).reasonForCancellation,
                 style: AppStyles.textStyle14_800Black.copyWith(
@@ -168,7 +175,7 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            if (requestStatusIndex == 3)
+            if (orderStatuse == AppStrings.canceled)
               Container(
                   padding: const EdgeInsets.all(12),
                   width: double.maxFinite,
@@ -181,7 +188,8 @@ class SpecialOrderDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 14,
             ),
-            if (requestStatusIndex <= 1)
+            if (orderStatuse == AppStrings.pending ||
+                orderStatuse == AppStrings.inProgress)
               const SizedBox(
                 height: 40,
               ),

@@ -1,6 +1,6 @@
 import 'package:car_help/config/function/service_locator.dart';
-import 'package:car_help/features/home_client/data/repos/home_repo_impl.dart';
-import 'package:car_help/features/home_client/domain/repos/home_repo.dart';
+import 'package:car_help/features/home_client/data/repos/home_client_repo_impl.dart';
+import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
 import 'package:car_help/features/home_client/presentation/manager/services%20cubit/services_cubit.dart';
 import 'package:car_help/features/home_client/presentation/widgets/services_home_loading_view.dart';
 import 'package:car_help/features/home_client/presentation/widgets/static_categories_list.dart';
@@ -26,7 +26,8 @@ class _ServicesViewControllerState extends State<ServicesViewController> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ServicesCubit(getIt.get<HomeRepo>())..getServices(),
+      create: (context) =>
+          ServicesCubit(getIt.get<HomeClientRepo>())..getServices(),
       child: BlocBuilder<ServicesCubit, ServicesState>(
         builder: (context, state) {
           if (state is ServicesLoading) {
