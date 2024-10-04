@@ -13,14 +13,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../manager/home client cubit/home_client_cubit.dart';
 
-class ClientHomeViewBody extends StatefulWidget {
-  const ClientHomeViewBody({super.key});
+class HomeClientViewBody extends StatefulWidget {
+  const HomeClientViewBody({super.key});
 
   @override
-  State<ClientHomeViewBody> createState() => _ClientHomeViewBodyState();
+  State<HomeClientViewBody> createState() => _HomeClientViewBodyState();
 }
 
-class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
+class _HomeClientViewBodyState extends State<HomeClientViewBody> {
+  String? lat, lng, address;
   @override
   void initState() {
     BlocProvider.of<HomeClientCubit>(context).getHome();
@@ -31,7 +32,7 @@ class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        BlocProvider.of<HomeClientCubit>(context).getHome();
+        BlocProvider.of<HomeClientCubit>(context).getHome(lat: lat, lng: lng);
         ServicesCubit(getIt.get<HomeClientRepo>()).getServices(remote: true);
       },
       child: SingleChildScrollView(
@@ -40,9 +41,16 @@ class _ClientHomeViewBodyState extends State<ClientHomeViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomHomeAppBar(
-                title: 'أهلا بك عميلنا العزيز',
+              CustomHomeAppBar(
+                title: S.of(context).welcomeDearCustomer,
                 userType: AppStrings.client,
+                latLng: (latitute, longitute, addressString) {
+                  setState(() {
+                    lat = latitute;
+                    lng = longitute;
+                    address = addressString;
+                  });
+                },
               ),
               const BannerController(),
               Padding(

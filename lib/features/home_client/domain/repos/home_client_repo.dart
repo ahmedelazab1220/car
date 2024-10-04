@@ -5,6 +5,9 @@ import 'package:car_help/features/home_client/domain/entities/service_entity.dar
 import 'package:dartz/dartz.dart';
 
 abstract class HomeClientRepo {
-  Future<Either<Failure, HomeClientEntity>> getHome();
+  Future<Either<Failure, HomeClientEntity>> getHome({String? lat, String? lng});
   Future<Either<Failure, List<ServiceEntity>>> getServices({bool remote});
+  Future<Either<Failure, ProviderEntity>> getProvider({int? providerId});
+  Future<Either<Failure, List<ProviderEntity>>> search(
+      {int? categoryId, String? query});
 }

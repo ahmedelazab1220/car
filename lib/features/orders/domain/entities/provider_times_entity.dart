@@ -3,12 +3,12 @@ class ProviderTimesEntity {
   String? day;
   String? from;
   String? to;
-  bool? isAvailable;
+  int? isHoliday;
   ProviderTimesEntity({
     this.date,
     this.day,
     this.from,
     this.to,
-    this.isAvailable,
+    this.isHoliday,
   });
 }

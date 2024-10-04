@@ -1,7 +1,5 @@
 import 'package:car_help/config/function/app_router.dart';
-import 'package:car_help/core/utils/app_constant.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
-import 'package:car_help/features/orders/presentation/widgets/order_details_view_body.dart';
 import 'package:car_help/features/orders/presentation/widgets/orders_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -32,7 +30,6 @@ class OrdersListView extends StatelessWidget {
               GoRouter.of(context).push(AppRouter.kOrderDetailsView,
                   extra: [orderStatuse, orderType, data[index]]);
             },
-           
           );
         },
       ),

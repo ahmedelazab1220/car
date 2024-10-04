@@ -37,4 +37,5 @@ class AppStrings {
   static const String inProgress = "in-progress";
   static const String completed = "completed";
   static const String canceled = "canceled";
+  static const String addresses = "addresses";
 }

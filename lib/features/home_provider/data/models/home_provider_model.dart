@@ -1,4 +1,5 @@
 import 'package:car_help/features/home_provider/domain/entities/home_provider_entity.dart';
+import 'package:car_help/features/orders/data/models/order_model/order_model.dart';
 
 class HomeProviderModel extends HomeProviderEntity {
   HomeProviderModel({
@@ -11,7 +12,9 @@ class HomeProviderModel extends HomeProviderEntity {
 
   factory HomeProviderModel.fromJson(Map<String, dynamic> json) {
     return HomeProviderModel(
-      exhibts: json['0'] as List<dynamic>?,
+      exhibts: (json['orders'] as List<dynamic>?)
+          ?.map((e) => OrderModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       pending: json['pending'] as int?,
       inProgress: json['in-progress'] as int?,
       completed: json['completed'] as int?,
@@ -20,7 +23,7 @@ class HomeProviderModel extends HomeProviderEntity {
   }
 
   Map<String, dynamic> toJson() => {
-        '0': exhibts,
+        'orders': exhibts,
         'pending': pending,
         'in-progress': inProgress,
         'completed': completed,

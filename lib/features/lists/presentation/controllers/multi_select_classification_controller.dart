@@ -11,22 +11,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class CenterClassificationController extends StatefulWidget {
+class MultiSelectClassificationController extends StatefulWidget {
   final void Function(List<int>) onSelectedIds;
   final List<ServiceEntity> selectedIds;
-  const CenterClassificationController({
+  const MultiSelectClassificationController({
     super.key,
     required this.onSelectedIds,
     this.selectedIds = const [],
   });
 
   @override
-  State<CenterClassificationController> createState() =>
-      _CenterClassificationControllerState();
+  State<MultiSelectClassificationController> createState() =>
+      _MultiSelectClassificationControllerState();
 }
 
-class _CenterClassificationControllerState
-    extends State<CenterClassificationController> {
+class _MultiSelectClassificationControllerState
+    extends State<MultiSelectClassificationController> {
   bool isLoading = false;
 
   List<ServiceEntity> data = [];

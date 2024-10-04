@@ -2,16 +2,20 @@ import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
+import 'package:car_help/features/orders/presentation/manager/order%20details%20cubit/order_details_cubit.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CancellingOrderBottomSheetBody extends StatefulWidget {
-  const CancellingOrderBottomSheetBody({super.key});
+  final OrderEntity? data;
+  const CancellingOrderBottomSheetBody({super.key, this.data});
 
   @override
   State<CancellingOrderBottomSheetBody> createState() =>
@@ -21,7 +25,7 @@ class CancellingOrderBottomSheetBody extends StatefulWidget {
 class _CancellingOrderBottomSheetBodyState
     extends State<CancellingOrderBottomSheetBody> {
   final formKey = GlobalKey<FormState>();
-  TextEditingController reasonForCancellation = TextEditingController();
+  TextEditingController reason = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +62,7 @@ class _CancellingOrderBottomSheetBodyState
               SizedBox(height: SizeConfig.bodyHeight * .02),
               CustomTextFormField(
                 maxLines: 4,
-                controller: reasonForCancellation,
+                controller: reason,
                 labelText: S.of(context).reasonForCancellation,
                 hintText: S.of(context).enterReasonForCancellation,
                 validate: (value) => value!.isEmpty
@@ -71,7 +75,15 @@ class _CancellingOrderBottomSheetBodyState
                   borderColor: AppColors.black,
                   titleColor: Colors.white,
                   title: S.of(context).cancellingOrder,
-                  onPressed: () => formKey.currentState!.validate()),
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      Navigator.pop(context);
+                      BlocProvider.of<OrderDetailsCubit>(context).cancelOrder(
+                        orderId: widget.data!.id,
+                        reason: reason.text,
+                      );
+                    }
+                  }),
               SizedBox(height: SizeConfig.bodyHeight * .02),
               GestureDetector(
                   onTap: () => Navigator.pop(context),

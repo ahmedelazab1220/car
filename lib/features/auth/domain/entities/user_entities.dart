@@ -1,5 +1,7 @@
+import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
+import 'package:car_help/features/orders/domain/entities/provider_times_entity.dart';
 
 class UserEntity {
   int? id;
@@ -15,10 +17,14 @@ class UserEntity {
   DropDownEntity? district;
   List<ServiceEntity>? categories;
   String? profileImage;
+  String? backgroundImage;
   String? status;
   String? defaultLang;
   int? enableNotification;
   int? enableAdvertisementNotification;
+  List<String>? gallery;
+  List<ExhibitsEntity>? exhibits;
+  List<ProviderTimesEntity>? workingDays;
 
   UserEntity({
     this.id,
@@ -34,9 +40,13 @@ class UserEntity {
     this.district,
     this.categories,
     this.profileImage,
+    this.backgroundImage,
     this.status,
     this.defaultLang,
     this.enableNotification,
     this.enableAdvertisementNotification,
+    this.gallery,
+    this.exhibits,
+    this.workingDays,
   });
 }

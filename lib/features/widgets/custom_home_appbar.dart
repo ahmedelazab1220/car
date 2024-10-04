@@ -8,11 +8,10 @@ import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/Notification/Presentation/widgets/custom_button_notification.dart';
 import 'package:car_help/features/addresses/presentation/manager/addresses%20cubit/addresses_cubit.dart';
 import 'package:car_help/features/home_client/presentation/home_helper.dart';
+import 'package:car_help/features/home_client/presentation/manager/home%20client%20cubit/home_client_cubit.dart';
 import 'package:car_help/features/home_client/presentation/widgets/location_bottom_sheet_body.dart';
 import 'package:car_help/features/profile/Presentation/profile_helper.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';
-import 'package:car_help/features/widgets/snackbar_success.dart';
-import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,7 +20,13 @@ import 'package:go_router/go_router.dart';
 class CustomHomeAppBar extends StatefulWidget {
   final String title;
   final String? userType;
-  const CustomHomeAppBar({super.key, required this.title, this.userType});
+  final void Function(
+    String? lat,
+    String? lon,
+    String? address,
+  )? latLng;
+  const CustomHomeAppBar(
+      {super.key, required this.title, this.userType, this.latLng});
 
   @override
   State<CustomHomeAppBar> createState() => _CustomHomeAppBarState();
@@ -62,8 +67,15 @@ class _CustomHomeAppBarState extends State<CustomHomeAppBar> {
                     if (element.isDefault == 1) {
                       setState(() {
                         location = element.address;
+                        if (widget.latLng != null) {
+                          widget.latLng!(
+                              element.lat, element.lng, element.address);
+                        }
                       });
-
+                      if (widget.userType == AppStrings.client) {
+                        BlocProvider.of<HomeClientCubit>(context)
+                            .getHome(lat: element.lat, lng: element.lng);
+                      }
                       break;
                     }
                   }
@@ -84,7 +96,8 @@ class _CustomHomeAppBarState extends State<CustomHomeAppBar> {
                           GoRouter.of(context).push(AppRouter.kAddressesView),
                       child: Row(
                         children: [
-                          SvgPicture.asset(AppAssets.location),
+                          if (widget.userType == AppStrings.client)
+                            SvgPicture.asset(AppAssets.locationIcon),
                           SizedBox(
                             width: SizeConfig.screenWidth * 0.4,
                             child: Text(

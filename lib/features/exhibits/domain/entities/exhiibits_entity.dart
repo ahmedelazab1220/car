@@ -1,7 +1,7 @@
 class ExhibitsEntity {
   int? id;
   String? title;
-  int? price;
+  num? price;
   num? priceAfterDiscount;
   int? qty;
   String? description;

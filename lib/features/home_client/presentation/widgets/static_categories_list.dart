@@ -5,7 +5,10 @@ import 'categories_card.dart';
 
 class StaticCategoriesList extends StatefulWidget {
   final List<ServiceEntity> data;
-  const StaticCategoriesList({super.key, required this.data});
+  final String? lat, lng, address;
+
+  const StaticCategoriesList(
+      {super.key, required this.data, this.lat, this.lng, this.address});
 
   @override
   State<StaticCategoriesList> createState() => _StaticCategoriesListState();
@@ -23,6 +26,9 @@ class _StaticCategoriesListState extends State<StaticCategoriesList> {
         itemBuilder: (context, index) {
           return CategoriesCard(
             data: widget.data[index],
+            lat: widget.lat,
+            lng: widget.lng,
+            address: widget.address,
           );
         });
     // Column(

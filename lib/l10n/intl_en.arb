@@ -92,14 +92,14 @@
     "friday":"Friday",
     "yourStatistics" : "Your statistics",
     "exhibits" :"Exhibits",
-    "exhibitRequests": "Exhibit Requests",
-    "specialRequests": "Special Requests",
-    "generalRequests": "General Requests",
+    "exhibitRequests": "Exhibit Orders",
+    "specialRequests": "Special Orders",
+    "generalRequests": "General Orders",
     "currency": "S.R",
-    "makeARequest": "Make a Request",
+    "makeARequest": "Make an Order",
     "noCars": "You haven't added your cars yet, add them now!",
     "noAddresses": "You haven't added your addresses yet, add them now!",
-    "noRequestes":"You have not made any request yet!",
+    "noRequestes":"You have not made any order yet!",
     "isDefault":"Default",
     "car":"Car",
     "addACar": "Add a Car" ,
@@ -138,6 +138,9 @@
     "attachPhotos": "Attach photos",
     "received": "Received",
     "successfullyReceived":"Congratulations! Your order has been successfully received.",
+    "successfullyMakeOrder":"Congratulations! Your request has been successfully submitted.",
+    "successfullySendOffer":"Congratulations! Your offer has been successfully submitted.",
+    "successfullyMakeOrderMsg":"You will receive a notification when the service provider quotes you a quote.",
     "rateToHelp":"Please rate to help us provide the best possible service.",
     "serviceProviderInformation":"Service Provider Information",
     "cacelYourOrder": "Are you sure you want to cancel your order?",
@@ -253,7 +256,16 @@
     "now": "Now",
     "hour": "Hour",
     "minute": "Minute",
-    "ago": "Ago"
+    "ago": "Ago",
+    "noTimesAvailable" : "There are no appointments available.",
+    "goToHome": "Go to home view",
+    "welcomeDearCustomer" : "Welcome, dear customer!",
+    "rate": "Rate",
+    "workingTimes": "Working Times",
+    "addWorkingTimes": "Add your working times",
+    "closed": "Closed",
+    "noNotification": "You have no notifications yet!"
+
 
 
 

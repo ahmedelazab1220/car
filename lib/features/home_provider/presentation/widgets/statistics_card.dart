@@ -1,10 +1,8 @@
 import 'package:car_help/core/utils/app_assets.dart';
-import 'package:car_help/features/home_client/presentation/views/category_details_view.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:car_help/core/utils/app_colors.dart';
-import 'package:car_help/core/utils/app_constant.dart';
 
 class StatisticsCard extends StatelessWidget {
   final String title;
@@ -18,19 +16,10 @@ class StatisticsCard extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         child: GestureDetector(
           onTap: () {},
-          // AppConstant.navigateTo(
-          //     context,
-          //     CategoryDetailsView(
-          //       category: title,
-          //     )
-          // CategoryScreen(
-          //   id: staticCategoriesEntity.id,
-          //   title: staticCategoriesEntity.name,
-          // )
-          // ),
+
           child: Card(
-            shadowColor: AppColors.containerPrimary,
-            elevation: 8,
+            color: Colors.white,
+            elevation: 3,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(

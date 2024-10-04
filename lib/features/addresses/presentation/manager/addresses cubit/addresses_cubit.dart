@@ -14,9 +14,9 @@ class AddressesCubit extends Cubit<AddressesState> {
     this.addressesRepo,
   ) : super(AddressesInitial());
 
-  Future<void> getAddresses() async {
+  Future<void> getAddresses({bool remote = true}) async {
     emit(AddressesLoading());
-    var result = await addressesRepo.getAddresses();
+    var result = await addressesRepo.getAddresses(remote: remote);
     result.fold(
       (failure) => {
         emit(

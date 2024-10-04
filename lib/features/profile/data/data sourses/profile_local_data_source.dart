@@ -18,7 +18,6 @@ class ProfileLocalDataSourceImpl extends ProfileLocalDataSource {
     if (dataJson != null) {
       final Map<String, dynamic> jsonData =
           jsonDecode(dataJson) as Map<String, dynamic>;
-      print(jsonData);
       UserEntity data = User.fromJson(jsonData);
 
       return data;

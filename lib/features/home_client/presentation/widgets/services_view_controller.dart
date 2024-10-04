@@ -1,5 +1,4 @@
 import 'package:car_help/config/function/service_locator.dart';
-import 'package:car_help/features/home_client/data/repos/home_client_repo_impl.dart';
 import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
 import 'package:car_help/features/home_client/presentation/manager/services%20cubit/services_cubit.dart';
 import 'package:car_help/features/home_client/presentation/widgets/services_home_loading_view.dart';
@@ -9,13 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ServicesViewController extends StatefulWidget {
   final bool inHome;
-  final String? reminderType;
-  final int? index;
+  final String? lat, lng, address;
+
   const ServicesViewController({
     super.key,
     this.inHome = false,
-    this.reminderType,
-    this.index,
+    this.lat,
+    this.lng,
+    this.address,
   });
 
   @override
@@ -37,6 +37,9 @@ class _ServicesViewControllerState extends State<ServicesViewController> {
           } else if (state is ServicesSuccess) {
             return StaticCategoriesList(
               data: state.data,
+              lat: widget.lat,
+              lng: widget.lng,
+              address: widget.address,
             );
           }
           return const ServicesHomeLoadingView();

@@ -1,5 +1,3 @@
-import 'dart:io';
-import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
@@ -11,8 +9,6 @@ import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:intl_phone_field/phone_number.dart';
 
 class EditProfileClientViewBody extends StatefulWidget {
   final UserEntity data;
@@ -62,6 +58,7 @@ class _EditProfileClientViewBodyState extends State<EditProfileClientViewBody> {
             children: [
               SizedBox(height: SizeConfig.bodyHeight * .02),
               CustomTextFormField(
+                type: TextInputType.name,
                 controller: name,
                 labelText: S.of(context).fullName,
                 hintText: S.of(context).fullNameHint,

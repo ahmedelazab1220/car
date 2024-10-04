@@ -18,6 +18,9 @@ import 'package:car_help/features/lists/domain/repos/lists_repo.dart';
 import 'package:car_help/features/lists/presentation/manager/districts%20cubit/districts_cubit.dart';
 import 'package:car_help/features/my_cars/doman/repos/mycars_repo.dart';
 import 'package:car_help/features/my_cars/presentation/manager/mycars%20cubit/my_cars_cubit.dart';
+import 'package:car_help/features/orders/domain/repos/oreders_repo.dart';
+import 'package:car_help/features/orders/presentation/manager/order%20details%20cubit/order_details_cubit.dart';
+import 'package:car_help/features/orders/presentation/manager/provider%20times%20cubit/provider_times_cubit.dart';
 import 'package:car_help/features/profile/Presentation/manager/profile%20cubit/profile_cubit.dart';
 import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:car_help/features/settings/data/repos/settings_repo_impl.dart';
@@ -32,59 +35,27 @@ class AppHelper {
   static List<SingleChildWidget> providers = [
     BlocProvider(
         create: (context) => LocaleCubit(getIt.get<ProfileRepoImpl>())),
-
+    BlocProvider(create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
+    BlocProvider(create: (context) => SendOtpCubit(getIt.get<AuthRepoImpl>())),
     BlocProvider(
-      create: (context) => LoginCubit(
-        getIt.get<AuthRepoImpl>(),
-      ),
-    ),
+        create: (context) => ToggleFavoriteCubit(getIt.get<FavoriteRepo>())),
     BlocProvider(
-      create: (context) => SendOtpCubit(
-        getIt.get<AuthRepoImpl>(),
-      ),
-    ),
+        create: (context) => AddressesCubit(getIt.get<AddressesRepo>())),
+    BlocProvider(create: (context) => MyCarsCubit(getIt.get<MyCarsRepo>())),
+    BlocProvider(create: (context) => DistrictsCubit(getIt.get<ListsRepo>())),
+    BlocProvider(create: (context) => ExhibitsCubit(getIt.get<ExhibitsRepo>())),
     BlocProvider(
-      create: (context) => ToggleFavoriteCubit(getIt.get<FavoriteRepo>()),
-    ),
+        create: (context) => OrderDetailsCubit(getIt.get<OrdersRepo>())),
     BlocProvider(
-      create: (context) => AddressesCubit(
-        getIt.get<AddressesRepo>(),
-      ),
-    ),
+        create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())),
     BlocProvider(
-      create: (context) => MyCarsCubit(getIt.get<MyCarsRepo>()),
-    ),
+        create: (context) =>
+            NotificationsCubit(getIt.get<NotificationRepoImpl>())),
     BlocProvider(
-      create: (context) => DistrictsCubit(getIt.get<ListsRepo>()),
-    ),
+        create: (context) => HomeClientCubit(getIt.get<HomeClientRepo>())),
+    BlocProvider(create: (context) => InfoCubit(getIt.get<SettingsRepoImpl>())),
     BlocProvider(
-      create: (context) => ExhibitsCubit(getIt.get<ExhibitsRepo>()),
-    ),
-    // BlocProvider(
-    //   create: (context) => HomeProviderDataCubit(
-    //     getIt.get<HomeRepoImpl>(),
-    //   ),
-    // ),
-    BlocProvider(
-      create: (context) => ProfileCubit(
-        getIt.get<ProfileRepoImpl>(),
-      ),
-    ),
-    BlocProvider(
-      create: (context) => NotificationsCubit(
-        getIt.get<NotificationRepoImpl>(),
-      ),
-    ),
-    BlocProvider(
-      create: (context) => HomeClientCubit(
-        getIt.get<HomeClientRepo>(),
-      ),
-    ),
-    BlocProvider(
-      create: (context) => InfoCubit(
-        getIt.get<SettingsRepoImpl>(),
-      ),
-    ),
+        create: (context) => ProviderTimesCubit(getIt.get<OrdersRepo>())),
   ];
 
   static Iterable<LocalizationsDelegate<dynamic>> locales = [

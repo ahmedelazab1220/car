@@ -14,10 +14,14 @@ import 'package:car_help/features/home_client/domain/entities/service_entity.dar
 import 'package:car_help/features/home_client/presentation/views/booking_view.dart';
 import 'package:car_help/features/home_client/presentation/views/category_details_view.dart';
 import 'package:car_help/features/home_client/presentation/views/provider_details_view.dart';
+import 'package:car_help/features/home_provider/presentation/views/customer_orders_details_view.dart';
 import 'package:car_help/features/layout/presentation/view/both_layout.dart';
 import 'package:car_help/features/layout/presentation/view/client_layout.dart';
 import 'package:car_help/features/layout/presentation/view/provider_layout.dart';
 import 'package:car_help/features/location/presentation/pages/pick_location_screen.dart';
+import 'package:car_help/features/my_services/presentation/views/my_service_details_view.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
+import 'package:car_help/features/orders/presentation/views/make_public_order_view.dart';
 import 'package:car_help/features/orders/presentation/views/order_details_view.dart';
 import 'package:car_help/features/profile/Presentation/views/edit_profile_view.dart';
 import 'package:car_help/features/settings/presentation/views/about_us_view.dart';
@@ -30,6 +34,7 @@ import 'package:car_help/features/settings/presentation/views/terms_&_conditions
 import 'package:car_help/features/start/presentation/views/on_boarding_view.dart';
 import 'package:car_help/features/start/presentation/views/splash_view.dart';
 import 'package:car_help/features/start/presentation/views/start_view.dart';
+import 'package:car_help/features/working%20days/presentation/views/working_days_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -60,7 +65,7 @@ abstract class AppRouter {
   static const kServiceProvidersView = '/ServiceProvidersView';
   static const kStartView = '/StartView';
   static const kPickLocationScreen = '/PickLocationScreen';
-  // static const kServiceDetailsView = '/ServiceDetailsView';
+  static const kCustomerOrdersDetailsView = '/CustomerOrdersDetailsView';
   static const kSettingsView = '/SettingsView';
   static const kFavoritesView = '/FavoritesView';
   static const kCategoryDetailsView = '/CategoryDetailsView';
@@ -69,6 +74,10 @@ abstract class AppRouter {
   static const kAddExhibitView = '/AddExhibitView';
   static const kBookingView = '/BookingView';
   static const kOrderDetailsView = '/OrderDetailsView';
+  static const kWorkingDaysView = '/WorkingDaysView';
+  static const kMakePublicOrder = '/MakePublicOrder';
+  static const kMyServiceDetailsView = '/MyServiceDetailsView';
+
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -153,7 +162,9 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kBookingView,
-      builder: (context, state) => const BookingView(),
+      builder: (context, state) => BookingView(
+        list: state.extra as List,
+      ),
     ),
     GoRoute(
       path: kEditProfileView,
@@ -197,5 +208,24 @@ abstract class AppRouter {
         userType: state.extra as String,
       ),
     ),
+    GoRoute(
+      path: kCustomerOrdersDetailsView,
+      builder: (context, state) => CustomerOrdersDetailsView(
+        data: state.extra as OrderEntity,
+      ),
+    ),
+    GoRoute(
+      path: kWorkingDaysView,
+      builder: (context, state) => const WorkingDaysView(),
+    ),
+    GoRoute(
+      path: kMakePublicOrder,
+      builder: (context, state) => const MakePublicOrder(),
+    ),
+    GoRoute(
+        path: kMyServiceDetailsView,
+        builder: (context, state) => MyServiceDetailsView(
+              list: state.extra as List,
+            ))
   ]);
 }

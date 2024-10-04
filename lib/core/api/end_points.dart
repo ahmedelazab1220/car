@@ -42,12 +42,14 @@ class EndPoints {
   /////////////// Home ///////////////////
   static const String getClientHome = '/home';
   static const String getProviderHome = '/provider/home';
+  static const String getProvider = '/providers/';
+  static const String getProviders = '/providers?';
+  static const String sendOffer = '/provider/offer';
 
   /////////////// Services  ////////////////
   static const String getServices = '/categories';
   static const String getBannerCategories = '/banner-categories';
   static const String getPrograms = '/programs';
-  static const String getProviders = '/providers?categories[]=';
   static const String getSingleProvider = '/providers/';
   static const String search = '/search?search=';
   static const String getFavorite = '/client/wishlists';
@@ -73,15 +75,15 @@ class EndPoints {
   static const String updateMyCar = '/client/cars/';
   static const String deleteMyCar = '/client/cars/';
 
-  /////////////// My Services //////////////
-  static const String addMyServices = '/provider/services';
-  static const String deleteMyServices = '/provider/services';
-  static const String getMyServices = '/provider/services';
-  static const String updateMyServices = '/provider/services';
+  ///////////// My Services //////////////
+  static const String addMyServices = '/provider/orders';
+  static const String deleteMyServices = '/provider/orders';
+  static const String getMyServices = '/provider/orders';
+  static const String updateMyServices = '/provider/orders';
 
   /////////////// Exhibits /////////////////
   static const String getExhibits = '/provider/services';
-  static const String updateExhibits = '/provider/services';
+  static const String updateExhibits = '/provider/services/';
   static const String deleteExhibits = '/provider/services/';
   static const String addExhibits = '/provider/services';
 

@@ -1,3 +1,4 @@
+import 'package:car_help/features/addresses/data/data_sources/addresses_local_data_sourc.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:car_help/core/api/failures.dart';
@@ -5,11 +6,12 @@ import 'package:car_help/features/addresses/data/data_sources/addresses_remote_d
 import 'package:car_help/features/addresses/domain/entities/address_entity.dart';
 import 'package:car_help/features/addresses/domain/repos/addresses_repo.dart';
 import 'package:dio/dio.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class AddressesRepoImpl extends AddressesRepo {
   final AddressesRemoteDataSource addressesRemoteDataSource;
+  final AddressesLocalDataSource addressesLocalDataSource;
   AddressesRepoImpl({
+    required this.addressesLocalDataSource, 
     required this.addressesRemoteDataSource,
   });
   @override
@@ -43,10 +45,21 @@ class AddressesRepoImpl extends AddressesRepo {
   }
 
   @override
-  Future<Either<Failure, List<AddressEntity>>> getAddresses() async {
+  Future<Either<Failure, List<AddressEntity>>> getAddresses(
+      {bool remote = true}) async {
     try {
-      List<AddressEntity> data = await addressesRemoteDataSource.getAddresses();
-      return right(data);
+      List<AddressEntity> data = [];
+      if (remote) {
+        data = await addressesRemoteDataSource.getAddresses();
+        return right(data);
+      } else {
+        data = await addressesLocalDataSource.getAddresses();
+        if (data.isNotEmpty) {
+          return right(data);
+        }
+        data = await addressesRemoteDataSource.getAddresses();
+        return right(data);
+      }
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:car_help/features/settings/presentation/manager/info%20cubit/info_cubit.dart';
 import 'package:car_help/features/settings/presentation/widgets/info_view_bloc.dart';
+import 'package:car_help/features/widgets/custom_app_bar%20copy.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,9 +23,7 @@ class _TermsAndConditionsViewState extends State<TermsAndConditionsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).termsAndConditions),
-      ),
+      appBar: CustomAppBar(title: S.of(context).termsAndConditions),
       body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16),

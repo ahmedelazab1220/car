@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:car_help/core/api/failures.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/domain/entities/provider_times_entity.dart';
@@ -16,7 +18,11 @@ abstract class OrdersRepo {
     String? orderFromTime,
     String? orderToTime,
     String? paymentMethod,
+    List<File>? orderFiles,
+    int? categoryId,
+    int? addressId,
+    int? carId,
   });
-    Future<Either<Failure, String>> cancelOrder({int? orderId});
+    Future<Either<Failure, String>> cancelOrder({int? orderId, String? reason});
 
 }

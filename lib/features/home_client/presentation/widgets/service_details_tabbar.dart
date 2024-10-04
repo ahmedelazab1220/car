@@ -1,6 +1,5 @@
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/home_client/presentation/widgets/provider_details_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ServiceDetailsTabbar extends StatefulWidget {

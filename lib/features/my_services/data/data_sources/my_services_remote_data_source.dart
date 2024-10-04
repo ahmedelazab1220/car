@@ -1,10 +1,10 @@
 import 'package:car_help/core/api/api_service.dart';
 import 'package:car_help/core/api/end_points.dart';
-import 'package:car_help/features/my_services/data/models/my_services_model.dart';
-import 'package:car_help/features/my_services/domain/entities/my_services_entity.dart';
+import 'package:car_help/features/orders/data/models/order_model/order_model.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 
 abstract class MyServicesRemoteDataSource {
-  Future<List<MyServicesEntity>> getMyService();
+  Future<List<OrderEntity>> getMyService();
 }
 
 class MyServicesRemoteDataSourceImpl extends MyServicesRemoteDataSource {
@@ -13,12 +13,12 @@ class MyServicesRemoteDataSourceImpl extends MyServicesRemoteDataSource {
     this.apiService,
   );
   @override
-  Future<List<MyServicesEntity>> getMyService() async {
+  Future<List<OrderEntity>> getMyService() async {
     var response = await apiService.get(endPoint: EndPoints.getMyServices);
 
-    List<MyServicesEntity> list = [];
+    List<OrderEntity> list = [];
     response['data'].forEach((element) {
-      MyServicesEntity model = MyServicesModel.fromJson(element);
+      OrderEntity model = OrderModel.fromJson(element);
       list.add(model);
     });
 

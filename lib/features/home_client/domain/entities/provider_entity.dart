@@ -1,5 +1,7 @@
+import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
+import 'package:car_help/features/orders/domain/entities/provider_times_entity.dart';
 
 class ProviderEntity {
   int? id;
@@ -18,6 +20,8 @@ class ProviderEntity {
   num? averageRate;
   bool? inWishlist;
   List<String>? gallery;
+  List<ExhibitsEntity>? exhibits;
+  List<ProviderTimesEntity>? workingDays;
   ProviderEntity({
     this.id,
     this.name,
@@ -35,5 +39,7 @@ class ProviderEntity {
     this.averageRate,
     this.inWishlist,
     this.gallery,
+    this.exhibits,
+    this.workingDays,
   });
 }

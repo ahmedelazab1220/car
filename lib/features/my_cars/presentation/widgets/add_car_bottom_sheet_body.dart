@@ -61,16 +61,6 @@ class _AddCarBottomSheetBodyState extends State<AddCarBottomSheetBody> {
                     ? S.of(context).feildRequiredValidation
                     : null,
               ),
-              // SizedBox(height: SizeConfig.bodyHeight * .02),
-
-              // CustomTextFormField(
-              //   controller: carBrand,
-              //   labelText: S.of(context).carModel,
-              //   hintText: S.of(context).ModelCar,
-              //   validate: (value) => value!.isEmpty
-              //       ? S.of(context).feildRequiredValidation
-              //       : null,
-              // ),
               SizedBox(height: SizeConfig.bodyHeight * .04),
               CustomButton(
                 margin: EdgeInsets.zero,

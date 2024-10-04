@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:car_help/core/api/failures.dart';
 import 'package:car_help/features/orders/data/data_sources/orders_remote_data_source.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
@@ -45,21 +47,31 @@ class OrdersRepoImpl extends OrdersRepo {
   }
 
   @override
-  Future<Either<Failure, String>> addOrder(
-      {String? orderType,
-      int? providerId,
-      String? orderDate,
-      String? orderFromTime,
-      String? orderToTime,
-      String? paymentMethod}) async {
+  Future<Either<Failure, String>> addOrder({
+    String? orderType,
+    int? providerId,
+    String? orderDate,
+    String? orderFromTime,
+    String? orderToTime,
+    String? paymentMethod,
+    List<File>? orderFiles,
+    int? categoryId,
+    int? addressId,
+    int? carId,
+  }) async {
     try {
       final response = await ordersRemoteDataSource.addOrder(
-          orderType: orderType,
-          providerId: providerId,
-          orderDate: orderDate,
-          orderFromTime: orderFromTime,
-          orderToTime: orderToTime,
-          paymentMethod: paymentMethod);
+        orderType: orderType,
+        providerId: providerId,
+        orderDate: orderDate,
+        orderFromTime: orderFromTime,
+        orderToTime: orderToTime,
+        paymentMethod: paymentMethod,
+        orderFiles: orderFiles,
+        categoryId: categoryId,
+        addressId: addressId,
+        carId: carId,
+      );
       return right(response);
     } catch (e) {
       if (e is DioException) {
@@ -71,10 +83,11 @@ class OrdersRepoImpl extends OrdersRepo {
   }
 
   @override
-  Future<Either<Failure, String>> cancelOrder({int? orderId}) async {
+  Future<Either<Failure, String>> cancelOrder(
+      {int? orderId, String? reason}) async {
     try {
-      final response =
-          await ordersRemoteDataSource.cancelOrder(orderId: orderId);
+      final response = await ordersRemoteDataSource.cancelOrder(
+          orderId: orderId, reason: reason);
       return right(response);
     } catch (e) {
       if (e is DioException) {

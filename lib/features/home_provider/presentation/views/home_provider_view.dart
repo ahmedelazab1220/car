@@ -2,6 +2,8 @@ import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/features/home_provider/domain/repos/home_provider_repo.dart';
 import 'package:car_help/features/home_provider/presentation/manager/home%20provider%20cubit/home_provider_cubit.dart';
 import 'package:car_help/features/home_provider/presentation/widgets/home_provider_view_body.dart';
+import 'package:car_help/features/widgets/custom_home_appbar.dart';
+import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +21,16 @@ class HomeProviderView extends StatelessWidget {
                       getIt.get<HomeProviderRepo>(),
                     )..getHomeProvider())
           ],
-          child: const HomeProviderViewBody(),
+          child: Column(
+            children: [
+              CustomHomeAppBar(
+                title: S.of(context).welcomeDearCustomer,
+              ),
+              const Expanded(
+                child: HomeProviderViewBody(),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/addresses/presentation/manager/addresses%20cubit/addresses_cubit.dart';
-import 'package:car_help/features/home_client/presentation/views/client_home_view.dart';
+import 'package:car_help/features/home_client/presentation/views/home_client_view.dart';
 import 'package:car_help/features/layout/presentation/widgets/custom_nav_bar.dart';
 import 'package:car_help/features/my_cars/presentation/pages/my_cars_view.dart';
 import 'package:car_help/features/orders/presentation/views/my_orders_view.dart';
@@ -61,7 +61,7 @@ class _ClientLayoutState extends State<ClientLayout> {
     return CustomNavBar(
       items: _navBarsItems(),
       screens: const [
-        ClientHomeView(),
+        HomeClientView(),
         MyOrdersView(),
         MyCarsView(),
         SettingsView(

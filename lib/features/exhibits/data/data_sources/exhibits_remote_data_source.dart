@@ -1,12 +1,30 @@
+import 'dart:io';
+
 import 'package:car_help/core/api/api_service.dart';
 import 'package:car_help/core/api/end_points.dart';
 import 'package:car_help/features/exhibits/data/models/exhibits_model.dart';
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
+import 'package:dio/dio.dart';
 
 abstract class ExhibitsRemoteDataSource {
   Future<List<ExhibitsEntity>> getExhibits();
-  Future<String> addExhibits();
-  Future<String> updateExhibits();
+  Future<String> addExhibits({
+    String? title,
+    num? price,
+    num? priceAfterDiscount,
+    int? qty,
+    String? description,
+    List<File>? images,
+  });
+  Future<String> updateExhibits({
+    int? id,
+    String? title,
+    num? price,
+    num? priceAfterDiscount,
+    int? qty,
+    String? description,
+    List<File>? images,
+  });
   Future<String> deletaExhibits({int? id});
 }
 
@@ -17,7 +35,7 @@ class ExhibitsRemoteDataSourceImpl extends ExhibitsRemoteDataSource {
   );
   @override
   Future<List<ExhibitsEntity>> getExhibits() async {
-    var response = await apiService.get(endPoint: EndPoints.getMyServices);
+    var response = await apiService.get(endPoint: EndPoints.getExhibits);
 
     List<ExhibitsEntity> list = [];
     response['data'].forEach((element) {
@@ -29,9 +47,32 @@ class ExhibitsRemoteDataSourceImpl extends ExhibitsRemoteDataSource {
   }
 
   @override
-  Future<String> addExhibits() {
-    // TODO: implement addExhibits
-    throw UnimplementedError();
+  Future<String> addExhibits({
+    String? title,
+    num? price,
+    num? priceAfterDiscount,
+    int? qty,
+    String? description,
+    List<File>? images,
+  }) async {
+    List<MultipartFile> imagesFiles = [];
+    if (images != null) {
+      for (var file in images) {
+        imagesFiles.add(await MultipartFile.fromFile(file.path));
+      }
+    }
+    FormData formData = FormData.fromMap({
+      'title': title,
+      'images[]': imagesFiles,
+      'price': price,
+      'price_after_discount': priceAfterDiscount,
+      'qty': qty,
+      'description': description,
+    });
+    var response =
+        await apiService.post(endPoint: EndPoints.getExhibits, data: formData);
+
+    return response['message'];
   }
 
   @override
@@ -42,8 +83,33 @@ class ExhibitsRemoteDataSourceImpl extends ExhibitsRemoteDataSource {
   }
 
   @override
-  Future<String> updateExhibits() {
-    // TODO: implement updateExhibits
-    throw UnimplementedError();
+  Future<String> updateExhibits({
+    int? id,
+    String? title,
+    num? price,
+    num? priceAfterDiscount,
+    int? qty,
+    String? description,
+    List<File>? images,
+  }) async {
+    List<MultipartFile> imagesFiles = [];
+    if (images != null) {
+      for (var file in images) {
+        imagesFiles.add(await MultipartFile.fromFile(file.path));
+      }
+    }
+    FormData formData = FormData.fromMap({
+      'title': title,
+      'images[]': imagesFiles,
+      'price': price,
+      'price_after_discount': priceAfterDiscount,
+      'qty': qty,
+      'description': description,
+      '_method': 'PUT',
+    });
+    var response = await apiService.post(
+        endPoint: '${EndPoints.updateExhibits}$id', data: formData);
+
+    return response['message'];
   }
 }

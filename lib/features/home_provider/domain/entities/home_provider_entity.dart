@@ -1,5 +1,7 @@
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
+
 class HomeProviderEntity {
-  List<dynamic>? exhibts = [];
+  List<OrderEntity>? exhibts;
   int? pending;
   int? inProgress;
   int? completed;

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -18,15 +20,24 @@ class AddOrderCubit extends Cubit<AddOrderState> {
     String? orderFromTime,
     String? orderToTime,
     String? paymentMethod,
+    List<File>? orderFiles,
+    int? categoryId,
+    int? addressId,
+    int? carId,
   }) async {
     emit(AddOrderLoading());
     var result = await ordersRepo.addOrder(
-        orderType: orderType,
-        providerId: providerId,
-        orderDate: orderDate,
-        orderFromTime: orderFromTime,
-        orderToTime: orderToTime,
-        paymentMethod: paymentMethod);
+      orderType: orderType,
+      providerId: providerId,
+      orderDate: orderDate,
+      orderFromTime: orderFromTime,
+      orderToTime: orderToTime,
+      paymentMethod: paymentMethod,
+      orderFiles: orderFiles,
+      categoryId: categoryId,
+      addressId: addressId,
+      carId: carId,
+    );
     result.fold((failure) {
       emit(AddOrderFailure(errorMessage: failure.errMessage));
     }, (success) {

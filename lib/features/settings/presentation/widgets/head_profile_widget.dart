@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/core/utils/app_colors.dart';
-import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
@@ -85,14 +84,18 @@ class HeadProfileBody extends StatelessWidget {
               width: double.maxFinite,
               isProfileImage: true,
             ),
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(24)),
+          if (userType == AppStrings.provider)
+            SizedBox(
+              height: 160,
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(24)),
+                ),
+              ),
             ),
-          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

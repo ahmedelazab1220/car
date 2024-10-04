@@ -14,20 +14,17 @@ abstract class ProfileRemoteDataSource {
     String? phone,
   });
   Future<String> verifyOtpEditPhone({String? phone, String? otpCode});
-  Future<String> editProfileData({
-    String? name,
-    String? email,
-    File? profileImage,
-    File? cv,
-    List<File>? works,
-    List<int>? categoryId,
-    String? phone,
-    String? accountType,
-    String? experienceYears,
-    String? url,
-    String? about,
-    List<int>? programs,
-  });
+  Future<String> editProfileData(
+      {String? name,
+      String? phone,
+      String? address,
+      String? commercialRegister,
+      int? cityId,
+      int? districtId,
+      double? lat,
+      double? lng,
+      List<int>? categoryIds,
+      List<File>? works});
   Future<String> deleteAccount();
 
   Future<String> toggleNotification(
@@ -51,20 +48,17 @@ class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
   }
 
   @override
-  Future<String> editProfileData({
-    String? name,
-    String? email,
-    File? profileImage,
-    File? cv,
-    List<File>? works,
-    List<int>? categoryId,
-    String? phone,
-    String? accountType,
-    String? experienceYears,
-    String? url,
-    String? about,
-    List<int>? programs,
-  }) async {
+  Future<String> editProfileData(
+      {String? name,
+      String? phone,
+      String? address,
+      String? commercialRegister,
+      int? cityId,
+      int? districtId,
+      double? lat,
+      double? lng,
+      List<int>? categoryIds,
+      List<File>? works}) async {
     List<MultipartFile> worksFiles = [];
     if (works != null) {
       for (var file in works) {
@@ -73,7 +67,15 @@ class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
     }
     FormData formData = FormData.fromMap({
       "name": name,
-      "phone": phone,
+      "phone": "+964$phone",
+      if (cityId != null) "city_id": cityId,
+      if (districtId != null) "district_id": districtId,
+      if (address != null) "address": address,
+      if (lat != null) "lat": lat,
+      if (lng != null) "lng": lng,
+      if (commercialRegister != null) "commercial_register": commercialRegister,
+      if (categoryIds != null) "categories": categoryIds,
+      if (worksFiles.isNotEmpty) 'works[]': worksFiles,
     });
 
     var response = await apiService.post(

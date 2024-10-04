@@ -7,18 +7,16 @@ import 'package:dartz/dartz.dart';
 abstract class ProfileRepo {
   Future<Either<Failure, UserEntity>> getProfileData({bool remote});
   Future<Either<Failure, String>> editProfileData({
-    String? name,
-    String? email,
-    File? profileImage,
-    File? cv,
-    List<File>? works,
-    List<int>? categoryId,
+ String? name,
     String? phone,
-    String? accountType,
-    String? experienceYears,
-    String? url,
-    String? about,
-    List<int>? programs,
+    String? address,
+    String? commercialRegister,
+    int? cityId,
+    int? districtId,
+    double? lat,
+    double? lng,
+    List<int>? categoryIds,
+    List<File>? works
   });
   Future<Either<Failure, String>> sendOtpEditPhone({
     String? phone,

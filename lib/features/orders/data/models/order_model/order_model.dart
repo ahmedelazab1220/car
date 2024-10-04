@@ -1,20 +1,21 @@
+import 'package:car_help/features/addresses/data/models/address_model.dart';
 import 'package:car_help/features/home_client/data/model/provider_model.dart';
+import 'package:car_help/features/home_client/data/model/service_model.dart';
+import 'package:car_help/features/my_cars/data/models/my_car_model/my_car_model.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 
-class OrderModel extends OrderEntity{
-
-
+class OrderModel extends OrderEntity {
   OrderModel({
     super.id,
     super.orderStatus,
     super.orderType,
-    super.userCarId,
+    super.userCar,
     super.orderDate,
     super.orderTimeFrom,
     super.orderTimeTo,
-    super.userServiceId,
-    super.categoryId,
-    super.userAddressId,
+    super.userService,
+    super.category,
+    super.userAddress,
     super.provider,
     super.description,
     super.createdAt,
@@ -25,16 +26,26 @@ class OrderModel extends OrderEntity{
         id: json['id'] as int?,
         orderStatus: json['order_status'] as String?,
         orderType: json['order_type'] as String?,
-        userCarId: json['user_car_id'] as dynamic,
+        userCar: json['user_car'] == null
+            ? null
+            : MyCarModel.fromJson(json['user_car'] as Map<String, dynamic>),
         orderDate: json['order_date'] as String?,
         orderTimeFrom: json['order_time_from'] as String?,
         orderTimeTo: json['order_time_to'] as String?,
-        userServiceId: json['user_service_id'] as dynamic,
-        categoryId: json['category_id'] as dynamic,
-        userAddressId: json['user_address_id'] as dynamic,
-        provider: json['provider_id'] == null
+        userService: json['user_service'] == null
             ? null
-            : ProviderModel.fromJson(json['provider_id'] as Map<String, dynamic>),
+            : ServiceModel.fromJson(
+                json['user_service'] as Map<String, dynamic>),
+        category: json['category'] == null
+            ? null
+            : ServiceModel.fromJson(json['category'] as Map<String, dynamic>),
+        userAddress: json['user_address'] == null
+            ? null
+            : AddressModel.fromJson(
+                json['user_address'] as Map<String, dynamic>),
+        provider: json['provider'] == null
+            ? null
+            : ProviderModel.fromJson(json['provider'] as Map<String, dynamic>),
         description: json['description'] as dynamic,
         createdAt: json['created_at'] == null
             ? null
@@ -46,14 +57,14 @@ class OrderModel extends OrderEntity{
         'id': id,
         'order_status': orderStatus,
         'order_type': orderType,
-        'user_car_id': userCarId,
+        'user_car': userCar,
         'order_date': orderDate,
         'order_time_from': orderTimeFrom,
         'order_time_to': orderTimeTo,
-        'user_service_id': userServiceId,
-        'category_id': categoryId,
-        'user_address_id': userAddressId,
-        'provider_id': provider,
+        'user_service': userService,
+        'category': category,
+        'user_address': userAddress,
+        'provider': provider,
         'description': description,
         'created_at': createdAt?.toIso8601String(),
         'images': images,

@@ -1,6 +1,8 @@
+import 'package:car_help/features/exhibits/data/models/exhibits_model.dart';
 import 'package:car_help/features/home_client/data/model/service_model.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/lists/data/models/dropdown.model.dart';
+import 'package:car_help/features/orders/data/models/provider_times_model.dart';
 
 class ProviderModel extends ProviderEntity {
   ProviderModel({
@@ -20,6 +22,8 @@ class ProviderModel extends ProviderEntity {
     super.averageRate,
     super.inWishlist,
     super.gallery,
+    super.exhibits,
+    super.workingDays,
   });
 
   factory ProviderModel.fromJson(Map<String, dynamic> json) => ProviderModel(
@@ -47,6 +51,12 @@ class ProviderModel extends ProviderEntity {
         gallery: (json['gallery'] as List<dynamic>?)
             ?.map((e) => e as String)
             .toList(),
+        exhibits: (json['services'] as List<dynamic>?)
+            ?.map((e) => ExhibitsModel.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        workingDays: (json['working_days'] as List<dynamic>?)
+            ?.map((e) => ProviderTimesModel.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -66,5 +76,7 @@ class ProviderModel extends ProviderEntity {
         'average_rate': averageRate,
         'in_wishlist': inWishlist,
         'gallery': gallery,
+        'services': exhibits,
+        'working_days': workingDays,
       };
 }

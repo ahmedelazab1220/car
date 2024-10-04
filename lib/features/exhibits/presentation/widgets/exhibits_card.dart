@@ -29,15 +29,18 @@ class ExhibitsCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Card(
+        color: Colors.white,
         elevation: 3,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: null,
           child: SizedBox(
-            height: 160,
+            height: 120,
             child: Row(children: [
-              ServiceProvidersImage(imageUrl: data.images?.first),
+              ServiceProvidersImage(
+                  imageUrl:
+                      data.images!.isNotEmpty ? data.images?.first : null),
               const SizedBox(
                 width: 10,
               ),

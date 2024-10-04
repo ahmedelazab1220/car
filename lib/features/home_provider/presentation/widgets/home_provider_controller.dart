@@ -28,8 +28,8 @@ class _HomeProviderControllerState extends State<HomeProviderController> {
         if (state is HomeProviderLoading) {
           isLoading = true;
         } else if (state is HomeProviderSuccess) {
-          newOrder = state.data.inProgress ?? 0;
-          onGoing = state.data.pending ?? 0;
+          newOrder = state.data.pending ?? 0;
+          onGoing = state.data.inProgress ?? 0;
           completedOrders = state.data.completed ?? 0;
           cancelledOrders = state.data.canceled ?? 0;
           exhibits = state.data.exhibts?.length ?? 0;

@@ -1,6 +1,8 @@
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
+import 'package:car_help/features/exhibits/data/models/exhibits_model.dart';
 import 'package:car_help/features/home_client/data/model/service_model.dart';
 import 'package:car_help/features/lists/data/models/dropdown.model.dart';
+import 'package:car_help/features/orders/data/models/provider_times_model.dart';
 
 class User extends UserEntity {
   User({
@@ -17,10 +19,14 @@ class User extends UserEntity {
     super.district,
     super.categories,
     super.profileImage,
+    super.backgroundImage,
     super.status,
     super.defaultLang,
     super.enableNotification,
     super.enableAdvertisementNotification,
+    super.gallery,
+    super.exhibits,
+    super.workingDays,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -43,11 +49,21 @@ class User extends UserEntity {
             ?.map((e) => ServiceModel.fromJson(e as Map<String, dynamic>))
             .toList(),
         profileImage: json['profile_image'] as String?,
+        backgroundImage: json['background_image'] as String?,
         status: json['status'] as String?,
         defaultLang: json['default_lang'] as String?,
         enableNotification: json['enable_notification'] as int?,
         enableAdvertisementNotification:
             json['enable_advertisement_notification'] as int?,
+        gallery: (json['gallery'] as List<dynamic>?)
+            ?.map((e) => e as String)
+            .toList(),
+        exhibits: (json['services'] as List<dynamic>?)
+            ?.map((e) => ExhibitsModel.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        workingDays: (json['working_days'] as List<dynamic>?)
+            ?.map((e) => ProviderTimesModel.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -64,9 +80,13 @@ class User extends UserEntity {
         'district': district,
         'categories': categories,
         'profile_image': profileImage,
+        'background_image': backgroundImage,
         'status': status,
         'default_lang': defaultLang,
         'enable_notification': enableNotification,
         'enable_advertisement_notification': enableAdvertisementNotification,
+        'gallery': gallery,
+        'services': exhibits,
+        'working_days': workingDays,
       };
 }

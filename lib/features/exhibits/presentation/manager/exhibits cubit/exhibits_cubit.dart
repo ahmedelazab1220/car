@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
 import 'package:car_help/features/exhibits/domain/repos/exhibits_repo.dart';
@@ -30,36 +32,73 @@ class ExhibitsCubit extends Cubit<ExhibitsState> {
     );
   }
 
-  Future<void> addExhibits(
-      {int? carFactoryId, int? carModelId, String? manufactureYear}) async {
+  Future<void> addExhibits({
+    String? title,
+    num? price,
+    num? priceAfterDiscount,
+    int? qty,
+    String? description,
+    List<File>? images,
+  }) async {
     emit(ExhibitsLoading());
-    var result = await exhibitsRepo.addExhibits();
+    var result = await exhibitsRepo.addExhibits(
+        title: title,
+        price: price,
+        priceAfterDiscount: priceAfterDiscount,
+        qty: qty,
+        description: description,
+        images: images);
     result.fold(
       (failure) => {
         emit(
           ExhibitsFailure(errorMessage: failure.errMessage),
         ),
+        emit(
+          ExhibitsSuccess(data: list),
+        ),
       },
       (success) => {
         getExhibits(),
         emit(
-          ExhibitsSuccess(data: list),
+          AddExhibitSuccess(message: success),
         ),
       },
     );
   }
 
-  Future<void> updateExhibits({required ExhibitsEntity data}) async {
+  Future<void> updateExhibits({
+    int? id,
+    String? title,
+    num? price,
+    num? priceAfterDiscount,
+    int? qty,
+    String? description,
+    List<File>? images,
+  }) async {
     emit(ExhibitsLoading());
-    final result = await exhibitsRepo.updateExhibits();
+    var result = await exhibitsRepo.updateExhibits(
+      id: id,
+      title: title,
+      price: price,
+      priceAfterDiscount: priceAfterDiscount,
+      qty: qty,
+      description: description,
+      images: images,
+    );
     result.fold(
-      (failure) => emit(ExhibitsFailure(errorMessage: failure.errMessage)),
-      (success) {
-        final index = list.indexWhere((element) => element.id == data.id);
-        if (index != -1) {
-          list[index] = data;
-        }
-        emit(ExhibitsSuccess(data: list));
+      (failure) => {
+        emit(
+          AddExhibitFailure(errorMessage: failure.errMessage),
+        ),
+        emit(
+          ExhibitsSuccess(data: list),
+        ),
+      },
+      (success) => {
+        getExhibits(),
+        emit(
+          AddExhibitSuccess(message: success),
+        ),
       },
     );
   }

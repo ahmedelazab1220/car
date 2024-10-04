@@ -18,9 +18,13 @@ class HomeClientRepoImpl implements HomeClientRepo {
   });
 
   @override
-  Future<Either<Failure, HomeClientEntity>> getHome() async {
+  Future<Either<Failure, HomeClientEntity>> getHome(
+      {String? lat, String? lng}) async {
     try {
-      HomeClientEntity data = await homeRemoteDataSource.getHome();
+      HomeClientEntity data = await homeRemoteDataSource.getHome(
+        lat: lat,
+        lng: lng,
+      );
       return right(data);
     } catch (e) {
       if (e is DioException) {
@@ -47,6 +51,37 @@ class HomeClientRepoImpl implements HomeClientRepo {
         data = await homeRemoteDataSource.getServices();
         return right(data);
       }
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProviderEntity>> getProvider({int? providerId}) async {
+    try {
+      final data =
+          await homeRemoteDataSource.getProvider(providerId: providerId);
+      return right(data);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ProviderEntity>>> search(
+      {int? categoryId, String? query}) async {
+    try {
+      final data = await homeRemoteDataSource.search(
+          categoryId: categoryId, query: query);
+      return right(data);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

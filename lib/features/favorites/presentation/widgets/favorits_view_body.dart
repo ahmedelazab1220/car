@@ -1,7 +1,7 @@
 import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/favorites/presentation/widgets/Favorite_card.dart';
+import 'package:car_help/features/favorites/presentation/widgets/favorite_card.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';

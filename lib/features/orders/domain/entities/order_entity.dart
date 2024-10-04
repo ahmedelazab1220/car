@@ -1,16 +1,19 @@
+import 'package:car_help/features/addresses/domain/entities/address_entity.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
+import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
+import 'package:car_help/features/my_cars/doman/entities/mycars_entity.dart';
 
 class OrderEntity {
     int? id;
   String? orderStatus;
   String? orderType;
-  dynamic userCarId;
+  MyCarsEntity? userCar;
   String? orderDate;
   String? orderTimeFrom;
   String? orderTimeTo;
-  dynamic userServiceId;
-  dynamic categoryId;
-  dynamic userAddressId;
+  ServiceEntity? userService;
+  ServiceEntity? category;
+  AddressEntity? userAddress;
   ProviderEntity? provider;
   dynamic description;
   DateTime? createdAt;
@@ -19,15 +22,15 @@ class OrderEntity {
     this.id,
     this.orderStatus,
     this.orderType,
-    required this.userCarId,
+     this.userCar,
     this.orderDate,
     this.orderTimeFrom,
     this.orderTimeTo,
-    required this.userServiceId,
-    required this.categoryId,
-    required this.userAddressId,
+     this.userService,
+     this.category,
+     this.userAddress,
     this.provider,
-    required this.description,
+     this.description,
     this.createdAt,
     this.images,
   });

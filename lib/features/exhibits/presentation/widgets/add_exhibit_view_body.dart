@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:car_help/config/helper/helper.dart';
+import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
+import 'package:car_help/features/exhibits/presentation/manager/exhibits%20cubit/exhibits_cubit.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_download_pdf.dart';
 import 'package:car_help/features/widgets/custom_picker_image.dart';
@@ -9,6 +11,7 @@ import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:car_help/core/utils/app_size.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddExhibitViewBody extends StatefulWidget {
   final ExhibitsEntity? data;
@@ -26,8 +29,8 @@ class _AddExhibitViewBodyState extends State<AddExhibitViewBody> {
   TextEditingController quantity = TextEditingController();
   TextEditingController detailes = TextEditingController();
 
-  List<Future<File>> works = [];
-  List<String> worksString = [];
+  List<Future<File>> images = [];
+  List<String> imagesString = [];
   @override
   void initState() {
     _initVariables();
@@ -42,8 +45,10 @@ class _AddExhibitViewBodyState extends State<AddExhibitViewBody> {
         : widget.data!.priceAfterDiscount.toString();
     quantity.text = widget.data?.qty.toString() ?? '';
     detailes.text = widget.data?.description ?? '';
-    works = widget.data!.images!.map((e) async => await uriToFile(e)).toList();
-    worksString = widget.data!.images!.map((e) => e.toString()).toList();
+    images =
+        widget.data?.images?.map((e) async => await uriToFile(e)).toList() ??
+            [];
+    imagesString = widget.data?.images?.map((e) => e.toString()).toList() ?? [];
   }
 
   @override
@@ -114,40 +119,78 @@ class _AddExhibitViewBodyState extends State<AddExhibitViewBody> {
                     : null,
               ),
               SizedBox(height: SizeConfig.bodyHeight * .03),
-              if (works.length <= 4)
+              if (images.length <= 4)
                 CustomPickerImages(
                   onImageSelected: (File? file, String? fileName) {
                     if (file != null && fileName != null) {
                       setState(() {
-                        works.add(Future.value(file));
-                        worksString.add(fileName);
+                        images.add(Future.value(file));
+                        imagesString.add(fileName);
                       });
                     } else {}
                   },
                 ),
-              if (worksString.isNotEmpty)
+              if (imagesString.isNotEmpty)
                 ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: worksString.length,
+                    itemCount: imagesString.length,
                     itemBuilder: (context, index) {
                       return CustomPDFWidget(
                         onTap: () {
                           setState(() {
-                            works.removeAt(index);
-                            worksString.removeAt(index);
+                            images.removeAt(index);
+                            imagesString.removeAt(index);
                           });
                         },
-                        urlString: worksString[index] == 'name'
+                        urlString: imagesString[index] == 'name'
                             ? null
-                            : worksString[index],
-                        title: worksString[index],
+                            : imagesString[index],
+                        title: imagesString[index],
                       );
                     }),
-              SizedBox(height: SizeConfig.bodyHeight * .2),
+              SizedBox(height: SizeConfig.bodyHeight * .05),
               CustomButton(
-                  title: S.of(context).create,
-                  onPressed: () => formKey.currentState!.validate()),
+                  title: widget.data == null
+                      ? S.of(context).create
+                      : S.of(context).edit,
+                  color: images.isNotEmpty
+                      ? AppColors.primary
+                      : AppColors.hint.withOpacity(0.5),
+                  onPressed: images.isNotEmpty
+                      ? () async {
+                          if (formKey.currentState!.validate()) {
+                            if (widget.data == null) {
+                              BlocProvider.of<ExhibitsCubit>(context)
+                                  .addExhibits(
+                                title: name.text,
+                                price: num.tryParse(
+                                  price.text,
+                                ),
+                                priceAfterDiscount:
+                                    num.tryParse(priceAfterDiscount.text),
+                                qty: int.tryParse(quantity.text),
+                                description: detailes.text,
+                                images: await Future.wait(images),
+                              );
+                            } else {
+                              BlocProvider.of<ExhibitsCubit>(context)
+                                  .updateExhibits(
+                                id: widget.data!.id,
+                                title: name.text,
+                                price: num.tryParse(
+                                  price.text,
+                                ),
+                                priceAfterDiscount:
+                                    num.tryParse(priceAfterDiscount.text),
+                                qty: int.tryParse(quantity.text),
+                                description: detailes.text,
+                                images: await Future.wait(images),
+                              );
+                            }
+                          }
+                        }
+                      : null),
               SizedBox(height: SizeConfig.bodyHeight * .02),
             ],
           ),

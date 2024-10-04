@@ -1,6 +1,5 @@
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/home_client/presentation/widgets/service_details_exhibits_card.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/row_widget.dart';
@@ -78,9 +77,9 @@ class GeneralOrderDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          const ServiceDetailsExhibitsCard(
-            viewPrice: false,
-          ),
+          // const ServiceDetailsExhibitsCard(
+          //   viewPrice: false,
+          // ),
           const SizedBox(
             height: 14,
           ),

@@ -1,15 +1,20 @@
+import 'dart:io';
+
 import 'package:car_help/config/function/app_router.dart';
+import 'package:car_help/config/helper/helper.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/auth/presentation/widgets/address_register_widget.dart';
-import 'package:car_help/features/lists/presentation/controllers/center_classification_controller.dart';
+import 'package:car_help/features/lists/presentation/controllers/multi_select_classification_controller.dart';
 import 'package:car_help/features/lists/presentation/manager/districts%20cubit/districts_cubit.dart';
 import 'package:car_help/features/location/domain/entities/location_entity.dart';
 import 'package:car_help/features/profile/Presentation/manager/edit%20cubit/edit_profile_cubit.dart';
 import 'package:car_help/features/settings/presentation/settings_helper.dart';
 import 'package:car_help/features/settings/presentation/widgets/delete_account_bottom_sheet_body.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
+import 'package:car_help/features/widgets/custom_download_pdf.dart';
+import 'package:car_help/features/widgets/custom_picker_image.dart';
 import 'package:car_help/features/widgets/custom_text_form_field.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +41,8 @@ class _EditProfileProviderViewBodyState
   int? city, district;
   double? lat, lng;
   List<int> categoryIds = [];
+  List<Future<File>> works = [];
+  List<String> worksString = [];
   bool isAgree = false;
   bool isValid = false;
 
@@ -58,6 +65,10 @@ class _EditProfileProviderViewBodyState
     lng = widget.data.lng;
     city = widget.data.city?.id;
     district = widget.data.district?.id;
+    works =
+        widget.data.gallery?.map((e) async => await uriToFile(e)).toList() ??
+            [];
+    worksString = widget.data.gallery?.map((e) => e.toString()).toList() ?? [];
     BlocProvider.of<DistrictsCubit>(context)
         .getDistricts(id: widget.data.city?.id);
   }
@@ -98,7 +109,7 @@ class _EditProfileProviderViewBodyState
                     : null,
               ),
               SizedBox(height: SizeConfig.bodyHeight * .02),
-              CenterClassificationController(
+              MultiSelectClassificationController(
                 selectedIds: widget.data.categories ?? [],
                 onSelectedIds: (selectedIds) {
                   setState(() {
@@ -154,13 +165,53 @@ class _EditProfileProviderViewBodyState
                     value!.isEmpty ? S.of(context).phoneNumberValidation : null,
               ),
               SizedBox(height: SizeConfig.bodyHeight * .02),
+              if (works.length <= 4)
+                CustomPickerImages(
+                  onImageSelected: (File? file, String? fileName) {
+                    if (file != null && fileName != null) {
+                      setState(() {
+                        works.add(Future.value(file));
+                        worksString.add(fileName);
+                      });
+                    } else {}
+                  },
+                ),
+              if (worksString.isNotEmpty)
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: worksString.length,
+                    itemBuilder: (context, index) {
+                      return CustomPDFWidget(
+                        onTap: () {
+                          setState(() {
+                            works.removeAt(index);
+                            worksString.removeAt(index);
+                          });
+                        },
+                        urlString: worksString[index] == 'name'
+                            ? null
+                            : worksString[index],
+                        title: worksString[index],
+                      );
+                    }),
+              SizedBox(height: SizeConfig.bodyHeight * .02),
               CustomButton(
                   margin: const EdgeInsets.all(0),
                   title: S.of(context).save,
                   onPressed: () async {
                     BlocProvider.of<EditProfileCubit>(context).editProfileData(
                       name: companyName.text.trim(),
-                      phone: widget.data.phone,
+                      phone: phoneNumber.text.trim(),
+                      address: addressController.text.trim(),
+                      cityId: city,
+                      districtId: district,
+                      lat: lat,
+                      lng: lng,
+                      commercialRegister:
+                          commercialRegistrationNumber.text.trim(),
+                      categoryIds: categoryIds,
+                      works: await Future.wait(works),
                     );
                   }),
               SizedBox(

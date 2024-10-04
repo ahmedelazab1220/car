@@ -6,7 +6,7 @@ class ProviderTimesModel extends ProviderTimesEntity {
     super.day,
     super.from,
     super.to,
-    super.isAvailable,
+    super.isHoliday,
   });
 
   factory ProviderTimesModel.fromJson(Map<String, dynamic> json) {
@@ -15,7 +15,7 @@ class ProviderTimesModel extends ProviderTimesEntity {
       day: json['day'] as String?,
       from: json['from'] as String?,
       to: json['to'] as String?,
-      isAvailable: json['is_available'] as bool?,
+      isHoliday: json['is_holiday'] as int?,
     );
   }
 
@@ -24,6 +24,6 @@ class ProviderTimesModel extends ProviderTimesEntity {
         'day': day,
         'from': from,
         'to': to,
-        'is_available': isAvailable,
+        'is_holiday': isHoliday,
       };
 }

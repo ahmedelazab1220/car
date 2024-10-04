@@ -1,5 +1,6 @@
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_strings.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/Rating_order_bottom_sheet_body.dart';
 import 'package:car_help/features/orders/presentation/widgets/accepted_offer_bottom_sheet_body.dart';
 import 'package:car_help/features/orders/presentation/widgets/cancelling_order_bottom_sheet_body.dart';
@@ -10,6 +11,7 @@ class OrdersHelper {
   static Future<void> showBottomSheetDialog({
     required BuildContext context,
     required String? orderStatuse,
+    required OrderEntity? data,
   }) async {
     showCupertinoModalBottomSheet(
       topRadius: const Radius.circular(30),
@@ -28,7 +30,7 @@ class OrdersHelper {
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
           child: orderStatuse == AppStrings.pending
-              ? const CancellingOrderBottomSheetBody()
+              ?  CancellingOrderBottomSheetBody(data: data,)
               : orderStatuse == AppStrings.inProgress
                   ? const RatingOrderBottomSheetBody()
                   : const AcceptedOfferBottomSheetBody(),

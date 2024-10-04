@@ -5,7 +5,7 @@ import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/presentation/manager/register%20cubit/register_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/address_register_widget.dart';
 import 'package:car_help/features/auth/presentation/widgets/terms_register_widget.dart';
-import 'package:car_help/features/lists/presentation/controllers/center_classification_controller.dart';
+import 'package:car_help/features/lists/presentation/controllers/multi_select_classification_controller.dart';
 import 'package:car_help/features/lists/presentation/manager/districts%20cubit/districts_cubit.dart';
 import 'package:car_help/features/location/domain/entities/location_entity.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
@@ -72,7 +72,7 @@ class _RegisterProviderViewBodyState extends State<RegisterProviderViewBody> {
                 value!.isEmpty ? S.of(context).feildRequiredValidation : null,
           ),
           SizedBox(height: SizeConfig.bodyHeight * .02),
-          CenterClassificationController(
+          MultiSelectClassificationController(
             onSelectedIds: (selectedIds) {
               setState(() {
                 categoryIds = selectedIds;

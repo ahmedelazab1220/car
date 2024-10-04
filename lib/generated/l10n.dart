@@ -980,30 +980,30 @@ class S {
     );
   }
 
-  /// `Exhibit Requests`
+  /// `Exhibit Orders`
   String get exhibitRequests {
     return Intl.message(
-      'Exhibit Requests',
+      'Exhibit Orders',
       name: 'exhibitRequests',
       desc: '',
       args: [],
     );
   }
 
-  /// `Special Requests`
+  /// `Special Orders`
   String get specialRequests {
     return Intl.message(
-      'Special Requests',
+      'Special Orders',
       name: 'specialRequests',
       desc: '',
       args: [],
     );
   }
 
-  /// `General Requests`
+  /// `General Orders`
   String get generalRequests {
     return Intl.message(
-      'General Requests',
+      'General Orders',
       name: 'generalRequests',
       desc: '',
       args: [],
@@ -1020,10 +1020,10 @@ class S {
     );
   }
 
-  /// `Make a Request`
+  /// `Make an Order`
   String get makeARequest {
     return Intl.message(
-      'Make a Request',
+      'Make an Order',
       name: 'makeARequest',
       desc: '',
       args: [],
@@ -1050,10 +1050,10 @@ class S {
     );
   }
 
-  /// `You have not made any request yet!`
+  /// `You have not made any order yet!`
   String get noRequestes {
     return Intl.message(
-      'You have not made any request yet!',
+      'You have not made any order yet!',
       name: 'noRequestes',
       desc: '',
       args: [],
@@ -1435,6 +1435,36 @@ class S {
     return Intl.message(
       'Congratulations! Your order has been successfully received.',
       name: 'successfullyReceived',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Congratulations! Your request has been successfully submitted.`
+  String get successfullyMakeOrder {
+    return Intl.message(
+      'Congratulations! Your request has been successfully submitted.',
+      name: 'successfullyMakeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Congratulations! Your offer has been successfully submitted.`
+  String get successfullySendOffer {
+    return Intl.message(
+      'Congratulations! Your offer has been successfully submitted.',
+      name: 'successfullySendOffer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You will receive a notification when the service provider quotes you a quote.`
+  String get successfullyMakeOrderMsg {
+    return Intl.message(
+      'You will receive a notification when the service provider quotes you a quote.',
+      name: 'successfullyMakeOrderMsg',
       desc: '',
       args: [],
     );
@@ -2595,6 +2625,86 @@ class S {
     return Intl.message(
       'Ago',
       name: 'ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There are no appointments available.`
+  String get noTimesAvailable {
+    return Intl.message(
+      'There are no appointments available.',
+      name: 'noTimesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to home view`
+  String get goToHome {
+    return Intl.message(
+      'Go to home view',
+      name: 'goToHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome, dear customer!`
+  String get welcomeDearCustomer {
+    return Intl.message(
+      'Welcome, dear customer!',
+      name: 'welcomeDearCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate`
+  String get rate {
+    return Intl.message(
+      'Rate',
+      name: 'rate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Working Times`
+  String get workingTimes {
+    return Intl.message(
+      'Working Times',
+      name: 'workingTimes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add your working times`
+  String get addWorkingTimes {
+    return Intl.message(
+      'Add your working times',
+      name: 'addWorkingTimes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Closed`
+  String get closed {
+    return Intl.message(
+      'Closed',
+      name: 'closed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have no notifications yet!`
+  String get noNotification {
+    return Intl.message(
+      'You have no notifications yet!',
+      name: 'noNotification',
       desc: '',
       args: [],
     );

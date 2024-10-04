@@ -1,10 +1,14 @@
+import 'package:car_help/config/helper/helper.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/row_widget.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class OrderSummaryCard extends StatelessWidget {
+  final OrderEntity data;
   const OrderSummaryCard({
     super.key,
+    required this.data,
   });
 
   @override
@@ -19,33 +23,32 @@ class OrderSummaryCard extends StatelessWidget {
         children: [
           RowWidget(
             name: S.of(context).orderNumber,
-            description: '45672',
+            description: data.id.toString(),
           ),
           RowWidget(
             name: S.of(context).orderDate,
-            description: '8 مايو 2024, 3:24 م',
+            description:
+                formatTimestamp(data.createdAt ?? DateTime.now(), context),
           ),
           RowWidget(
             name: S.of(context).carModel,
-            description: '2024',
+            description: data.userCar?.manufactureYear ?? '',
           ),
           RowWidget(
             name: S.of(context).carType,
-            description: 'مرسيدس بنز 2019',
+            description: data.userCar?.carModel?.title ?? '',
           ),
           RowWidget(
             name: S.of(context).carBrand,
-            description: 'ماي باخ',
+            description: data.userCar?.carFactory?.title ?? '',
           ),
           RowWidget(
             name: S.of(context).serviceType,
-            description: 'الصيانة المتنقلة',
+            description: data.category?.name ?? '',
           ),
           RowWidget(
-            name: S.of(context).orderDetails,
-            description:
-                'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. ',
-          ),
+              name: S.of(context).orderDetails,
+              description: data.description ?? ''),
         ],
       ),
     );

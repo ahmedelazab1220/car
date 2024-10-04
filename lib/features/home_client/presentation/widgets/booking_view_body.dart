@@ -1,17 +1,26 @@
 import 'package:car_help/core/utils/app_colors.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
+import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
+import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/presentation/widgets/booking_price_card.dart';
+import 'package:car_help/features/home_client/presentation/widgets/provider_times_controller.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_details_exhibits_card.dart';
+import 'package:car_help/features/orders/presentation/manager/add%20order%20cubit/add_order_cubit.dart';
+import 'package:car_help/features/orders/presentation/manager/provider%20times%20cubit/provider_times_cubit.dart';
+import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:time_slot/controller/day_part_controller.dart';
-import 'package:time_slot/model/time_slot_Interval.dart';
-import 'package:time_slot/time_slot_from_interval.dart';
-import 'package:time_slot/time_slot_from_list.dart';
 
 class BookingViewBody extends StatefulWidget {
-  const BookingViewBody({super.key});
+  final ProviderEntity data;
+  final ExhibitsEntity dataExhibits;
+  const BookingViewBody(
+      {super.key, required this.data, required this.dataExhibits});
 
   @override
   State<BookingViewBody> createState() => _BookingViewBodyState();
@@ -23,6 +32,7 @@ class _BookingViewBodyState extends State<BookingViewBody> {
   DateTime selectTime = DateTime.now();
 
   DayPartController dayPartController = DayPartController();
+  String? orderFromTime;
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +42,12 @@ class _BookingViewBodyState extends State<BookingViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ServiceDetailsExhibitsCard(
+            ServiceDetailsExhibitsCard(
               viewPrice: false,
+              data: widget.dataExhibits,
             ),
             const BookingPriceCard(),
+            const SizedBox(height: 20),
             Text(S.of(context).chooseDayAndTime,
                 style: AppStyles.textStyle16_700),
             EasyInfiniteDateTimeLine(
@@ -46,6 +58,10 @@ class _BookingViewBodyState extends State<BookingViewBody> {
                 setState(() {
                   _focusDate = selectedDate;
                 });
+                BlocProvider.of<ProviderTimesCubit>(context).getProviderTimes(
+                    providerId: widget.data.id ?? 0,
+                    orderDate:
+                        DateFormat('yyyy-MM-dd', 'en').format(_focusDate));
               },
               activeColor: AppColors.primary.withOpacity(0.5),
               dayProps: EasyDayProps(
@@ -53,83 +69,37 @@ class _BookingViewBodyState extends State<BookingViewBody> {
                 todayHighlightColor: AppColors.grey.withOpacity(0.2),
               ),
             ),
-            const Divider(),
-            const Text(
-                "times slot from interval (10:00 AM to 10:00 PM) every hour"),
-            const Divider(),
-            const Text("-------------- EN --------------"),
-            TimesSlotGridViewFromInterval(
-              locale: "en",
-              initTime: selectTime,
-              crossAxisCount: 4,
-              timeSlotInterval: const TimeSlotInterval(
-                start: TimeOfDay(hour: 10, minute: 00),
-                end: TimeOfDay(hour: 22, minute: 0),
-                interval: Duration(hours: 1, minutes: 0),
-              ),
-              onChange: (value) {
-                setState(() {
-                  selectTime = value;
-                });
-              },
+            const SizedBox(
+              height: 30,
             ),
-            const Text("-------------- AR --------------"),
-            TimesSlotGridViewFromInterval(
-              locale: "ar",
-              initTime: selectTime,
-              crossAxisCount: 4,
-              timeSlotInterval: const TimeSlotInterval(
-                start: TimeOfDay(hour: 10, minute: 00),
-                end: TimeOfDay(hour: 22, minute: 0),
-                interval: Duration(hours: 1, minutes: 0),
-              ),
-              onChange: (value) {
-                setState(() {
-                  selectTime = value;
-                });
-              },
+            ProviderTimesController(
+                onTap: (time) {
+                  orderFromTime = time;
+                },
+                providerId: widget.data.id ?? 0,
+                orderDate: DateFormat('yyyy-MM-dd', 'en').format(
+                  _focusDate,
+                )),
+            const SizedBox(
+              height: 40,
             ),
-            const Divider(),
-            const Text("times slot from list"),
-            const Divider(),
-            const Text("-------------- EN --------------"),
-            TimesSlotGridViewFromList(
-              locale: "en",
-              initTime: selectTime,
-              crossAxisCount: 4,
-              listDates: [
-                DateTime(2023, 1, 1, 10, 30),
-                DateTime(2023, 1, 1, 11, 30),
-                DateTime(2023, 1, 1, 12, 30),
-                DateTime(2023, 1, 1, 13, 30),
-                DateTime(2023, 1, 1, 14, 30),
-                DateTime(2023, 1, 1, 15, 30)
-              ],
-              onChange: (value) {
-                setState(() {
-                  selectTime = value;
-                });
-              },
-            ),
-            const Text("-------------- AR --------------"),
-            TimesSlotGridViewFromList(
-              initTime: selectTime,
-              crossAxisCount: 4,
-              unSelectedColor: AppColors.hint.withOpacity(0.2),
-              listDates: [
-                DateTime(2023, 1, 1, 10, 30),
-                DateTime(2023, 1, 1, 11, 30),
-                DateTime(2023, 1, 1, 12, 30),
-                DateTime(2023, 1, 1, 13, 30),
-                DateTime(2023, 1, 1, 14, 30),
-                DateTime(2023, 1, 1, 15, 30)
-              ],
-              onChange: (value) {
-                setState(() {
-                  selectTime = value;
-                });
-              },
-            )
+            CustomButton(
+                margin: const EdgeInsets.all(0),
+                title: S.of(context).bookNaw,
+                onPressed: () {
+                  DateFormat dateFormat = DateFormat("HH:mm");
+                  DateTime time = dateFormat.parse(orderFromTime ?? '');
+                  DateTime orderToTime = time.add(const Duration(hours: 1));
+                  String formattedOrderToTime = dateFormat.format(orderToTime);
+                  BlocProvider.of<AddOrderCubit>(context).addOrder(
+                      orderType: AppStrings.exhibited,
+                      providerId: widget.data.id,
+                      orderDate:
+                          DateFormat('yyyy-MM-dd', 'en').format(_focusDate),
+                      orderFromTime: orderFromTime,
+                      orderToTime: formattedOrderToTime,
+                      paymentMethod: 'cash');
+                })
           ],
         ),
       ),

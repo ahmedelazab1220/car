@@ -1,8 +1,10 @@
 import 'package:car_help/core/utils/app_colors.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_details_exhibits_card.dart';
 import 'package:car_help/features/home_provider/presentation/widgets/client_info_card.dart';
 import 'package:car_help/features/my_services/presentation/my_services_helper.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/rating.dart';
 import 'package:car_help/features/orders/presentation/widgets/row_widget.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
@@ -10,9 +12,9 @@ import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class MyServiceDetailsViewBody extends StatelessWidget {
-  final int requestStatusIndex;
-
-  const MyServiceDetailsViewBody({super.key, required this.requestStatusIndex});
+  final String? orderStatus;
+  final OrderEntity data;
+  const MyServiceDetailsViewBody({super.key, required this.orderStatus, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +74,7 @@ class MyServiceDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            if (requestStatusIndex != 1)
+            if (orderStatus != AppStrings.inProgress)
               Text(
                 S.of(context).exhibitRequired,
                 style: AppStyles.textStyle14_800Black.copyWith(
@@ -82,13 +84,13 @@ class MyServiceDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            if (requestStatusIndex != 1)
-              const ServiceDetailsExhibitsCard(
-                viewPrice: false,
+            if (orderStatus != AppStrings.inProgress)
+              // const ServiceDetailsExhibitsCard(
+              //   viewPrice: false,
+              // ),
+              const SizedBox(
+                height: 16,
               ),
-            const SizedBox(
-              height: 16,
-            ),
             Text(
               S.of(context).clientInformation,
               style: AppStyles.textStyle14_800Black.copyWith(
@@ -102,7 +104,7 @@ class MyServiceDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            if (requestStatusIndex == 2)
+            if (orderStatus == AppStrings.completed)
               Text(
                 S.of(context).yourEvaluation,
                 style: AppStyles.textStyle14_800Black.copyWith(
@@ -112,7 +114,7 @@ class MyServiceDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            if (requestStatusIndex == 2)
+            if (orderStatus == AppStrings.completed)
               Container(
                 padding: const EdgeInsets.all(4),
                 width: double.maxFinite,
@@ -124,7 +126,7 @@ class MyServiceDetailsViewBody extends StatelessWidget {
                   initialRating: 3.5,
                 ),
               ),
-            if (requestStatusIndex == 3)
+            if (orderStatus == AppStrings.canceled)
               Text(
                 S.of(context).reasonForCancellation,
                 style: AppStyles.textStyle14_800Black.copyWith(
@@ -134,7 +136,7 @@ class MyServiceDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            if (requestStatusIndex == 3)
+            if (orderStatus == AppStrings.canceled)
               Container(
                   padding: const EdgeInsets.all(12),
                   width: double.maxFinite,
@@ -147,7 +149,7 @@ class MyServiceDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 14,
             ),
-            if (requestStatusIndex == 1)
+            if (orderStatus == AppStrings.inProgress)
               CustomButton(
                 title: S.of(context).priceQuote,
                 onPressed: () =>

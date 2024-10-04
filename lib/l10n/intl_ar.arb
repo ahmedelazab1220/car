@@ -138,6 +138,9 @@
     "attachPhotos":"ارفاق صور",
     "received": "تم الاستلام",
     "successfullyReceived":"تهانينا! تم استلام طلبك بنجاح",
+    "successfullyMakeOrder":"تهانينا! تم ارسال طلبك بنجاح",
+    "successfullySendOffer":"تهانينا! تم ارسال عرضك بنجاح",
+    "successfullyMakeOrderMsg":"سوف تتلقي اشعارا عند قيام مقدم الخدمة بعرض سعر لك",
     "rateToHelp": "يرجي التقييم لمساعدتتنا في تقديم أفضل خدمة ممكنة",
     "serviceProviderInformation": "معلومات مقدم الخدمة",
     "cacelYourOrder": "هل أنت متأكد من الغاء طلبك؟",
@@ -253,7 +256,16 @@
     "now": "الان",
     "hour": "ساعة",
     "minute": "دقيقة",
-    "ago": "منذ"
+    "ago": "منذ",
+    "noTimesAvailable": "ليس هناك مواعيد متاحة",
+    "goToHome": "الذهاب الي الصفحة الرئيسية",
+    "welcomeDearCustomer" : "أهلا بك عميلنا العزيز",
+    "rate": "التقييم",
+    "workingTimes": "اوقات العمل",
+    "addWorkingTimes": "اضافه أوقات العمل لديك",
+    "closed": "مغلق",
+    "noNotification": "لا يوجد اي اشعارات لديك في الوقت الحالي"
+
 
     
 

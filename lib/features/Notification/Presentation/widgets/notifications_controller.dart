@@ -5,18 +5,19 @@ import 'package:car_help/features/widgets/failures_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NotificationsBloc extends StatefulWidget {
+class NotificationsController extends StatefulWidget {
   final void Function(int?)? isReadedCount;
-  const NotificationsBloc({
+  const NotificationsController({
     super.key,
     this.isReadedCount,
   });
 
   @override
-  State<NotificationsBloc> createState() => _NotificationsBlocState();
+  State<NotificationsController> createState() =>
+      _NotificationsControllerState();
 }
 
-class _NotificationsBlocState extends State<NotificationsBloc> {
+class _NotificationsControllerState extends State<NotificationsController> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(

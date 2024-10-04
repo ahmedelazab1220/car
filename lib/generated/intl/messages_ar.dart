@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addAddressSuccess":
             MessageLookupByLibrary.simpleMessage("تم أضافة عنوان جديد بنجاح"),
         "addExhibit": MessageLookupByLibrary.simpleMessage("اضافة معروض"),
+        "addWorkingTimes":
+            MessageLookupByLibrary.simpleMessage("اضافه أوقات العمل لديك"),
         "additionalAddressDetails":
             MessageLookupByLibrary.simpleMessage("تفاصيل العنوان الإضافية"),
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
@@ -101,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clientInformation":
             MessageLookupByLibrary.simpleMessage("معلومات العميل"),
         "clientName": MessageLookupByLibrary.simpleMessage("اسم العميل"),
+        "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
         "comments": MessageLookupByLibrary.simpleMessage("ملاحظات"),
         "commercialRegister":
             MessageLookupByLibrary.simpleMessage("السجل التجاري"),
@@ -204,6 +207,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalRequests": MessageLookupByLibrary.simpleMessage("طلبات عامة"),
         "goToCheckout": MessageLookupByLibrary.simpleMessage(
             "الذهاب للدفع لاستكمال الخدمة"),
+        "goToHome":
+            MessageLookupByLibrary.simpleMessage("الذهاب الي الصفحة الرئيسية"),
         "guest": MessageLookupByLibrary.simpleMessage("تصفح كضيف"),
         "home": MessageLookupByLibrary.simpleMessage(" الرئيسية"),
         "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
@@ -252,10 +257,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "لم تضف معروضات بعد, أضفها الان!"),
         "noFavorites":
             MessageLookupByLibrary.simpleMessage("لم تضف مفضلات بعد."),
+        "noNotification": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد اي اشعارات لديك في الوقت الحالي"),
         "noRequestes": MessageLookupByLibrary.simpleMessage(
             "لم تقوم بعمل اي طلب حتي الان!"),
         "noServiceProviders": MessageLookupByLibrary.simpleMessage(
             "لا يوجد مقدمين خدمة في محيطك"),
+        "noTimesAvailable":
+            MessageLookupByLibrary.simpleMessage("ليس هناك مواعيد متاحة"),
         "notReceiveCoding":
             MessageLookupByLibrary.simpleMessage("لم يتم ارسال كود لك؟"),
         "notSubscribedWithUs":
@@ -318,6 +327,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pushNotificationsDescription": MessageLookupByLibrary.simpleMessage(
             "للحصول على التحديثات اليومية وغيرها."),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "rate": MessageLookupByLibrary.simpleMessage("التقييم"),
         "rateToHelp": MessageLookupByLibrary.simpleMessage(
             "يرجي التقييم لمساعدتتنا في تقديم أفضل خدمة ممكنة"),
         "reasonForCancellation":
@@ -364,8 +374,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "من فضلك شارك معنا موقعك لنتمكن من أظهار أقرب الخدمات لديك"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "specialRequests": MessageLookupByLibrary.simpleMessage("طلبات خاصة"),
+        "successfullyMakeOrder": MessageLookupByLibrary.simpleMessage(
+            "تهانينا! تم ارسال طلبك بنجاح"),
+        "successfullyMakeOrderMsg": MessageLookupByLibrary.simpleMessage(
+            "سوف تتلقي اشعارا عند قيام مقدم الخدمة بعرض سعر لك"),
         "successfullyReceived": MessageLookupByLibrary.simpleMessage(
             "تهانينا! تم استلام طلبك بنجاح"),
+        "successfullySendOffer": MessageLookupByLibrary.simpleMessage(
+            "تهانينا! تم ارسال عرضك بنجاح"),
         "sunday": MessageLookupByLibrary.simpleMessage("الاحد"),
         "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
         "termsAndConditions":
@@ -382,7 +398,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("زيارة للفحص"),
         "wednesday": MessageLookupByLibrary.simpleMessage("الاربعاء"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك"),
+        "welcomeDearCustomer":
+            MessageLookupByLibrary.simpleMessage("أهلا بك عميلنا العزيز"),
         "workHours": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
+        "workingTimes": MessageLookupByLibrary.simpleMessage("اوقات العمل"),
         "workmanship": MessageLookupByLibrary.simpleMessage("جودة العمل"),
         "worningCancelledOrder": MessageLookupByLibrary.simpleMessage(
             "عند الغاء طلبك لم نتمكن من استرداد المبلغ المدفوع او استرجاع طلبك مرة اخري"),

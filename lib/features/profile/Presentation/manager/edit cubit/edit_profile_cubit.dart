@@ -9,35 +9,29 @@ class EditProfileCubit extends Cubit<EditProfileState> {
   EditProfileCubit(
     this.profileRepoImpl,
   ) : super(EditProfileInitial());
-  Future<void> editProfileData({
-    String? name,
-    String? email,
-    File? profileImage,
-    File? cv,
-    List<File>? works,
-    List<int>? categoryId,
-    String? phone,
-    String? accountType,
-    String? experienceYears,
-    String? url,
-    String? about,
-    List<int>? programs,
-  }) async {
+  Future<void> editProfileData(
+      {String? name,
+      String? phone,
+      String? address,
+      String? commercialRegister,
+      int? cityId,
+      int? districtId,
+      double? lat,
+      double? lng,
+      List<int>? categoryIds,
+      List<File>? works}) async {
     emit(EditProfileLoading());
     var result = await profileRepoImpl.editProfileData(
-      name: name,
-      email: email,
-      profileImage: profileImage,
-      cv: cv,
-      works: works,
-      categoryId: categoryId,
-      phone: phone,
-      accountType: accountType,
-      experienceYears: experienceYears,
-      url: url,
-      about: about,
-      programs: programs,
-    );
+        name: name,
+        phone: phone,
+        address: address,
+        commercialRegister: commercialRegister,
+        cityId: cityId,
+        districtId: districtId,
+        lat: lat,
+        lng: lng,
+        categoryIds: categoryIds,
+        works: works);
     result.fold(
       (failure) => {
         emit(

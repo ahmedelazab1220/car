@@ -1,11 +1,13 @@
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_image.dart';
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CustomerOrdersCard extends StatelessWidget {
+  final OrderEntity data;
   final void Function()? onTap;
-  const CustomerOrdersCard({super.key, this.onTap});
+  const CustomerOrdersCard({super.key, this.onTap, required this.data});
 
   @override
   Widget build(BuildContext context) {

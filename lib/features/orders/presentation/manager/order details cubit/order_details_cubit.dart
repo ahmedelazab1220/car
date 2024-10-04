@@ -11,9 +11,9 @@ class OrderDetailsCubit extends Cubit<OrderDetailsState> {
     this.ordersRepo,
   ) : super(OrderDetailsInitial());
 
-  Future<void> cancelOrder({int? orderId}) async {
+  Future<void> cancelOrder({int? orderId, String? reason}) async {
     emit(OrderDetailsLoading());
-    var result = await ordersRepo.cancelOrder(orderId: orderId);
+    var result = await ordersRepo.cancelOrder(orderId: orderId, reason: reason);
     result.fold((failure) {
       emit(OrderDetailsFailure(errorMessage: failure.errMessage));
     }, (success) {

@@ -9,7 +9,10 @@ import 'package:go_router/go_router.dart';
 
 class CategoriesCard extends StatelessWidget {
   final ServiceEntity data;
-  const CategoriesCard({super.key, required this.data});
+  final String? lat, lng, address;
+
+  const CategoriesCard(
+      {super.key, required this.data, this.lat, this.lng, this.address});
 
   @override
   Widget build(BuildContext context) {

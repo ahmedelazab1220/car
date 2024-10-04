@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addAddressSuccess": MessageLookupByLibrary.simpleMessage(
             "Add a new address successfully"),
         "addExhibit": MessageLookupByLibrary.simpleMessage("Add Exhibit"),
+        "addWorkingTimes":
+            MessageLookupByLibrary.simpleMessage("Add your working times"),
         "additionalAddressDetails":
             MessageLookupByLibrary.simpleMessage("Additional address Details"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
@@ -109,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clientInformation":
             MessageLookupByLibrary.simpleMessage("Client Information"),
         "clientName": MessageLookupByLibrary.simpleMessage("Client Name"),
+        "closed": MessageLookupByLibrary.simpleMessage("Closed"),
         "comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "commercialRegister":
             MessageLookupByLibrary.simpleMessage("Commercial Register"),
@@ -184,7 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "exhibitName": MessageLookupByLibrary.simpleMessage("Exhibit Name"),
         "exhibitPrice": MessageLookupByLibrary.simpleMessage("Exhibit Price"),
         "exhibitRequests":
-            MessageLookupByLibrary.simpleMessage("Exhibit Requests"),
+            MessageLookupByLibrary.simpleMessage("Exhibit Orders"),
         "exhibitRequired":
             MessageLookupByLibrary.simpleMessage("Exhibit Required"),
         "exhibitValue": MessageLookupByLibrary.simpleMessage("Exhibit value"),
@@ -212,9 +215,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "generalMaintenance":
             MessageLookupByLibrary.simpleMessage("General Maintenance"),
         "generalRequests":
-            MessageLookupByLibrary.simpleMessage("General Requests"),
+            MessageLookupByLibrary.simpleMessage("General Orders"),
         "goToCheckout": MessageLookupByLibrary.simpleMessage(
             "Go to checkout to complete the service"),
+        "goToHome": MessageLookupByLibrary.simpleMessage("Go to home view"),
         "guest": MessageLookupByLibrary.simpleMessage("Guest"),
         "home": MessageLookupByLibrary.simpleMessage(" Home"),
         "hour": MessageLookupByLibrary.simpleMessage("Hour"),
@@ -228,7 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
         "logoutMsg": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout your account?"),
-        "makeARequest": MessageLookupByLibrary.simpleMessage("Make a Request"),
+        "makeARequest": MessageLookupByLibrary.simpleMessage("Make an Order"),
         "minute": MessageLookupByLibrary.simpleMessage("Minute"),
         "mobileMaintenance":
             MessageLookupByLibrary.simpleMessage("Mobile Maintenance"),
@@ -261,10 +265,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "You haven\'t added any items yet, add them now!"),
         "noFavorites": MessageLookupByLibrary.simpleMessage(
             "You haven\'t added any favorites yet."),
+        "noNotification": MessageLookupByLibrary.simpleMessage(
+            "You have no notifications yet!"),
         "noRequestes": MessageLookupByLibrary.simpleMessage(
-            "You have not made any request yet!"),
+            "You have not made any order yet!"),
         "noServiceProviders": MessageLookupByLibrary.simpleMessage(
             "There are no service providers in your area."),
+        "noTimesAvailable": MessageLookupByLibrary.simpleMessage(
+            "There are no appointments available."),
         "notReceiveCoding":
             MessageLookupByLibrary.simpleMessage("Did you not receive a code?"),
         "notSubscribedWithUs":
@@ -327,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pushNotificationsDescription":
             MessageLookupByLibrary.simpleMessage("For daily updates and more"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "rate": MessageLookupByLibrary.simpleMessage("Rate"),
         "rateToHelp": MessageLookupByLibrary.simpleMessage(
             "Please rate to help us provide the best possible service."),
         "reasonForCancellation":
@@ -376,9 +385,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please share your location with us so we can show you the nearest services"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "specialRequests":
-            MessageLookupByLibrary.simpleMessage("Special Requests"),
+            MessageLookupByLibrary.simpleMessage("Special Orders"),
+        "successfullyMakeOrder": MessageLookupByLibrary.simpleMessage(
+            "Congratulations! Your request has been successfully submitted."),
+        "successfullyMakeOrderMsg": MessageLookupByLibrary.simpleMessage(
+            "You will receive a notification when the service provider quotes you a quote."),
         "successfullyReceived": MessageLookupByLibrary.simpleMessage(
             "Congratulations! Your order has been successfully received."),
+        "successfullySendOffer": MessageLookupByLibrary.simpleMessage(
+            "Congratulations! Your offer has been successfully submitted."),
         "sunday": MessageLookupByLibrary.simpleMessage("Sunday"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "termsAndConditions":
@@ -395,7 +410,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visit for inspection"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "welcomeDearCustomer":
+            MessageLookupByLibrary.simpleMessage("Welcome, dear customer!"),
         "workHours": MessageLookupByLibrary.simpleMessage("Work hours"),
+        "workingTimes": MessageLookupByLibrary.simpleMessage("Working Times"),
         "workmanship": MessageLookupByLibrary.simpleMessage("Workmanship"),
         "worningCancelledOrder": MessageLookupByLibrary.simpleMessage(
             "When you cancel your order, we cannot refund the amount paid or return your order again."),

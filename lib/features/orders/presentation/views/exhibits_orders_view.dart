@@ -1,12 +1,11 @@
 import 'package:car_help/core/utils/app_strings.dart';
-import 'package:car_help/features/orders/presentation/widgets/orders_view_body.dart';
+import 'package:car_help/features/orders/presentation/widgets/exhibits_orders_view_controller.dart';
 import 'package:car_help/features/widgets/tabbar_2.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class OrdersView extends StatelessWidget {
-  final String orderType;
-  const OrdersView({super.key, required this.orderType});
+class ExhibitsOrdersView extends StatelessWidget {
+  const ExhibitsOrdersView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +28,7 @@ class OrdersView extends StatelessWidget {
 
     List<Widget> getViews() {
       return List<Widget>.generate(tabs.length, (index) {
-        return OrdersViewBody(
-          orderType: orderType,
+        return ExhibitsOrdersViewController(
           orderStatus: orderStatus[index],
         );
       });
@@ -39,3 +37,4 @@ class OrdersView extends StatelessWidget {
     return Tabbar2(views: getViews(), tabs: getTabs());
   }
 }
+

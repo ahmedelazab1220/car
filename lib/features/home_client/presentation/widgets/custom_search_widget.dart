@@ -1,9 +1,22 @@
 import 'package:car_help/core/utils/app_colors.dart';
+import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
+import 'package:car_help/features/home_client/presentation/manager/search%20cubit/search_cubit.dart';
+import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSearchWidget extends StatefulWidget {
-  const CustomSearchWidget({super.key});
+  final ServiceEntity data;
+  final String? lat, lng, address;
+  final void Function()? onTap;
+  const CustomSearchWidget(
+      {super.key,
+      required this.data,
+      this.lat,
+      this.lng,
+      this.address,
+      this.onTap});
 
   @override
   State<CustomSearchWidget> createState() => _CustomSearchWidgetState();
@@ -20,6 +33,8 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<SearchCubit>(context);
+
     return Column(
       children: [
         Padding(
@@ -27,8 +42,28 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              InkWell(
+                onTap: widget.onTap,
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  color: AppColors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(children: [
+                      Text(S.of(context).rate),
+                      Transform.rotate(
+                        angle: 90 * 3.14 / 180,
+                        child: const Icon(Icons.sync_alt),
+                      ),
+                    ]),
+                  ),
+                ),
+              ),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
+                width: MediaQuery.of(context).size.width * 0.75,
                 height: 50,
                 child: Card(
                   elevation: 5,
@@ -40,44 +75,20 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget> {
                     borderRadius: BorderRadius.circular(10),
                     backgroundColor: Colors.white,
                     style: TextStyle(
-                      color: AppColors.scendary,
+                      color: AppColors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
-                    onChanged: (value) {
-                      // Call your search function here
-                      // cubit.search(value);
+                    onSubmitted: (value) {
+                      cubit.search(
+                          categoryId: widget.data.id ?? 0, query: value);
                     },
                   ),
                 ),
               ),
-              // CircleButton(
-              //   icon: Icons.tune,
-              //   onPressed: () {},
-              // )
             ],
           ),
         ),
-        // Expanded(
-        //   child: Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 6),
-        //     child: ListView.builder(
-        //       itemCount: 5,
-        //       itemBuilder: (context, index) {
-        //         return Column(
-        //           children: [
-        //             ServiceProvidersCard(
-        //               onTap: () => AppConstant.navigateTo(
-        //                 context,
-        //                 const ServiceDetailsView(),
-        //               ),
-        //             ),
-        //           ],
-        //         );
-        //       },
-        //     ),
-        //   ),
-        // )
       ],
     );
   }

@@ -38,6 +38,7 @@ class _AddressRegisterWidgetState extends State<AddressRegisterWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: CitiesController(

@@ -10,8 +10,11 @@ import 'package:car_help/features/home_client/domain/entities/provider_entity.da
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 
 abstract class HomeClientRemoteDataSource {
-  Future<HomeClientEntity> getHome();
+  Future<HomeClientEntity> getHome({String? lat, String? lng});
   Future<List<ServiceEntity>> getServices();
+
+  Future<ProviderEntity> getProvider({int? providerId});
+  Future<List<ProviderEntity>> search({int? categoryId, String? query});
 }
 
 class HomeRemoteDataSourceImpl extends HomeClientRemoteDataSource {
@@ -22,9 +25,10 @@ class HomeRemoteDataSourceImpl extends HomeClientRemoteDataSource {
   );
 
   @override
-  Future<HomeClientEntity> getHome() async {
+  Future<HomeClientEntity> getHome({String? lat, String? lng}) async {
+    String? location = lat != null && lng != null ? '?lat=$lat&lng=$lng' : '';
     var response = await apiService.get(
-      endPoint: EndPoints.getClientHome,
+      endPoint: '${EndPoints.getClientHome}$location',
     );
     HomeClientEntity data = HomeClientModel.fromJson(response['data']);
 
@@ -46,6 +50,30 @@ class HomeRemoteDataSourceImpl extends HomeClientRemoteDataSource {
       List<Map<String, dynamic>>.from(response['data']),
       AppStrings.services,
     );
+    return list;
+  }
+
+  @override
+  Future<ProviderEntity> getProvider({int? providerId}) async {
+    var response = await apiService.get(
+      endPoint: '${EndPoints.getProvider}$providerId',
+    );
+    ProviderEntity data = ProviderModel.fromJson(response['data']);
+    return data;
+  }
+
+  @override
+  Future<List<ProviderEntity>> search({int? categoryId, String? query}) async {
+    var response = await apiService.get(
+      endPoint:
+          '${EndPoints.getProviders}category_id=$categoryId&search=$query',
+    );
+    List<ProviderEntity> list = [];
+    response['data'].forEach((element) {
+      ProviderEntity model = ProviderModel.fromJson(element);
+      list.add(model);
+    });
+
     return list;
   }
 }

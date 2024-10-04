@@ -3,10 +3,10 @@ import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/presentation/widgets/custom_content.dart';
 import 'package:car_help/features/home_client/presentation/widgets/custom_rate.dart';
-import 'package:car_help/features/home_client/presentation/widgets/daily_working_hours_widget.dart';
 import 'package:car_help/features/home_client/presentation/widgets/location_widget.dart';
 import 'package:car_help/features/home_client/presentation/widgets/provider_details_appbar.dart';
 import 'package:car_help/features/home_client/presentation/widgets/provider_details_images_widget.dart';
+import 'package:car_help/features/home_client/presentation/widgets/provider_working_days_controller.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -104,9 +104,7 @@ class ProviderDetailsViewBody extends StatelessWidget {
                   style: AppStyles.textStyle14_800Black
                       .copyWith(color: AppColors.primary),
                 ),
-                DailyWorkingHoursWidget(
-                  providerId: data.id ?? 0,
-                ),
+                const ProviderWorkingDaysController(),
                 const SizedBox(
                   height: 16,
                 )

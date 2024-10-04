@@ -80,6 +80,7 @@ class _OrderDetailsViewBodyState extends State<OrderDetailsViewBody> {
                 onPressed: () => OrdersHelper.showBottomSheetDialog(
                   context: context,
                   orderStatuse: orderStatuse,
+                  data: data,
                 ),
               ),
             )

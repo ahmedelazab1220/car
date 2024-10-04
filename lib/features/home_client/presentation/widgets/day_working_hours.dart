@@ -6,11 +6,13 @@ class DayWorkingHours extends StatelessWidget {
   final String dayName;
   final String startHour;
   final String endHour;
+  final bool isAvilable;
   const DayWorkingHours({
     super.key,
     required this.dayName,
     required this.startHour,
     required this.endHour,
+    required this.isAvilable,
   });
 
   @override
@@ -23,18 +25,28 @@ class DayWorkingHours extends StatelessWidget {
           style: AppStyles.textStyle14_800Black,
         ),
         const Spacer(),
-        Text(
-          startHour,
-          style: AppStyles.textStyle14_800Black,
-        ),
-        Icon(
-          Icons.keyboard_double_arrow_left,
-          color: AppColors.primary,
-        ),
-        Text(
-          endHour,
-          style: AppStyles.textStyle14_800Black,
-        ),
+        if (isAvilable)
+          Text(
+            startHour,
+            style: AppStyles.textStyle14_800Black,
+          ),
+        if (isAvilable)
+          Icon(
+            Icons.keyboard_double_arrow_left,
+            color: AppColors.primary,
+          ),
+        if (isAvilable)
+          Text(
+            endHour,
+            style: AppStyles.textStyle14_800Black,
+          ),
+        if (!isAvilable)
+          Text(
+            endHour,
+            style: AppStyles.textStyle14_800Black.copyWith(
+              color: Colors.red,
+            ),
+          ),
       ],
     );
   }

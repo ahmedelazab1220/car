@@ -59,6 +59,14 @@ class SettingsViewBody extends StatelessWidget {
                 subTitle: S.of(context).createYourAddresses,
                 icon: AppAssets.location,
               ),
+            if (userType == AppStrings.provider)
+              SettingsButtom(
+                onTap: () =>
+                    GoRouter.of(context).push(AppRouter.kWorkingDaysView),
+                title: S.of(context).workingTimes,
+                subTitle: S.of(context).addWorkingTimes,
+                icon: AppAssets.workingTimesIcon,
+              ),
             SettingsButtom(
               onTap: () => SplashHelper.showBottomSheetDialog(context: context),
               title: S.of(context).changeLanguage,

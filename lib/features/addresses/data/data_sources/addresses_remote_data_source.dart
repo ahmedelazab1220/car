@@ -1,5 +1,7 @@
+import 'package:car_help/config/helper/cache_helper.dart';
 import 'package:car_help/core/api/api_service.dart';
 import 'package:car_help/core/api/end_points.dart';
+import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/addresses/data/models/address_model.dart';
 import 'package:car_help/features/addresses/domain/entities/address_entity.dart';
 
@@ -29,6 +31,10 @@ class AddressesRemoteDataSourceImpl implements AddressesRemoteDataSource {
       AddressEntity model = AddressModel.fromJson(element);
       list.add(model);
     });
+    CacheHelper().cacheListData(
+      List<Map<String, dynamic>>.from(data['data']),
+      AppStrings.addresses,
+    );
     return list;
   }
 

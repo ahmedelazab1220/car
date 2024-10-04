@@ -3,7 +3,6 @@ import 'package:car_help/config/helper/helper.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/home_client/presentation/widgets/service_details_exhibits_card.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_card.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/rating.dart';
@@ -85,9 +84,9 @@ class ExhibitOrderDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            const ServiceDetailsExhibitsCard(
-              viewPrice: false,
-            ),
+            // const ServiceDetailsExhibitsCard(
+            //   viewPrice: false,
+            // ),
             const SizedBox(
               height: 16,
             ),

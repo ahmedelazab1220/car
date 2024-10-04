@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 
 import 'package:car_help/core/api/failures.dart';
@@ -16,6 +18,36 @@ class HomeProvierRepoImpl extends HomeProviderRepo {
     try {
       HomeProviderEntity data =
           await homeProviderRemoteDataSource.getHomeProvider();
+      return right(data);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> sendOffer({
+    String? offerType,
+    int? orderId,
+    double? price,
+    String? description,
+    double? lowPrice,
+    double? highPrice,
+    File? image,
+  }) async {
+    try {
+      final data = await homeProviderRemoteDataSource.sendOffer(
+        offerType: offerType,
+        orderId: orderId,
+        price: price,
+        description: description,
+        lowPrice: lowPrice,
+        highPrice: highPrice,
+        image: image,
+      );
       return right(data);
     } catch (e) {
       if (e is DioException) {

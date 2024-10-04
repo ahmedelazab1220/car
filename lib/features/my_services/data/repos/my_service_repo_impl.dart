@@ -1,3 +1,4 @@
+import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:car_help/core/api/failures.dart';
@@ -12,7 +13,7 @@ class MyServicesRepoImpl extends MyServicesRepo {
     required this.myServicesRemoteDataSource,
   });
   @override
-  Future<Either<Failure, List<MyServicesEntity>>> getMyService() async {
+  Future<Either<Failure, List<OrderEntity>>> getMyService() async {
     try {
       final response = await myServicesRemoteDataSource.getMyService();
       return right(response);

@@ -1,4 +1,3 @@
-import 'package:car_help/features/home_client/data/repos/home_client_repo_impl.dart';
 import 'package:car_help/features/home_client/domain/entities/banner_entity.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
@@ -14,9 +13,12 @@ class HomeClientCubit extends Cubit<HomeClientState> {
     this.homeRepo,
   ) : super(HomeClientInitial());
 
-  Future<void> getHome() async {
+  Future<void> getHome({String? lat, String? lng}) async {
     emit(HomeClientLoading());
-    var result = await homeRepo.getHome();
+    var result = await homeRepo.getHome(
+      lat: lat,
+      lng: lng,
+    );
     result.fold(
       (failure) => {
         emit(

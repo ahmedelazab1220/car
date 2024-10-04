@@ -4,6 +4,7 @@ import 'package:car_help/features/addresses/presentation/widgets/addresses_view_
 import 'package:car_help/features/addresses/presentation/widgets/addresses_view_controller.dart';
 import 'package:car_help/features/my_cars/presentation/my_cars_helper.dart';
 import 'package:car_help/features/settings/presentation/settings_helper.dart';
+import 'package:car_help/features/widgets/custom_app_bar%20copy.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,7 @@ class AddressesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).myAddresses),
-      ),
+      appBar: CustomAppBar(title: S.of(context).myAddresses),
       body: const SafeArea(child: AddressesViewController()),
     );
   }

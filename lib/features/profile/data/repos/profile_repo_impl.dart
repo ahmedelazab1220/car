@@ -33,6 +33,7 @@ class ProfileRepoImpl extends ProfileRepo {
         return right(data);
       }
     } catch (e) {
+      print(e);
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       } else {
@@ -42,36 +43,30 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<Failure, String>> editProfileData({
-    String? name,
-    String? email,
-    File? profileImage,
-    File? cv,
-    List<File>? works,
-    List<int>? categoryId,
-    String? phone,
-    String? accountType,
-    String? experienceYears,
-    String? url,
-    String? about,
-    List<int>? programs,
-  }) async {
+  Future<Either<Failure, String>> editProfileData(
+      {String? name,
+      String? phone,
+      String? address,
+      String? commercialRegister,
+      int? cityId,
+      int? districtId,
+      double? lat,
+      double? lng,
+      List<int>? categoryIds,
+      List<File>? works}) async {
     try {
       String data;
       data = await profileRemoteDataSource.editProfileData(
-        name: name,
-        email: email,
-        profileImage: profileImage,
-        cv: cv,
-        works: works,
-        categoryId: categoryId,
-        phone: phone,
-        accountType: accountType,
-        experienceYears: experienceYears,
-        url: url,
-        about: about,
-        programs: programs,
-      );
+          name: name,
+          phone: phone,
+          address: address,
+          commercialRegister: commercialRegister,
+          cityId: cityId,
+          districtId: districtId,
+          lat: lat,
+          lng: lng,
+          categoryIds: categoryIds,
+          works: works);
       return right(data);
     } catch (e) {
       if (e is DioException) {

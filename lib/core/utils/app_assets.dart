@@ -44,6 +44,9 @@ class AppAssets {
 
   static const String frame = "$iconPath/frame.svg";
   static const String location = "$iconPath/location.svg";
+  static const String locationIcon = "$iconPath/location_icon2.svg";
+  static const String workingTimesIcon = "$iconPath/working_times_icon.svg";
+
   static const String locationBottomSheet =
       "$iconPath/location_bottom_sheet.svg";
   static const String addressIcon = "$iconPath/address_icon.svg";

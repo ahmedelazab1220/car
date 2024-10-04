@@ -1,7 +1,8 @@
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/Notification/Presentation/manger/notifications%20cubit/notifications_cubit.dart';
-import 'package:car_help/features/Notification/Presentation/widgets/notifications_bloc.dart';
+import 'package:car_help/features/Notification/Presentation/widgets/notifications_controller.dart';
 import 'package:car_help/features/layout/presentation/widgets/login_both_widget.dart';
+import 'package:car_help/features/widgets/custom_app_bar%20copy.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,19 +27,16 @@ class _NotificationViewState extends State<NotificationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).notifications),
-      ),
+      appBar: CustomAppBar(title: S.of(context).notifications),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // CustomBackAppbar(title: S.of(context).notification),
               if (widget.userType != AppStrings.both)
                 const Expanded(
-                  child: NotificationsBloc(),
+                  child: NotificationsController(),
                 )
               else
                 const Expanded(

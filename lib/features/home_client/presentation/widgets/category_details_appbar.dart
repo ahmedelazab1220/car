@@ -52,13 +52,20 @@ class CategoryDetailsAppBar extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        SvgPicture.asset(AppAssets.location),
+                        SvgPicture.asset(
+                          AppAssets.locationIcon,
+                          color: Colors.white,
+                          height: 20,
+                          width: 20,
+                        ),
                         const SizedBox(
                           width: 6,
                         ),
                         Text(
                           location,
                           style: AppStyles.textStyle18_600White,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                         const Spacer(),
                         const SizedBox(
