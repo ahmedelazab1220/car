@@ -1,8 +1,5 @@
 import 'package:car_help/core/utils/app_colors.dart';
-import 'package:car_help/features/home_client/presentation/widgets/day_working_hours.dart';
-import 'package:car_help/features/home_client/presentation/widgets/provider_times_controller.dart';
 import 'package:car_help/features/orders/domain/entities/provider_times_entity.dart';
-import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -36,7 +33,7 @@ class _DailyWorkingHoursWidgetState extends State<DailyWorkingHoursWidget> {
         DateTime parsedTime = DateFormat("HH:mm").parse(providerTime.from!);
         String time12 = DateFormat("hh:mm a").format(parsedTime);
         return InkWell(
-          onTap: providerTime.isHoliday == 0
+          onTap: providerTime.isAvilable ?? true
               ? () {
                   setState(() {
                     isSelectIndex = index;
@@ -48,7 +45,7 @@ class _DailyWorkingHoursWidgetState extends State<DailyWorkingHoursWidget> {
               : null,
           child: Container(
             decoration: BoxDecoration(
-              color: providerTime.isHoliday == 0
+              color: providerTime.isAvilable ?? true
                   ? (isSelectIndex == index
                       ? AppColors.primary.withOpacity(0.5)
                       : Colors.transparent)
