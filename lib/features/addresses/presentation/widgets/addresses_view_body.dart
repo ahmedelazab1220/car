@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_styles.dart';
@@ -78,10 +80,11 @@ class _AddressesViewBodyState extends State<AddressesViewBody> {
               lat = locationEntity.latitude;
               lng = locationEntity.longitude;
               SettingsHelper.showBottomSheetDialog(
-                  context: context,
-                  widget: AddAddressBottomSheetBody(
-                    location: locationEntity,
-                  ));
+                context: context,
+                widget: AddAddressBottomSheetBody(
+                  location: locationEntity,
+                ),
+              );
             }
           });
         },

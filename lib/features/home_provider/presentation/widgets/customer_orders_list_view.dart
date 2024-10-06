@@ -1,5 +1,4 @@
 import 'package:car_help/config/function/app_router.dart';
-import 'package:car_help/features/home_provider/presentation/views/customer_orders_details_view.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
 import 'package:car_help/features/orders/presentation/widgets/orders_card.dart';
 import 'package:flutter/material.dart';

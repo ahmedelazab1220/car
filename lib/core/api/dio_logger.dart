@@ -50,7 +50,7 @@ class DioLogInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     if (kDebugMode) {
       Logger(printer: PrettyPrinter(methodCount: 8)).e(
         "***|| ${err.requestOptions.uri.path} ||***"

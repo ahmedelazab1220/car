@@ -1,10 +1,8 @@
-import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/settings/domain/entites/contact_information_entity.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class TechnicalSupportViewBody extends StatelessWidget {
   final ContactInformationEntity? data;

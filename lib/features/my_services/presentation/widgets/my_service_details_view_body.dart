@@ -1,7 +1,6 @@
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/home_client/presentation/widgets/service_details_exhibits_card.dart';
 import 'package:car_help/features/home_provider/presentation/widgets/client_info_card.dart';
 import 'package:car_help/features/my_services/presentation/my_services_helper.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
@@ -14,7 +13,8 @@ import 'package:flutter/material.dart';
 class MyServiceDetailsViewBody extends StatelessWidget {
   final String? orderStatus;
   final OrderEntity data;
-  const MyServiceDetailsViewBody({super.key, required this.orderStatus, required this.data});
+  const MyServiceDetailsViewBody(
+      {super.key, required this.orderStatus, required this.data});
 
   @override
   Widget build(BuildContext context) {

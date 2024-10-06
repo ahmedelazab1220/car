@@ -1,6 +1,3 @@
-import 'package:car_help/config/function/service_locator.dart';
-import 'package:car_help/features/orders/domain/entities/provider_times_entity.dart';
-import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:car_help/features/widgets/failures_widget.dart';
 import 'package:car_help/features/working%20days/presentation/manager/working%20days%20cubit/working_days_cubit.dart';
 import 'package:car_help/features/working%20days/presentation/widgets/working_days_view_body.dart';
@@ -21,32 +18,30 @@ class _WorkingDaysControllerState extends State<WorkingDaysController> {
 
   @override
   Widget build(BuildContext context) {
-    return 
-     RefreshIndicator(
-        onRefresh: () async {
-          BlocProvider.of<WorkingDaysCubit>(context).getWorkingTimes();
-        },
-        child: BlocBuilder<WorkingDaysCubit, WorkingDaysState>(
-            builder: (context, state) {
-          if (state is WorkingDaysLoading) {
-            return const LinearProgressIndicator();
-          } else if (state is WorkingDaysSuccess) {
-            if (state.data.isEmpty) {
-              return const Expanded(
-                child: Center(
-                  child: Text('No data'),
-                ),
-              );
-            } else {
-              return WorkingDaysViewBody(data: state.data);
-            }
-          } else if (state is WorkingDaysFailure) {
-            return FailuresWidget(errorMessage: state.errorMessage);
+    return RefreshIndicator(
+      onRefresh: () async {
+        BlocProvider.of<WorkingDaysCubit>(context).getWorkingTimes();
+      },
+      child: BlocBuilder<WorkingDaysCubit, WorkingDaysState>(
+          builder: (context, state) {
+        if (state is WorkingDaysLoading) {
+          return const LinearProgressIndicator();
+        } else if (state is WorkingDaysSuccess) {
+          if (state.data.isEmpty) {
+            return const Expanded(
+              child: Center(
+                child: Text('No data'),
+              ),
+            );
+          } else {
+            return WorkingDaysViewBody(data: state.data);
           }
+        } else if (state is WorkingDaysFailure) {
+          return FailuresWidget(errorMessage: state.errorMessage);
+        }
 
-          return const CircularProgressIndicator();
-        }),
-    
+        return const CircularProgressIndicator();
+      }),
     );
   }
 }

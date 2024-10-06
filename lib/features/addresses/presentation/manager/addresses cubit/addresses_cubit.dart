@@ -1,8 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:car_help/features/addresses/domain/entities/address_entity.dart';
 import 'package:car_help/features/addresses/domain/repos/addresses_repo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'addresses_state.dart';
 

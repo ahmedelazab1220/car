@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:car_help/config/environment/env_helper.dart';
 import 'package:dio/dio.dart';
 

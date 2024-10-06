@@ -1,11 +1,9 @@
 import 'package:car_help/config/helper/helper.dart';
-import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/Notification/domain/entites/notification_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class NotificationCard extends StatelessWidget {
   final List<NotificationGroup> notifications;

@@ -1,7 +1,6 @@
 import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class OnBoardingWidget extends StatelessWidget {
   final String title;

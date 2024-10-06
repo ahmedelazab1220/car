@@ -1,9 +1,7 @@
-import 'package:car_help/features/addresses/domain/entities/address_entity.dart';
 import 'package:car_help/features/addresses/presentation/manager/addresses%20cubit/addresses_cubit.dart';
 import 'package:car_help/features/addresses/presentation/widgets/addresses_empty_view.dart';
 import 'package:car_help/features/addresses/presentation/widgets/addresses_view_body.dart';
 import 'package:car_help/features/widgets/failures_widget.dart';
-import 'package:car_help/features/widgets/snackbar_error.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

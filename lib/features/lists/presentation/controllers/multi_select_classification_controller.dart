@@ -1,8 +1,6 @@
 import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
-import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
-import 'package:car_help/features/lists/domain/repos/lists_repo.dart';
 import 'package:car_help/features/lists/presentation/manager/center%20classification%20cubit/center_classification_cubit.dart';
 import 'package:car_help/features/lists/presentation/widgets/multi_select.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';

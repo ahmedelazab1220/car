@@ -1,9 +1,7 @@
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/home_provider/presentation/manager/home%20provider%20cubit/home_provider_cubit.dart';
 import 'package:car_help/features/home_provider/presentation/widgets/customer_orders_controller.dart';
-import 'package:car_help/features/home_provider/presentation/widgets/customer_orders_list_view.dart';
 import 'package:car_help/features/home_provider/presentation/widgets/home_provider_controller.dart';
-import 'package:car_help/features/widgets/custom_home_appbar.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

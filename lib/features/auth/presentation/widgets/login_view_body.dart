@@ -31,84 +31,103 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final viewInsets = MediaQuery.of(context).viewInsets;
+    final bottomPadding = viewInsets.bottom;
+
     return Padding(
-      padding: const EdgeInsets.all(12),
-      child: Form(
-        key: formKey,
-        onChanged: _updateIsValid,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: SizeConfig.bodyHeight * .02),
-            Padding(
-              padding: screenPadding(padding: SizeConfig.screenWidth * .04),
-              child: AppText(
-                text: S.of(context).login,
-                align: TextAlign.center,
-                fontWeight: FontWeight.bold,
-                maxLines: 3,
-                textSize: 22,
-                color: AppColors.black,
+      padding: EdgeInsets.only(
+        left: 12,
+        right: 12,
+        bottom: bottomPadding,
+      ),
+      child: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            child: Form(
+              key: formKey,
+              onChanged: _updateIsValid,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: SizeConfig.bodyHeight * .02),
+                  Padding(
+                    padding:
+                        screenPadding(padding: SizeConfig.screenWidth * .04),
+                    child: AppText(
+                      text: S.of(context).login,
+                      align: TextAlign.center,
+                      fontWeight: FontWeight.bold,
+                      maxLines: 3,
+                      textSize: 22,
+                      color: AppColors.black,
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.bodyHeight * .04),
+                  Padding(
+                    padding:
+                        screenPadding(padding: SizeConfig.screenWidth * .04),
+                    child: AppText(
+                      text: S.of(context).loginToYourAccount,
+                      align: TextAlign.center,
+                      fontWeight: FontWeight.w400,
+                      maxLines: 3,
+                      color: Colors.grey,
+                      textSize: 14,
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.bodyHeight * .04),
+                  CustomTextFormField(
+                    controller: phoneNumber,
+                    prefixText: "+964  ",
+                    labelText: S.of(context).phoneNumber,
+                    hintText: S.of(context).enterYourPhoneNumber,
+                    type: TextInputType.phone,
+                    validate: (value) => value!.isEmpty
+                        ? S.of(context).phoneNumberValidation
+                        : null,
+                  ),
+                  SizedBox(height: SizeConfig.bodyHeight * .02),
+                  CustomTextFormField(
+                    controller: password,
+                    labelText: S.of(context).password,
+                    type: TextInputType.visiblePassword,
+                    hintText: S.of(context).enterYourPassword,
+                    validate: (value) => value!.isEmpty
+                        ? S.of(context).passwordValidation
+                        : null,
+                    isPassword: true,
+                  ),
+                  SizedBox(height: SizeConfig.bodyHeight * .04),
+                  GestureDetector(
+                    onTap: () => GoRouter.of(context).push(
+                      AppRouter.kForgetPasswordView,
+                    ),
+                    child: AppText(
+                      text: S.of(context).forgetPassword,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.bold,
+                      textSize: 14,
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.bodyHeight * .08),
+                  CustomButton(
+                    color: isValid ? null : AppColors.primary.withOpacity(0.6),
+                    margin: const EdgeInsets.all(0),
+                    title: S.of(context).login,
+                    onPressed: () => formKey.currentState!.validate()
+                        ? BlocProvider.of<LoginCubit>(context).login(
+                            phone: phoneNumber.text, password: password.text)
+                        : null,
+                  ),
+                  const Spacer(),
+                  const NotSubscriberWidget(),
+                  SizedBox(height: SizeConfig.bodyHeight * .023),
+                ],
               ),
             ),
-            SizedBox(height: SizeConfig.bodyHeight * .04),
-            Padding(
-              padding: screenPadding(padding: SizeConfig.screenWidth * .04),
-              child: AppText(
-                text: S.of(context).loginToYourAccount,
-                align: TextAlign.center,
-                fontWeight: FontWeight.w400,
-                maxLines: 3,
-                color: Colors.grey,
-                textSize: 14,
-              ),
-            ),
-            SizedBox(height: SizeConfig.bodyHeight * .04),
-            CustomTextFormField(
-              controller: phoneNumber,
-              prefixText: "+964  ",
-              labelText: S.of(context).phoneNumber,
-              hintText: S.of(context).enterYourPhoneNumber,
-              type: TextInputType.phone,
-              validate: (value) =>
-                  value!.isEmpty ? S.of(context).phoneNumberValidation : null,
-            ),
-            SizedBox(height: SizeConfig.bodyHeight * .02),
-            CustomTextFormField(
-              controller: password,
-              labelText: S.of(context).password,
-              type: TextInputType.visiblePassword,
-              hintText: S.of(context).enterYourPassword,
-              validate: (value) =>
-                  value!.isEmpty ? S.of(context).passwordValidation : null,
-              isPassword: true,
-            ),
-            SizedBox(height: SizeConfig.bodyHeight * .04),
-            GestureDetector(
-              onTap: () => GoRouter.of(context).push(
-                AppRouter.kForgetPasswordView,
-              ),
-              child: AppText(
-                text: S.of(context).forgetPassword,
-                color: AppColors.black,
-                fontWeight: FontWeight.bold,
-                textSize: 14,
-              ),
-            ),
-            SizedBox(height: SizeConfig.bodyHeight * .08),
-            CustomButton(
-                color: isValid ? null : AppColors.primary.withOpacity(0.6),
-                margin: const EdgeInsets.all(0),
-                title: S.of(context).login,
-                onPressed: () => formKey.currentState!.validate()
-                    ? BlocProvider.of<LoginCubit>(context)
-                        .login(phone: phoneNumber.text, password: password.text)
-                    : null),
-            const Spacer(),
-            const NotSubscriberWidget(),
-            SizedBox(height: SizeConfig.bodyHeight * .02),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

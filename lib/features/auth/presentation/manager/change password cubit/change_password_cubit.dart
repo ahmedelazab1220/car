@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'change_password_state.dart';
 

@@ -1,10 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/lists/presentation/controllers/cities_controller.dart';
 import 'package:car_help/features/lists/presentation/controllers/districts_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_size.dart';
 
 class AddressRegisterWidget extends StatefulWidget {

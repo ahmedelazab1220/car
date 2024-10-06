@@ -1,7 +1,6 @@
 import 'package:car_help/features/Notification/data/repos/notification_repo_impl.dart';
 import 'package:car_help/features/Notification/domain/entites/notification_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'notifications_state.dart';
 

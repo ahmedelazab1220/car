@@ -4,7 +4,6 @@ import 'package:car_help/core/api/api_service.dart';
 import 'package:car_help/core/api/end_points.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
-import 'package:dio/dio.dart';
 
 import '../models/user_model/user.dart';
 

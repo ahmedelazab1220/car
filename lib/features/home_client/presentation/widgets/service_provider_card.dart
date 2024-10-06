@@ -25,7 +25,7 @@ class ServiceProvidersCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: SizedBox(
-          height: 100,
+          height: 160,
           child: Row(children: [
             ServiceProvidersImage(imageUrl: data.profileImage ?? ''),
             const SizedBox(

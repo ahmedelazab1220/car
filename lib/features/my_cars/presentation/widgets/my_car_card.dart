@@ -4,9 +4,7 @@ import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/my_cars/doman/entities/mycars_entity.dart';
 import 'package:car_help/features/my_cars/presentation/manager/mycars%20cubit/my_cars_cubit.dart';
 import 'package:car_help/generated/l10n.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 

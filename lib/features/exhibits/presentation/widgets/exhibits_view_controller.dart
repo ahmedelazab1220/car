@@ -2,7 +2,6 @@ import 'package:car_help/features/exhibits/presentation/manager/exhibits%20cubit
 import 'package:car_help/features/exhibits/presentation/widgets/exhibits_empty_view.dart';
 import 'package:car_help/features/exhibits/presentation/widgets/exhibits_view_body.dart';
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
-import 'package:car_help/features/my_cars/presentation/manager/mycars%20cubit/my_cars_cubit.dart';
 import 'package:car_help/features/widgets/failures_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

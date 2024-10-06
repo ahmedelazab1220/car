@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:car_help/features/favorites/domain/repos/favorite_repo.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'toggle_favorite_state.dart';
 

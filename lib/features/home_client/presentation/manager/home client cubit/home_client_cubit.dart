@@ -2,7 +2,6 @@ import 'package:car_help/features/home_client/domain/entities/banner_entity.dart
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'home_client_state.dart';
 

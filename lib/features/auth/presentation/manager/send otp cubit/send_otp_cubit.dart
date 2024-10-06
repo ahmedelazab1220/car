@@ -1,6 +1,5 @@
 import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'send_otp_state.dart';
 

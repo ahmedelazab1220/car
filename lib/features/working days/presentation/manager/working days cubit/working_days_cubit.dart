@@ -1,8 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:car_help/features/orders/domain/entities/provider_times_entity.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'working_days_state.dart';
 

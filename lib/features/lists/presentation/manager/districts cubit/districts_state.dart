@@ -1,7 +1,6 @@
 part of 'districts_cubit.dart';
 
-@immutable
-sealed class DistrictsState {}
+abstract class DistrictsState {}
 
 final class DistrictsInitial extends DistrictsState {}
 

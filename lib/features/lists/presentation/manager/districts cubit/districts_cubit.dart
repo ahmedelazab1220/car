@@ -1,7 +1,6 @@
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/lists/domain/repos/lists_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 part 'districts_state.dart';
 
 class DistrictsCubit extends Cubit<DistrictsState> {

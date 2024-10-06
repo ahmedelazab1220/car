@@ -1,16 +1,11 @@
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/auth/presentation/manager/logout%20cubit/logout_cubit.dart';
-import 'package:car_help/features/profile/Presentation/manager/edit%20cubit/edit_profile_cubit.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 
 class LogoutBottomSheetBody extends StatefulWidget {
   final void Function()? onTap;

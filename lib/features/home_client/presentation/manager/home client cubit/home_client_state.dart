@@ -1,7 +1,6 @@
 part of 'home_client_cubit.dart';
 
-@immutable
-sealed class HomeClientState {}
+abstract class HomeClientState {}
 
 final class HomeClientInitial extends HomeClientState {}
 

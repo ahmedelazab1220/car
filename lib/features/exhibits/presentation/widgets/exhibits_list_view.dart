@@ -1,7 +1,5 @@
-import 'package:car_help/core/utils/app_constant.dart';
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
 import 'package:car_help/features/exhibits/presentation/widgets/exhibits_card.dart';
-import 'package:car_help/features/home_client/presentation/views/provider_details_view.dart';
 import 'package:flutter/material.dart';
 
 class ExhibitsListView extends StatelessWidget {

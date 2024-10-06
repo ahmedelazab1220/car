@@ -8,7 +8,7 @@ class StreamCache<T> {
     _streamController = StreamController<T>.broadcast(
       onListen: () {
         if (_cachedData != null) {
-          _streamController.add(_cachedData!);
+          _streamController.add(_cachedData as T);
         }
       },
     );

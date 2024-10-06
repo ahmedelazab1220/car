@@ -1,9 +1,8 @@
-import 'package:bloc/bloc.dart';
-import 'package:car_help/features/lists/presentation/manager/car%20models%20cubit/car_models_cubit.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/lists/domain/repos/lists_repo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'car_factories_state.dart';
 

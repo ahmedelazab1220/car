@@ -1,9 +1,7 @@
-import 'package:car_help/features/auth/presentation/auth_helper.dart';
 import 'package:car_help/features/auth/presentation/manager/send%20otp%20cubit/send_otp_cubit.dart';
 import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:car_help/config/helper/locale_helper/app_local.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

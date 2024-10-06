@@ -29,6 +29,7 @@ class LocationWidget extends StatelessWidget {
           Text(
             ' $city - $governorateUnit',
             overflow: TextOverflow.ellipsis,
+            maxLines: 1,
             style: AppStyles.textStyle10_800,
           ),
         ],

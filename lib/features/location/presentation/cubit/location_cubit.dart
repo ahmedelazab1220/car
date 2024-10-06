@@ -9,7 +9,6 @@ import 'package:car_help/features/location/domain/usecases/fetch_suggestion_loca
 import 'package:car_help/features/location/domain/usecases/get_address_title_by_location_use_case.dart';
 import 'package:car_help/features/location/domain/usecases/get_my_location_use_case.dart';
 import 'package:car_help/features/location/domain/usecases/get_place_location_by_id_use_case.dart';
-import 'package:car_help/features/location/domain/usecases/update_my_location_use_case.dart';
 import 'package:location/location.dart';
 
 part 'location_state.dart';

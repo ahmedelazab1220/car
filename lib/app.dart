@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/config/helper/firebase_helper.dart';
 import 'package:car_help/core/utils/app_colors.dart';
@@ -23,12 +25,13 @@ class MyApp extends StatelessWidget {
           return MaterialApp.router(
             theme: ThemeData(
               cardTheme: CardTheme(surfaceTintColor: AppColors.white),
-              appBarTheme: AppBarTheme(color: AppColors.white),
+              appBarTheme: const AppBarTheme(color: Colors.transparent),
               dialogBackgroundColor: AppColors.white,
               colorScheme: ColorScheme.fromSeed(
-                  primary: AppColors.primary,
-                  seedColor: AppColors.white,
-                  background: AppColors.white),
+                primary: AppColors.primary,
+                seedColor: AppColors.white,
+                background: AppColors.white,
+              ),
               fontFamily: AppStrings.arabicFont,
             ),
             title: AppStrings.appName,

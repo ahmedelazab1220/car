@@ -1,6 +1,4 @@
 import 'package:car_help/config/function/app_router.dart';
-import 'package:car_help/config/function/service_locator.dart';
-import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:car_help/features/auth/presentation/manager/send%20otp%20cubit/send_otp_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/forget_password_view_body.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';

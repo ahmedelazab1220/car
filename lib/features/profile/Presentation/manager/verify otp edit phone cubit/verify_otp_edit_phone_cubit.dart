@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'verify_otp_edit_phone_state.dart';
 

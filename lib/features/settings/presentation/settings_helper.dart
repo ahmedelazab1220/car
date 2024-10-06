@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';

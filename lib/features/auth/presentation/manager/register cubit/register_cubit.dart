@@ -1,7 +1,6 @@
 import 'package:car_help/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'register_state.dart';
 

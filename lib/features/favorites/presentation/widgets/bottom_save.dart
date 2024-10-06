@@ -1,6 +1,4 @@
-import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/core/utils/app_colors.dart';
-import 'package:car_help/features/favorites/domain/repos/favorite_repo.dart';
 import 'package:car_help/features/favorites/presentation/manager/favorite%20cubit/favorite_cubit.dart';
 import 'package:car_help/features/favorites/presentation/widgets/cancle_favorite_bottom_sheet_body.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
@@ -10,7 +8,6 @@ import 'package:car_help/features/widgets/snackbar_error.dart';
 import 'package:car_help/features/widgets/snackbar_success.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class BottomSave extends StatefulWidget {
   final ProviderEntity data;

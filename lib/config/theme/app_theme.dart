@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:car_help/core/utils/app_colors.dart';
-import 'package:car_help/core/utils/app_size.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 
 class ThemeManger {
@@ -56,8 +55,6 @@ class ThemeManger {
         primaryContainer: AppColors.lightGrey,
         error: AppColors.black,
         onError: Colors.white,
-        background: Colors.blue,
-        onBackground: Colors.white,
         surface: Colors.pink,
         onSurface: Colors.white,
       ),
@@ -110,8 +107,6 @@ class ThemeManger {
         primaryContainer: AppColors.lightGrey,
         error: Colors.black,
         onError: Colors.white,
-        background: Colors.blue,
-        onBackground: Colors.white,
         surface: Colors.pink,
         onSurface: Colors.white,
       ),

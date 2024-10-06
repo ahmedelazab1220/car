@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
 import 'package:car_help/features/exhibits/domain/repos/exhibits_repo.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'exhibits_state.dart';
 

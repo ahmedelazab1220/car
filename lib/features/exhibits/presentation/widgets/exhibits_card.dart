@@ -3,12 +3,10 @@ import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
 import 'package:car_help/features/exhibits/presentation/exhibits_helper.dart';
-import 'package:car_help/features/exhibits/presentation/manager/exhibits%20cubit/exhibits_cubit.dart';
 import 'package:car_help/features/home_client/presentation/widgets/price_widget.dart';
 import 'package:car_help/features/home_client/presentation/widgets/service_provider_image.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 

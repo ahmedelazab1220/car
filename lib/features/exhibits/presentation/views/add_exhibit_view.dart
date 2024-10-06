@@ -1,5 +1,4 @@
 import 'package:car_help/features/exhibits/domain/entities/exhiibits_entity.dart';
-import 'package:car_help/features/exhibits/presentation/widgets/add_exhibit_view_body.dart';
 import 'package:car_help/features/exhibits/presentation/widgets/add_exhibit_view_controller.dart';
 import 'package:car_help/features/widgets/custom_app_bar%20copy.dart';
 import 'package:car_help/generated/l10n.dart';

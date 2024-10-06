@@ -2,10 +2,8 @@ import 'dart:io';
 
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/features/home_provider/presentation/home_provider_helper.dart';
 import 'package:car_help/features/home_provider/presentation/manager/send%20offer%20cubit/send_offer_cubit.dart';
 import 'package:car_help/features/orders/domain/entities/order_entity.dart';
-import 'package:car_help/features/orders/presentation/orders_helper.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_download_pdf.dart';
 import 'package:car_help/features/widgets/custom_picker_image.dart';

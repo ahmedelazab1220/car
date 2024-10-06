@@ -1,8 +1,9 @@
+// ignore_for_file: unused_field
+
 import 'dart:async';
 
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/core/utils/app_styles.dart';
 import 'package:car_help/features/auth/presentation/manager/otp%20verification%20cubit/otp_verification_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/otp_field.dart';
 import 'package:car_help/features/auth/presentation/widgets/resend_code_widget.dart';
@@ -10,9 +11,7 @@ import 'package:car_help/features/widgets/app_text.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class OtpVerificationViewBody extends StatefulWidget {
   final List list;

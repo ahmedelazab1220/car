@@ -1,7 +1,6 @@
 part of 'send_otp_cubit.dart';
 
-@immutable
-sealed class SendOtpState {}
+abstract class SendOtpState {}
 
 final class SendOtpInitial extends SendOtpState {}
 

@@ -1,4 +1,3 @@
-import 'package:car_help/features/lists/presentation/manager/districts%20cubit/districts_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
@@ -8,7 +7,6 @@ import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/widgets/custom_button.dart';
 import 'package:car_help/features/widgets/custom_text_dropdown.dart';
 import 'package:car_help/generated/l10n.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class SingleSelectSheet extends StatefulWidget {

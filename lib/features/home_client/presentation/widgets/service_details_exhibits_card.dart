@@ -57,7 +57,7 @@ class _ServiceDetailsExhibitsCardState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(3.0),
+                      padding: const EdgeInsets.all(3.0),
                       child: Text(
                         widget.data.title ?? '',
                         maxLines: 2,

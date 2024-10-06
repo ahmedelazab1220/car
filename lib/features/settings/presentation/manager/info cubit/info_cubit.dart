@@ -1,7 +1,6 @@
 import 'package:car_help/features/settings/data/repos/settings_repo_impl.dart';
 import 'package:car_help/features/settings/domain/entites/info_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'info_state.dart';
 

@@ -1,12 +1,7 @@
-import 'package:car_help/config/function/service_locator.dart';
-import 'package:car_help/features/home_client/presentation/widgets/day_working_hours.dart';
-import 'package:car_help/features/home_client/presentation/widgets/times_loading_widget.dart';
-import 'package:car_help/features/orders/domain/repos/oreders_repo.dart';
 import 'package:car_help/features/orders/presentation/manager/provider%20times%20cubit/provider_times_cubit.dart';
 import 'package:car_help/features/widgets/failures_widget.dart';
 import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'daily_working_hours_widget.dart';

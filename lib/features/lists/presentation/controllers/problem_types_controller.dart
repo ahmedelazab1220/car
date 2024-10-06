@@ -1,7 +1,6 @@
 import 'package:car_help/config/function/service_locator.dart';
 import 'package:car_help/features/lists/domain/entities/dropdown_entity.dart';
 import 'package:car_help/features/lists/domain/repos/lists_repo.dart';
-import 'package:car_help/features/lists/presentation/manager/districts%20cubit/districts_cubit.dart';
 import 'package:car_help/features/lists/presentation/manager/problem%20types%20cubit/problem_types_cubit.dart';
 import 'package:car_help/features/lists/presentation/widgets/single_select.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';

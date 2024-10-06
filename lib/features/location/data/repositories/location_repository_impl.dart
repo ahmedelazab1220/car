@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:car_help/core/api/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -74,7 +76,7 @@ class LocationRepositoryImpl implements LocationRepository {
           query: query, sessionToken: sessionToken);
       return right(response);
     } catch (error) {
-      if (error is DioError) {
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       } else {
         return left(ServerFailure(error.toString()));
@@ -91,7 +93,7 @@ class LocationRepositoryImpl implements LocationRepository {
 
       return right(response);
     } catch (error) {
-      if (error is DioError) {
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       } else {
         return left(ServerFailure(error.toString()));
@@ -107,7 +109,7 @@ class LocationRepositoryImpl implements LocationRepository {
           latLng: latLng);
       return right(response);
     } catch (error) {
-      if (error is DioError) {
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       } else {
         return left(ServerFailure(error.toString()));

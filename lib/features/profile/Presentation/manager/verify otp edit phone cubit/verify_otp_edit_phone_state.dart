@@ -1,7 +1,6 @@
 part of 'verify_otp_edit_phone_cubit.dart';
 
-@immutable
-sealed class VerifyOtpEditPhoneState {}
+abstract class VerifyOtpEditPhoneState {}
 
 final class VerifyOtpEditPhoneInitial extends VerifyOtpEditPhoneState {}
 

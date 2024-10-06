@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/lists/presentation/controllers/addresses_controller.dart';
 import 'package:car_help/features/lists/presentation/controllers/my_cars_controller.dart';

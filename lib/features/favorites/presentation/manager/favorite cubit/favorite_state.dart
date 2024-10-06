@@ -20,5 +20,5 @@ final class FavoriteSuccess extends FavoriteState {
 final class FavoriteFailure extends FavoriteState {
   final String errorMessage;
 
-  FavoriteFailure({required this.errorMessage});
+  const FavoriteFailure({required this.errorMessage});
 }

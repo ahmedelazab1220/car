@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/features/location/domain/entities/place_suggestion_entity.dart';
 import 'package:car_help/features/location/presentation/cubit/location_cubit.dart';

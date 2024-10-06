@@ -1,7 +1,6 @@
 part of 'center_classification_cubit.dart';
 
-@immutable
-sealed class CenterClassificationState {}
+abstract class CenterClassificationState {}
 
 final class CenterClassificationInitial extends CenterClassificationState {}
 

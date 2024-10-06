@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:car_help/features/home_client/domain/entities/service_entity.dart';
 import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'services_state.dart';
 

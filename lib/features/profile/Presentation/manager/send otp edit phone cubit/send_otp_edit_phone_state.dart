@@ -1,7 +1,6 @@
 part of 'send_otp_edit_phone_cubit.dart';
 
-@immutable
-sealed class SendOtpEditPhoneState {}
+abstract class SendOtpEditPhoneState {}
 
 final class SendOtpEditPhoneInitial extends SendOtpEditPhoneState {}
 

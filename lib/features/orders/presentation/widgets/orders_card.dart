@@ -34,7 +34,7 @@ class OrdersCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(3.0),
+                      padding: const EdgeInsets.all(3.0),
                       child: Text(
                         data.provider?.name ?? '',
                         maxLines: 2,

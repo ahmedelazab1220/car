@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:car_help/core/utils/app_size.dart';
 
 import 'package:flutter/material.dart';
@@ -14,14 +13,15 @@ class HomeHelper {
       context: context,
       builder: (context) => Material(
         child: Container(
-            height: SizeConfig.bodyHeight * .5,
-            width: double.infinity,
-            margin: screenPadding(),
-            padding:
-                EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * .04),
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
-            child: widget),
+          height: SizeConfig.bodyHeight * .5,
+          width: double.infinity,
+          margin: screenPadding(),
+          padding:
+              EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth * .04),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+          child: widget,
+        ),
       ),
     );
   }

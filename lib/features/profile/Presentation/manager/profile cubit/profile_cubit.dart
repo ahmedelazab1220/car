@@ -1,7 +1,6 @@
 import 'package:car_help/features/auth/domain/entities/user_entities.dart';
 import 'package:car_help/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'profile_state.dart';
 

@@ -1,10 +1,8 @@
 import 'package:car_help/config/function/app_router.dart';
 import 'package:car_help/core/utils/app_strings.dart';
 import 'package:car_help/features/auth/presentation/manager/login_cubit/login_cubit.dart';
-import 'package:car_help/features/auth/presentation/manager/send%20otp%20cubit/send_otp_cubit.dart';
 import 'package:car_help/features/auth/presentation/widgets/login_view_body.dart';
 import 'package:car_help/features/widgets/snackbar_error.dart';
-import 'package:car_help/features/widgets/snackbar_success.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

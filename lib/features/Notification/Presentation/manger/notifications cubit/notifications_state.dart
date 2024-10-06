@@ -1,7 +1,6 @@
 part of 'notifications_cubit.dart';
 
-@immutable
-sealed class NotificationsState {}
+abstract class NotificationsState {}
 
 final class NotificationsInitial extends NotificationsState {}
 

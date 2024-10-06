@@ -1,9 +1,6 @@
 import 'package:car_help/core/utils/app_assets.dart';
 import 'package:car_help/core/utils/app_colors.dart';
 import 'package:car_help/core/utils/app_size.dart';
-import 'package:car_help/core/utils/app_styles.dart';
-import 'package:car_help/features/lists/presentation/controllers/cities_controller.dart';
-import 'package:car_help/features/lists/presentation/controllers/districts_controller.dart';
 import 'package:car_help/features/lists/presentation/controllers/problem_types_controller.dart';
 import 'package:car_help/features/settings/presentation/manager/contact%20cubit/contact_us_cubit.dart';
 import 'package:car_help/features/widgets/custom_button.dart';

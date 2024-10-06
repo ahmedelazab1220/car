@@ -1,7 +1,6 @@
 part of 'contact_information_cubit.dart';
 
-@immutable
-sealed class ContactInformationState {}
+abstract class ContactInformationState {}
 
 final class ContactInformationInitial extends ContactInformationState {}
 

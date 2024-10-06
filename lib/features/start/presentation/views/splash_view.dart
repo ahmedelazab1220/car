@@ -44,6 +44,11 @@ class _SplashViewState extends State<SplashView>
     String? userType = await CacheHelper().getUserType();
     bool isFirstTime = await CacheHelper().isFirstTime() ?? true;
     await Future.delayed(const Duration(seconds: 4), () {
+      // Ensure the context is still valid (widget is still mounted)
+      if (!mounted) {
+        return; // Prevents navigation if the widget is no longer active
+      }
+
       if (token == null) {
         if (isFirstTime) {
           GoRouter.of(context).pushReplacement(AppRouter.kOnBoardingView);

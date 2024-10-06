@@ -1,7 +1,6 @@
 part of 'info_cubit.dart';
 
-@immutable
-sealed class InfoState {}
+abstract class InfoState {}
 
 final class InfoInitial extends InfoState {}
 

@@ -1,8 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:car_help/features/home_client/domain/entities/provider_entity.dart';
 import 'package:car_help/features/home_client/domain/repos/home_client_repo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'search_state.dart';
 

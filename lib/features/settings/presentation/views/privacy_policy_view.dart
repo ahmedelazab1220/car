@@ -1,6 +1,5 @@
 import 'package:car_help/features/settings/presentation/manager/info%20cubit/info_cubit.dart';
 import 'package:car_help/features/settings/presentation/widgets/info_view_bloc.dart';
-import 'package:car_help/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,8 +19,8 @@ class _PrivacyPolicyViewState extends State<PrivacyPolicyView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const SafeArea(
+    return const Scaffold(
+      body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Column(
